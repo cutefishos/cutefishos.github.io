@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How Cutefish packages are built, and how to check them - Cutefish</title><meta name="description" content="Cutefish packages and ISOs are built in the open by a public workflow, signed only by that workflow, and every file can be traced back to the build that made it."><link rel="canonical" href="https://cutefish.org/blog/how-cutefish-is-built/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Cutefish" href="/rss.xml"><meta property="og:site_name" content="Cutefish"><meta property="og:type" content="article"><meta property="og:title" content="How Cutefish packages are built, and how to check them - Cutefish"><meta property="og:description" content="Cutefish packages and ISOs are built in the open by a public workflow, signed only by that workflow, and every file can be traced back to the build that made it."><meta property="og:url" content="https://cutefish.org/blog/how-cutefish-is-built/"><meta property="og:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Cutefish desktop with the Dock"><meta property="article:published_time" content="2026-10-20T00:00:00.000Z"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@cutefishos"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Cutefish packages are built, and how to check them","description":"Cutefish packages and ISOs are built in the open by a public workflow, signed only by that workflow, and every file can be traced back to the build that made it.","datePublished":"2026-10-20T00:00:00.000Z","url":"https://cutefish.org/blog/how-cutefish-is-built/","author":{"@type":"Organization","name":"Cutefish","url":"https://cutefish.org/"},"publisher":{"@type":"Organization","name":"Cutefish","url":"https://cutefish.org/"}}</script><link rel="stylesheet" href="/_astro/Base.D3N5I3E1.css"><style>article[data-astro-cid-krra7mlq]{--text-width:680px}.post-header[data-astro-cid-krra7mlq]{flex-direction:column;gap:8px;padding-top:64px;padding-bottom:64px;display:flex}.post-header[data-astro-cid-krra7mlq]>[data-astro-cid-krra7mlq]{max-width:var(--text-width)}.back[data-astro-cid-krra7mlq]{color:var(--secondary-text);align-self:flex-start;align-items:center;gap:4px;margin-bottom:8px;font-size:15px;display:inline-flex}.back[data-astro-cid-krra7mlq]:hover{color:var(--text);text-decoration:none}.post-header[data-astro-cid-krra7mlq] h1[data-astro-cid-krra7mlq]{letter-spacing:-.01em;margin:0;font-family:ui-serif,Georgia,serif;font-size:clamp(28px,5vw,40px);font-weight:400;line-height:1.2}time[data-astro-cid-krra7mlq]{color:var(--secondary-text);font-size:15px}@media (width<=599px){.post-header[data-astro-cid-krra7mlq]{padding-top:32px;padding-bottom:40px}}.post[data-astro-cid-krra7mlq]{align-items:flex-start;gap:64px;display:flex}.post[data-astro-cid-krra7mlq] .prose[data-astro-cid-krra7mlq]{flex:1 1 0;min-width:0;max-width:none}.contents[data-astro-cid-krra7mlq]{display:none}@media (width>=1000px){.contents[data-astro-cid-krra7mlq]{border-left:1px solid var(--separator);flex:0 0 240px;max-height:calc(100vh - 112px);padding-left:16px;display:block;position:sticky;top:88px;overflow-y:auto}}.contents[data-astro-cid-krra7mlq] h2[data-astro-cid-krra7mlq]{color:var(--text);margin:0 0 8px;font-size:.875rem}.contents[data-astro-cid-krra7mlq] ul[data-astro-cid-krra7mlq]{margin:0;padding:0;list-style:none}.contents[data-astro-cid-krra7mlq] a[data-astro-cid-krra7mlq]{color:var(--secondary-text);padding:5px 0;font-size:.875rem;line-height:1.4;display:block}.contents[data-astro-cid-krra7mlq] a[data-astro-cid-krra7mlq]:hover{color:var(--text);text-decoration:none}.contents[data-astro-cid-krra7mlq] .nested[data-astro-cid-krra7mlq] a[data-astro-cid-krra7mlq]{padding-left:16px}.contents[data-astro-cid-krra7mlq] a[data-astro-cid-krra7mlq][aria-current]{color:var(--highlight);font-weight:600}
+</style></head><body><header class="site-header" data-astro-cid-nen7h5rs><div class="container bar" data-astro-cid-nen7h5rs><a class="brand" href="/" data-astro-cid-nen7h5rs><img src="/favicon.svg" alt="" width="28" height="28" data-astro-cid-nen7h5rs><span data-astro-cid-nen7h5rs>Cutefish</span></a><nav data-astro-cid-nen7h5rs><a href="https://github.com/sponsors/cutefishos" target="_blank" rel="noopener" data-astro-cid-nen7h5rs>Sponsor</a><a href="/blog" aria-current="page" data-astro-cid-nen7h5rs>Blog</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav></div></header><script type="module">var e=document.querySelector(`.site-header`);function t(){e?.classList.toggle(`scrolled`,window.scrollY>0)}window.addEventListener(`scroll`,t,{passive:!0}),t();</script><main><article class="container" data-astro-cid-krra7mlq><header class="post-header" data-astro-cid-krra7mlq><a class="back" href="/blog" data-astro-cid-krra7mlq><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" />
+</svg>All posts</a><h1 data-astro-cid-krra7mlq>How Cutefish packages are built, and how to check them</h1><time datetime="2026-10-20T00:00:00.000Z" data-astro-cid-krra7mlq>October 20, 2026</time></header><div class="post" data-astro-cid-krra7mlq><div class="prose" data-astro-cid-krra7mlq><p>Cutefish Desktop now has an APT repository for Debian 13 at
+<a href="https://download.cutefish.org">download.cutefish.org</a>, and nightly ISOs for testing. Installing a package means
+trusting whoever built it, so we built the pipeline to need as little trust as
+possible, and to let you check every step yourself instead of taking our word
+for it.</p>
+<h2 id="in-short">In short</h2>
+<ul>
+<li><strong>No one builds by hand.</strong> Every package and ISO is built by a public
+GitHub Actions workflow, from public source, on a fresh machine that is
+thrown away afterwards. No developer’s computer is involved.</li>
+<li><strong>No one signs by hand.</strong> The key that signs the repository is a secret
+only that workflow can use. Apart from an offline backup, it is never on
+anyone’s computer.</li>
+<li><strong>Every file can be traced.</strong> Each one has a public, signed record of the
+exact repository, commit and build that produced it, kept in a transparency
+log that nobody, including us, can rewrite.</li>
+<li><strong>Tampering is caught.</strong> APT refuses a changed or swapped file, because it
+no longer matches the signed index, and the file fails the provenance
+check too.</li>
+</ul>
+<h2 id="built-in-the-open">Built in the open</h2>
+<p>No package in the repository is built on a developer’s computer or on a
+server we run. Every package is built by
+<a href="https://github.com/cutefishos/packaging/actions">GitHub Actions</a> on
+GitHub-hosted machines, in a fresh Debian 13 container that is thrown away
+after each build.</p>
+<p>Everything that goes into a build is public:</p>
+<ul>
+<li>The source code comes straight from the project repositories under
+<a href="https://github.com/cutefishos">github.com/cutefishos</a>.</li>
+<li>The packaging and the build steps are in the
+<a href="https://github.com/cutefishos/packaging">packaging</a> repository. The
+workflow that builds and publishes the packages is
+<a href="https://github.com/cutefishos/packaging/blob/main/.github/workflows/build.yml"><code>.github/workflows/build.yml</code></a>,
+and anyone can read what it does.</li>
+<li>Build tools and libraries come from the official Debian archive.</li>
+<li>Skia, the graphics library the toolkit uses, is fetched at a fixed revision
+from Google’s own repository, skia.googlesource.com.</li>
+</ul>
+<p>The log of every build is public, too. You can open any run on the
+<a href="https://github.com/cutefishos/packaging/actions">Actions page</a> and read
+every command it ran and everything it printed.</p>
+<h2 id="every-package-names-its-commit">Every package names its commit</h2>
+<p>Nightly packages carry the commit they were built from in their version. For
+example, <code>0.1.0+git20261019175928.ef1a42b-1</code> was built from commit
+<code>ef1a42b</code>, made on October 19, 2026 at 17:59:28 UTC. To see the exact code
+inside a package, look up that commit in the project’s repository.</p>
+<p>The repository serves the source packages next to the binary ones, so you
+can also download the source of any package with <code>apt source</code> and compare it
+with GitHub.</p>
+<p>Each build also lists exactly what it used and what it made, at the end of
+its log and on the run’s summary page:</p>
+<ul>
+<li><code>commits</code>: the commit of the packaging repository and of every project
+that went into the build.</li>
+<li><code>SHA256SUMS</code>: the SHA-256 checksum of every file the build produced.</li>
+</ul>
+<p>Both are published with the packages, at
+<code>https://download.cutefish.org/debian/dists/trixie-nightly/commits</code> and
+<code>https://download.cutefish.org/debian/dists/trixie-nightly/SHA256SUMS</code>.</p>
+<h2 id="tracing-a-file-back-to-its-build">Tracing a file back to its build</h2>
+<p>For every file it produces, the build also creates a signed
+<a href="https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds">build provenance attestation</a>.
+It records which repository, which workflow, which commit and which run
+produced the file with a given checksum. GitHub signs it through
+<a href="https://www.sigstore.dev/">Sigstore</a>, not with any key of ours, and it is
+recorded in Sigstore’s public transparency log, so it cannot be quietly
+created or changed afterwards.</p>
+<p>To check a package you downloaded, use the <a href="https://cli.github.com/">GitHub CLI</a>,
+version 2.49 or later, signed in with <code>gh auth login</code>. The <code>gh</code> package in
+Debian 13 is older; get a current one from cli.github.com.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>apt download cutefish-core</span></span>
+<span class="line"><span>gh attestation verify cutefish-core_*.deb --repo cutefishos/packaging</span></span></code></pre>
+<p>If the file was not built by the Cutefish workflow, or was changed in any way
+after it was built, the check fails. If it passes, the output links to the
+exact workflow run, whose full log you can read.</p>
+<h2 id="the-iso">The ISO</h2>
+<p>The live ISO is built the same way, by
+<a href="https://github.com/cutefishos/packaging/blob/main/.github/workflows/iso.yml"><code>.github/workflows/iso.yml</code></a>
+in the same repository, from the
+<a href="https://github.com/cutefishos/packaging/tree/main/iso">live-build configuration</a>
+next to it. It installs the Cutefish packages from download.cutefish.org and
+everything else from the official Debian archive. Nightly ISOs are published
+on download.cutefish.org, each with three files:</p>
+<ul>
+<li><code>.iso</code>: the image.</li>
+<li><code>.iso.sha256</code>: its SHA-256 checksum.</li>
+<li><code>.packages</code>: every package in the image, with its version.</li>
+</ul>
+<p><code>LATEST</code> names the newest one. To download it, check its checksum and verify
+its attestation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>name=$(curl -fsSL https://download.cutefish.org/iso/nightly/LATEST)</span></span>
+<span class="line"><span>curl -fLO "https://download.cutefish.org/iso/nightly/$name.iso"</span></span>
+<span class="line"><span>curl -fLO "https://download.cutefish.org/iso/nightly/$name.iso.sha256"</span></span>
+<span class="line"><span>curl -fLO "https://download.cutefish.org/iso/nightly/$name.packages"</span></span>
+<span class="line"><span>sha256sum -c "$name.iso.sha256"</span></span>
+<span class="line"><span>gh attestation verify "$name.iso" --repo cutefishos/packaging</span></span></code></pre>
+<p>Every Cutefish package in <code>.packages</code> carries its commit in its version, as
+above, so you can trace the whole image back to its source.</p>
+<h2 id="signed-by-the-build-and-only-the-build">Signed by the build, and only the build</h2>
+<p>APT checks the signature of the repository before it installs anything from
+it. The Cutefish repository is signed with this key:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Cutefish Archive &lt;reionwong@gmail.com&gt;</span></span>
+<span class="line"><span>ed25519, fingerprint 5F52 7F0C B976 4BA0 AF99  BAE5 F4A4 30BC 9E10 91A7</span></span></code></pre>
+<p>The private key is stored as an encrypted secret of the packaging
+repository. Only the build workflow can read it, and nothing else ever signs
+with it. Apart from that secret, the only copy is an offline backup. Releases
+are not signed by hand on someone’s laptop.</p>
+<p>Uploading to download.cutefish.org works the same way: the storage behind it only
+accepts uploads with a key that, again, only the build workflow holds.</p>
+<h2 id="installing">Installing</h2>
+<p>Download the key, check that its fingerprint matches the one above, and add
+the repository:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>sudo curl -fsSLo /etc/apt/keyrings/cutefish.asc https://download.cutefish.org/debian/cutefish.asc</span></span>
+<span class="line"><span>gpg --show-keys /etc/apt/keyrings/cutefish.asc</span></span>
+<span class="line"><span>echo "deb [signed-by=/etc/apt/keyrings/cutefish.asc] https://download.cutefish.org/debian trixie-nightly main" \</span></span>
+<span class="line"><span>  | sudo tee /etc/apt/sources.list.d/cutefish.list</span></span>
+<span class="line"><span>sudo apt update</span></span>
+<span class="line"><span>sudo apt install cutefish-desktop</span></span></code></pre>
+<p><code>signed-by</code> limits the key to this repository, so it cannot vouch for
+packages from anywhere else.</p>
+<h2 id="what-an-attacker-would-need">What an attacker would need</h2>
+<p>Suppose someone wants to get a malicious package onto your computer through
+Cutefish:</p>
+<ul>
+<li><strong>Replacing a file on download.cutefish.org</strong> is not enough. APT checks every
+package against the signed index, and the index against the signing key,
+so a swapped file is refused. Its provenance check fails as well.</li>
+<li><strong>Stealing the signing key</strong> is not enough either: the key alone cannot
+upload anything to download.cutefish.org. Even with the upload key as well, a
+package built anywhere else has no attestation from the Cutefish workflow,
+so it fails the provenance check. Only a run of that workflow, with its
+public log, can produce one.</li>
+<li><strong>Changing the source</strong> means pushing a commit to a public repository. It
+shows up in the history, and the build that picks it up names that commit
+in the package version and in <code>commits</code>.</li>
+<li><strong>Changing the build</strong> means changing the workflow, which is public and
+versioned in the same way, and every run’s log shows what it did.</li>
+</ul>
+<p>Pull requests and forks never see the signing key or the upload key; GitHub
+only gives secrets to workflows running in the repository itself. The upload
+key can write to the Cutefish storage bucket and nothing else.</p>
+<p>What remains is GitHub’s own infrastructure, which builds the packages, and
+Sigstore, which records the attestations. We rely on them, as most open
+source projects do.</p>
+<h2 id="what-this-does-not-cover">What this does not cover</h2>
+<p>The packages are not yet reproducible: building the same commit twice does
+not produce byte-identical files, so you cannot rebuild a package yourself and
+compare checksums. That is something we would like to get to.</p>
+<p><code>trixie-nightly</code> is built from the latest code every night. It is meant for
+testing, and things in it can break.</p>
+<h2 id="only-from-official-sources">Only from official sources</h2>
+<p>Packages and ISOs from anywhere other than download.cutefish.org and
+<a href="https://github.com/cutefishos">github.com/cutefishos</a> were not built by us.</p>
+</div><aside class="contents" aria-labelledby="contents-heading" data-astro-cid-krra7mlq><h2 id="contents-heading" data-astro-cid-krra7mlq>Contents</h2><nav aria-labelledby="contents-heading" data-astro-cid-krra7mlq><ul data-astro-cid-krra7mlq><li data-astro-cid-krra7mlq><a href="#in-short" data-astro-cid-krra7mlq>In short</a></li><li data-astro-cid-krra7mlq><a href="#built-in-the-open" data-astro-cid-krra7mlq>Built in the open</a></li><li data-astro-cid-krra7mlq><a href="#every-package-names-its-commit" data-astro-cid-krra7mlq>Every package names its commit</a></li><li data-astro-cid-krra7mlq><a href="#tracing-a-file-back-to-its-build" data-astro-cid-krra7mlq>Tracing a file back to its build</a></li><li data-astro-cid-krra7mlq><a href="#the-iso" data-astro-cid-krra7mlq>The ISO</a></li><li data-astro-cid-krra7mlq><a href="#signed-by-the-build-and-only-the-build" data-astro-cid-krra7mlq>Signed by the build, and only the build</a></li><li data-astro-cid-krra7mlq><a href="#installing" data-astro-cid-krra7mlq>Installing</a></li><li data-astro-cid-krra7mlq><a href="#what-an-attacker-would-need" data-astro-cid-krra7mlq>What an attacker would need</a></li><li data-astro-cid-krra7mlq><a href="#what-this-does-not-cover" data-astro-cid-krra7mlq>What this does not cover</a></li><li data-astro-cid-krra7mlq><a href="#only-from-official-sources" data-astro-cid-krra7mlq>Only from official sources</a></li></ul></nav></aside></div></article></main><footer class="site-footer" data-astro-cid-jo6i4kqk><div class="container" data-astro-cid-jo6i4kqk><div class="top" data-astro-cid-jo6i4kqk><div class="about" data-astro-cid-jo6i4kqk><p class="tagline" data-astro-cid-jo6i4kqk>Cutefish, formerly CutefishOS, is a beautiful, effortless Linux distribution built around Cutefish Desktop.</p></div><nav class="groups" data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Community</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://github.com/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>GitHub</a></li><li data-astro-cid-jo6i4kqk><a href="https://github.com/sponsors/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+</svg>GitHub Sponsors</a></li><li data-astro-cid-jo6i4kqk><a href="https://x.com/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg>X</a></li><li data-astro-cid-jo6i4kqk><a href="https://discord.gg/sQD2ybfGT" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg>Discord</a></li><li data-astro-cid-jo6i4kqk><a href="mailto:hello@cutefish.org" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+  <path d="M3 7l9 6l9 -6" />
+</svg>Email</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Get Cutefish</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://download.cutefish.org/" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+  <path d="M7 11l5 5l5 -5" />
+  <path d="M12 4l0 12" />
+</svg>Downloads</a></li><li data-astro-cid-jo6i4kqk><a href="/blog/how-cutefish-is-built" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M11.414 10l-7.383 7.418a2.091 2.091 0 0 0 0 2.967a2.11 2.11 0 0 0 2.976 0l7.407 -7.385" />
+  <path d="M18.121 15.293l2.586 -2.586a1 1 0 0 0 0 -1.414l-7.586 -7.586a1 1 0 0 0 -1.414 0l-2.586 2.586a1 1 0 0 0 0 1.414l7.586 7.586a1 1 0 0 0 1.414 0" />
+</svg>Build from Source</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Project</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="/blog" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+  <path d="M13 8l2 0" />
+  <path d="M13 12l2 0" />
+</svg>Blog</a></li><li data-astro-cid-jo6i4kqk><a href="/about" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+  <path d="M12 9h.01" />
+  <path d="M11 12h1v4h1" />
+</svg>About</a></li><li data-astro-cid-jo6i4kqk><a href="/privacy" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />
+  <path d="M11 11a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M12 12l0 2.5" />
+</svg>Privacy</a></li><li data-astro-cid-jo6i4kqk><a href="/rss.xml" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>RSS</a></li></ul></div></nav></div><div class="bottom" data-astro-cid-jo6i4kqk><p data-astro-cid-jo6i4kqk>&copy; 2021&ndash;2026 Cutefish</p><p data-astro-cid-jo6i4kqk>Mac is a trademark of Apple Inc., registered in the U.S. and other countries. Cutefish is an independent project and is not affiliated with or endorsed by Apple.</p></div></div></footer></body></html><script type="module">var e=[...document.querySelectorAll(`.contents a`)],t=e.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))),n=89;function r(){let r=-1;window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-1?r=t.length-1:t.forEach((e,t)=>{e&&e.getBoundingClientRect().top<=n&&(r=t)}),e.forEach((e,t)=>{t===r?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`)})}var i=!1;window.addEventListener(`scroll`,()=>{i||(i=!0,requestAnimationFrame(()=>{i=!1,r()}))},{passive:!0}),e.length>0&&r();</script>
