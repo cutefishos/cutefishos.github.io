@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 453" width="640" height="453" role="img" aria-labelledby="t d">
+<title id="t">One frame, end to end</title>
+<desc id="d">A toolkit application lays out, paints and commits; the compositor applies the commit, then at its draw point, at least a third of a refresh before vblank, composes or puts the buffer on a plane; KMS flips at vblank, and the frame callback and presentation feedback start the application's next frame.</desc>
+<style>
+.bg{fill:#f6f7f9}
+.card{fill:#ffffff;stroke:#dfe2e7;stroke-width:1}
+.cf{fill:#ebf3ff;stroke:#a8c7fb;stroke-width:1}
+.cfs{fill:#3385ff}
+.cfband{fill:#d6e6ff}
+.sys{fill:#eceef1;stroke:#dadde2;stroke-width:1}
+.warm{fill:#fff3e2;stroke:#f2c27c;stroke-width:1}
+.chip{fill:#ffffff;stroke:#d5d9df;stroke-width:1}
+.chipb{fill:#ffffff;stroke:#b9d2fb;stroke-width:1}
+text{font-family:system-ui, -apple-system, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;fill:#323238;font-size:14px}
+.b{font-weight:600}
+.s{fill:#686872;font-size:13px}
+.xs{fill:#686872;font-size:12px}
+.c{font-size:13px}
+.cap{fill:#7b7b85;font-size:11.5px;font-weight:600;letter-spacing:.08em}
+.m{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:13px}
+.ms{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:12px;fill:#686872}
+.on{fill:#ffffff;font-weight:600}
+.ln{fill:none;stroke:#9aa0aa;stroke-width:1.5}
+.lnb{fill:none;stroke:#3385ff;stroke-width:1.5}
+.lnd{fill:none;stroke:#3385ff;stroke-width:1.5;stroke-dasharray:5 4}
+.vb{fill:none;stroke:#c3c8d0;stroke-width:1;stroke-dasharray:3 4}
+.ah{fill:#9aa0aa}
+.ahb{fill:#3385ff}
+.dot{fill:#3385ff}
+@media (prefers-color-scheme: dark) {
+.bg{fill:#1f1f21}
+.card{fill:#2a2a2d;stroke:#3b3b40}
+.cf{fill:#1b2a43;stroke:#2e5596}
+.cfband{fill:#22375a}
+.sys{fill:#28282b;stroke:#38383d}
+.warm{fill:#382b19;stroke:#8a6228}
+.chip{fill:#323236;stroke:#45454b}
+.chipb{fill:#24324a;stroke:#35588f}
+text{fill:#f0f0f3}
+.s,.xs,.ms{fill:#a2a2ab}
+.cap{fill:#8e8e97}
+.on{fill:#ffffff}
+.ln{stroke:#7a7f88}
+.vb{stroke:#4a4a50}
+.ah{fill:#7a7f88}
+}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahb" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="bg" width="640" height="453"/>
+<text x="24" y="56" class="cap">APPLICATION</text>
+<rect class="sys" x="24" y="64" width="592" height="60" rx="10"/>
+<text x="24" y="148" class="cap">COMPOSITOR</text>
+<rect class="sys" x="24" y="156" width="592" height="60" rx="10"/>
+<text x="24" y="240" class="cap">DISPLAY</text>
+<rect class="sys" x="24" y="248" width="592" height="60" rx="10"/>
+<path class="vb" d="M44 30 V316"/>
+<text x="44" y="22" class="xs" text-anchor="middle">vblank</text>
+<path class="vb" d="M348.0 30 V316"/>
+<text x="348" y="22" class="xs" text-anchor="middle">draw point</text>
+<path class="vb" d="M500 30 V316"/>
+<text x="500" y="22" class="xs" text-anchor="middle">vblank</text>
+<circle class="dot" cx="60" cy="94" r="5"/>
+<rect class="cf" x="72" y="76" width="64" height="36" rx="7"/>
+<text x="104" y="98.5" class="c" text-anchor="middle">layout</text>
+<rect class="cf" x="142" y="76" width="98" height="36" rx="7"/>
+<text x="191" y="98.5" class="c" text-anchor="middle">paint, Skia</text>
+<rect class="cfband" x="246" y="76" width="72" height="36" rx="7"/>
+<text x="282" y="98.5" class="c" text-anchor="middle">commit</text>
+<path class="lnb" d="M282 112 V164" marker-end="url(#ab)"/>
+<rect class="cf" x="226" y="168" width="112" height="36" rx="7"/>
+<text x="282" y="190.5" class="c" text-anchor="middle">apply, damage</text>
+<rect class="cf" x="348" y="168" width="136" height="36" rx="7"/>
+<text x="416" y="190.5" class="c" text-anchor="middle">compose or plane</text>
+<rect class="cf" x="460" y="260" width="80" height="36" rx="7"/>
+<text x="500" y="282.5" class="c" text-anchor="middle">flip</text>
+<path class="lnb" d="M480 204 V256" marker-end="url(#ab)"/>
+<rect class="cf" x="520" y="76" width="90" height="36" rx="7"/>
+<text x="565" y="98.5" class="c" text-anchor="middle">next frame</text>
+<path class="lnb" d="M540 278.0 H556 V116" marker-end="url(#ab)"/>
+<text x="550" y="176" class="xs" text-anchor="end">frame</text>
+<text x="550" y="191" class="xs" text-anchor="end">callback,</text>
+<text x="550" y="206" class="xs" text-anchor="end">feedback</text>
+<path class="ln" d="M351.0 330 H497"/>
+<path class="ln" d="M351.0 325 V335"/>
+<path class="ln" d="M497 325 V335"/>
+<text x="424" y="348" class="xs" text-anchor="middle">at least a third of a refresh</text>
+<text x="24" y="380" class="xs">One commit carries ack_configure, the buffer at the new size, the viewport</text>
+<text x="24" y="397" class="xs">and the next frame request. Demand early in a refresh waits for the draw</text>
+<text x="24" y="414" class="xs">point, which moves earlier while recent frames took longer; late demand,</text>
+<text x="24" y="431" class="xs">such as a key press, is drawn at once.</text>
+</svg>

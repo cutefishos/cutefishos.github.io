@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" width="640" height="560" role="img" aria-labelledby="t d">
+<title id="t">Inside cutefish-compositor</title>
+<desc id="d">Window state flows down from client resources through surfaces, roles and windows into the scene; frames flow up from the output scheduler, which decides when a frame begins, through damage, plane assignment and GLES composition of the rest to the KMS commit and the display; input flows from libinput through the seat to shortcuts, the focused client or the shell.</desc>
+<style>
+.bg{fill:#f6f7f9}
+.card{fill:#ffffff;stroke:#dfe2e7;stroke-width:1}
+.cf{fill:#ebf3ff;stroke:#a8c7fb;stroke-width:1}
+.cfs{fill:#3385ff}
+.cfband{fill:#d6e6ff}
+.sys{fill:#eceef1;stroke:#dadde2;stroke-width:1}
+.warm{fill:#fff3e2;stroke:#f2c27c;stroke-width:1}
+.chip{fill:#ffffff;stroke:#d5d9df;stroke-width:1}
+.chipb{fill:#ffffff;stroke:#b9d2fb;stroke-width:1}
+text{font-family:system-ui, -apple-system, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;fill:#323238;font-size:14px}
+.b{font-weight:600}
+.s{fill:#686872;font-size:13px}
+.xs{fill:#686872;font-size:12px}
+.c{font-size:13px}
+.cap{fill:#7b7b85;font-size:11.5px;font-weight:600;letter-spacing:.08em}
+.m{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:13px}
+.ms{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:12px;fill:#686872}
+.on{fill:#ffffff;font-weight:600}
+.ln{fill:none;stroke:#9aa0aa;stroke-width:1.5}
+.lnb{fill:none;stroke:#3385ff;stroke-width:1.5}
+.lnd{fill:none;stroke:#3385ff;stroke-width:1.5;stroke-dasharray:5 4}
+.vb{fill:none;stroke:#c3c8d0;stroke-width:1;stroke-dasharray:3 4}
+.ah{fill:#9aa0aa}
+.ahb{fill:#3385ff}
+.dot{fill:#3385ff}
+@media (prefers-color-scheme: dark) {
+.bg{fill:#1f1f21}
+.card{fill:#2a2a2d;stroke:#3b3b40}
+.cf{fill:#1b2a43;stroke:#2e5596}
+.cfband{fill:#22375a}
+.sys{fill:#28282b;stroke:#38383d}
+.warm{fill:#382b19;stroke:#8a6228}
+.chip{fill:#323236;stroke:#45454b}
+.chipb{fill:#24324a;stroke:#35588f}
+text{fill:#f0f0f3}
+.s,.xs,.ms{fill:#a2a2ab}
+.cap{fill:#8e8e97}
+.on{fill:#ffffff}
+.ln{stroke:#7a7f88}
+.vb{stroke:#4a4a50}
+.ah{fill:#7a7f88}
+}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahb" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="bg" width="640" height="560"/>
+<text x="24" y="30" class="cap">WINDOW STATE</text>
+<text x="233.333" y="30" class="cap">FRAMES</text>
+<text x="442.667" y="30" class="cap">INPUT</text>
+<rect class="sys" x="24" y="44" width="173.333" height="54" rx="9"/>
+<text x="110.667" y="67" class="b" text-anchor="middle">Clients</text>
+<text x="110.667" y="86" class="ms" text-anchor="middle">wl_client</text>
+<rect class="cf" x="24" y="118" width="173.333" height="54" rx="9"/>
+<text x="110.667" y="141" class="b" text-anchor="middle">Adapters</text>
+<text x="110.667" y="160" class="ms" text-anchor="middle">wayland/</text>
+<path class="lnb" d="M110.66666666666667 100 V114" marker-end="url(#ab)"/>
+<rect class="cf" x="24" y="192" width="173.333" height="54" rx="9"/>
+<text x="110.667" y="215" class="b" text-anchor="middle">Surface</text>
+<text x="110.667" y="234" class="ms" text-anchor="middle">+ shell windows</text>
+<path class="lnb" d="M110.66666666666667 174 V188" marker-end="url(#ab)"/>
+<rect class="cf" x="24" y="266" width="173.333" height="54" rx="9"/>
+<text x="110.667" y="289" class="b" text-anchor="middle">Role</text>
+<text x="110.667" y="308" class="ms" text-anchor="middle">xdg, sub, X11</text>
+<path class="lnb" d="M110.66666666666667 248 V262" marker-end="url(#ab)"/>
+<rect class="cf" x="24" y="340" width="173.333" height="54" rx="9"/>
+<text x="110.667" y="363" class="b" text-anchor="middle">Window</text>
+<text x="110.667" y="382" class="ms" text-anchor="middle">wm/</text>
+<path class="lnb" d="M110.66666666666667 322 V336" marker-end="url(#ab)"/>
+<rect class="cf" x="24" y="414" width="173.333" height="54" rx="9"/>
+<text x="110.667" y="437" class="b" text-anchor="middle">Scene</text>
+<text x="110.667" y="456" class="ms" text-anchor="middle">scene/</text>
+<path class="lnb" d="M110.66666666666667 396 V410" marker-end="url(#ab)"/>
+<rect class="sys" x="233.333" y="44" width="173.333" height="54" rx="9"/>
+<text x="320" y="67" class="b" text-anchor="middle">Display</text>
+<text x="320" y="86" class="ms" text-anchor="middle">vblank</text>
+<rect class="cf" x="233.333" y="118" width="173.333" height="54" rx="9"/>
+<text x="320" y="141" class="b" text-anchor="middle">KMS commit</text>
+<text x="320" y="160" class="ms" text-anchor="middle">backend/drm/</text>
+<path class="lnb" d="M320.0 116 V102" marker-end="url(#ab)"/>
+<rect class="cf" x="233.333" y="192" width="173.333" height="54" rx="9"/>
+<text x="320" y="215" class="b" text-anchor="middle">Renderer</text>
+<text x="320" y="234" class="ms" text-anchor="middle">the rest, GLES</text>
+<path class="lnb" d="M320.0 190 V176" marker-end="url(#ab)"/>
+<rect class="cf" x="233.333" y="266" width="173.333" height="54" rx="9"/>
+<text x="320" y="289" class="b" text-anchor="middle">Planes</text>
+<text x="320" y="308" class="ms" text-anchor="middle">overlay planner</text>
+<path class="lnb" d="M320.0 264 V250" marker-end="url(#ab)"/>
+<rect class="cf" x="233.333" y="340" width="173.333" height="54" rx="9"/>
+<text x="320" y="363" class="b" text-anchor="middle">Damage</text>
+<text x="320" y="382" class="ms" text-anchor="middle">per output</text>
+<path class="lnb" d="M320.0 338 V324" marker-end="url(#ab)"/>
+<rect class="cf" x="233.333" y="414" width="173.333" height="54" rx="9"/>
+<text x="320" y="437" class="b" text-anchor="middle">Scheduler</text>
+<text x="320" y="456" class="ms" text-anchor="middle">when to draw</text>
+<path class="lnb" d="M320.0 412 V398" marker-end="url(#ab)"/>
+<path class="lnb" d="M199.33333333333334 441.0 H229.33333333333334" marker-end="url(#ab)"/>
+<path class="lnd" d="M231.33333333333334 71.0 H201.33333333333334" marker-end="url(#ab)"/>
+<rect class="sys" x="442.667" y="44" width="173.333" height="54" rx="9"/>
+<text x="529.333" y="67" class="b" text-anchor="middle">libinput</text>
+<text x="529.333" y="86" class="ms" text-anchor="middle">libseat session</text>
+<rect class="cf" x="442.667" y="118" width="173.333" height="54" rx="9"/>
+<text x="529.333" y="141" class="b" text-anchor="middle">InputManager</text>
+<text x="529.333" y="160" class="ms" text-anchor="middle">input/</text>
+<path class="lnb" d="M529.3333333333334 100 V114" marker-end="url(#ab)"/>
+<rect class="cf" x="442.667" y="192" width="173.333" height="54" rx="9"/>
+<text x="529.333" y="215" class="b" text-anchor="middle">Seat</text>
+<text x="529.333" y="234" class="ms" text-anchor="middle">focus, grabs</text>
+<path class="lnb" d="M529.3333333333334 174 V188" marker-end="url(#ab)"/>
+<rect class="card" x="468.667" y="266" width="147.333" height="42" rx="8"/>
+<text x="480.667" y="284" class="b">Shortcuts</text>
+<text x="480.667" y="300" class="ms">accelerators/</text>
+<path class="lnb" d="M454.6666666666667 287 H464.6666666666667" marker-end="url(#ab)"/>
+<rect class="card" x="468.667" y="316" width="147.333" height="42" rx="8"/>
+<text x="480.667" y="334" class="b">Focused client</text>
+<text x="480.667" y="350" class="ms">wl_seat</text>
+<path class="lnb" d="M454.6666666666667 337 H464.6666666666667" marker-end="url(#ab)"/>
+<rect class="card" x="468.667" y="366" width="147.333" height="42" rx="8"/>
+<text x="480.667" y="384" class="b">Shell views</text>
+<text x="480.667" y="400" class="ms">ShellInput</text>
+<path class="lnb" d="M454.6666666666667 387 H464.6666666666667" marker-end="url(#ab)"/>
+<path class="lnb" d="M454.6666666666667 246 V387"/>
+<path class="lnd" d="M24 496 h22"/>
+<text x="54" y="500" class="xs">frame callbacks and presentation feedback go back to clients</text>
+<text x="24" y="522" class="xs">Client DMA-BUFs go straight to a plane when the scene allows; everything</text>
+<text x="24" y="539" class="xs">else is composed with GLES, repainting only the damage.</text>
+</svg>

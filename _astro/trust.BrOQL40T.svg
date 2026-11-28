@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 579" width="640" height="579" role="img" aria-labelledby="t d">
+<title id="t">Connections and privilege</title>
+<desc id="d">Privilege belongs to a connection, not to a user id alone: applications see the public protocols, the desktop window gets a trusted connection from the session, allowlisted programs get capture, data control or computer control, and Xwayland and the input method use private connections. The shell is inside the compositor.</desc>
+<style>
+.bg{fill:#f6f7f9}
+.card{fill:#ffffff;stroke:#dfe2e7;stroke-width:1}
+.cf{fill:#ebf3ff;stroke:#a8c7fb;stroke-width:1}
+.cfs{fill:#3385ff}
+.cfband{fill:#d6e6ff}
+.sys{fill:#eceef1;stroke:#dadde2;stroke-width:1}
+.warm{fill:#fff3e2;stroke:#f2c27c;stroke-width:1}
+.chip{fill:#ffffff;stroke:#d5d9df;stroke-width:1}
+.chipb{fill:#ffffff;stroke:#b9d2fb;stroke-width:1}
+text{font-family:system-ui, -apple-system, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;fill:#323238;font-size:14px}
+.b{font-weight:600}
+.s{fill:#686872;font-size:13px}
+.xs{fill:#686872;font-size:12px}
+.c{font-size:13px}
+.cap{fill:#7b7b85;font-size:11.5px;font-weight:600;letter-spacing:.08em}
+.m{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:13px}
+.ms{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:12px;fill:#686872}
+.on{fill:#ffffff;font-weight:600}
+.ln{fill:none;stroke:#9aa0aa;stroke-width:1.5}
+.lnb{fill:none;stroke:#3385ff;stroke-width:1.5}
+.lnd{fill:none;stroke:#3385ff;stroke-width:1.5;stroke-dasharray:5 4}
+.vb{fill:none;stroke:#c3c8d0;stroke-width:1;stroke-dasharray:3 4}
+.ah{fill:#9aa0aa}
+.ahb{fill:#3385ff}
+.dot{fill:#3385ff}
+@media (prefers-color-scheme: dark) {
+.bg{fill:#1f1f21}
+.card{fill:#2a2a2d;stroke:#3b3b40}
+.cf{fill:#1b2a43;stroke:#2e5596}
+.cfband{fill:#22375a}
+.sys{fill:#28282b;stroke:#38383d}
+.warm{fill:#382b19;stroke:#8a6228}
+.chip{fill:#323236;stroke:#45454b}
+.chipb{fill:#24324a;stroke:#35588f}
+text{fill:#f0f0f3}
+.s,.xs,.ms{fill:#a2a2ab}
+.cap{fill:#8e8e97}
+.on{fill:#ffffff}
+.ln{stroke:#7a7f88}
+.vb{stroke:#4a4a50}
+.ah{fill:#7a7f88}
+}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahb" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="bg" width="640" height="579"/>
+<text x="24" y="30" class="cap">CONNECTION</text>
+<text x="264" y="30" class="cap">SEES, BEYOND THE CORE PROTOCOLS</text>
+<rect class="card" x="24" y="44" width="216" height="114" rx="10"/>
+<text x="40" y="97" class="b">Applications</text>
+<text x="40" y="116" class="xs">public socket</text>
+<rect class="chip" x="264" y="56" width="77.89" height="26" rx="13"/>
+<text x="302.945" y="73.5" class="c" text-anchor="middle">xdg-shell</text>
+<rect class="chip" x="347.89" y="56" width="104.125" height="26" rx="13"/>
+<text x="399.952" y="73.5" class="c" text-anchor="middle">linux-dmabuf</text>
+<rect class="chip" x="458.015" y="56" width="111.015" height="26" rx="13"/>
+<text x="513.523" y="73.5" class="c" text-anchor="middle">text-input-v3</text>
+<rect class="chip" x="264" y="88" width="189.19" height="26" rx="13"/>
+<text x="358.595" y="105.5" class="c" text-anchor="middle">cutefish_surface_blur_v1</text>
+<rect class="chip" x="264" y="120" width="193.695" height="26" rx="13"/>
+<text x="360.848" y="137.5" class="c" text-anchor="middle">cutefish_window_hints_v1</text>
+<path class="ln" d="M244 101.0 H258"/>
+<rect class="cf" x="24" y="168" width="216" height="72" rx="10"/>
+<text x="40" y="200" class="b">Desktop window</text>
+<text x="40" y="219" class="xs">socket pair from the session</text>
+<rect class="chip" x="264" y="191" width="133.805" height="26" rx="13"/>
+<text x="330.903" y="208.5" class="c" text-anchor="middle">cutefish_shell_v1</text>
+<path class="ln" d="M244 204.0 H258"/>
+<rect class="warm" x="24" y="250" width="216" height="82" rx="10"/>
+<text x="40" y="287" class="b">Allowlisted programs</text>
+<text x="40" y="306" class="xs">same user, matched executable</text>
+<rect class="chip" x="264" y="262" width="181.77" height="26" rx="13"/>
+<text x="354.885" y="279.5" class="c" text-anchor="middle">ext-image-copy-capture</text>
+<rect class="chip" x="451.77" y="262" width="100.15" height="26" rx="13"/>
+<text x="501.845" y="279.5" class="c" text-anchor="middle">data control</text>
+<rect class="chip" x="264" y="294" width="222.845" height="26" rx="13"/>
+<text x="375.423" y="311.5" class="c" text-anchor="middle">cutefish_computer_control_v1</text>
+<path class="ln" d="M244 291.0 H258"/>
+<rect class="sys" x="24" y="342" width="216" height="72" rx="10"/>
+<text x="40" y="374" class="b">Xwayland, input method</text>
+<text x="40" y="393" class="xs">private connections</text>
+<rect class="chip" x="264" y="365" width="49.8" height="26" rx="13"/>
+<text x="288.9" y="382.5" class="c" text-anchor="middle">XWM</text>
+<rect class="chip" x="319.8" y="365" width="129.83" height="26" rx="13"/>
+<text x="384.715" y="382.5" class="c" text-anchor="middle">input-method-v2</text>
+<rect class="chip" x="455.63" y="365" width="126.385" height="26" rx="13"/>
+<text x="518.823" y="382.5" class="c" text-anchor="middle">virtual keyboard</text>
+<path class="ln" d="M244 378.0 H258"/>
+<rect class="cfband" x="24" y="424" width="592" height="72" rx="10"/>
+<text x="40" y="456" class="b">Shell</text>
+<text x="40" y="475" class="xs">inside the compositor</text>
+<text x="264" y="456" class="s">calls the window manager directly,</text>
+<text x="264" y="475" class="s">with no protocol at all</text>
+<text x="24" y="524" class="xs">The screen recorder captures on a private connection the compositor makes for it.</text>
+<text x="24" y="541" class="xs">Computer control also waits for the user's consent in a dialog the agent cannot</text>
+<text x="24" y="558" class="xs">reach, and real input pauses it.</text>
+</svg>

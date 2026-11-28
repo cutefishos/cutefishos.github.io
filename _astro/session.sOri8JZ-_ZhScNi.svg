@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 912" width="640" height="912" role="img" aria-labelledby="t d">
+<title id="t">Starting a session</title>
+<desc id="d">cutefish-dm runs the login screen on VT1 and, through cutefish-dm-helper, the user's cutefish-session on VT2, which starts the compositor, then the app runtime and services, then the file manager daemon and the polkit agent, then autostart entries.</desc>
+<style>
+.bg{fill:#f6f7f9}
+.card{fill:#ffffff;stroke:#dfe2e7;stroke-width:1}
+.cf{fill:#ebf3ff;stroke:#a8c7fb;stroke-width:1}
+.cfs{fill:#3385ff}
+.cfband{fill:#d6e6ff}
+.sys{fill:#eceef1;stroke:#dadde2;stroke-width:1}
+.warm{fill:#fff3e2;stroke:#f2c27c;stroke-width:1}
+.chip{fill:#ffffff;stroke:#d5d9df;stroke-width:1}
+.chipb{fill:#ffffff;stroke:#b9d2fb;stroke-width:1}
+text{font-family:system-ui, -apple-system, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;fill:#323238;font-size:14px}
+.b{font-weight:600}
+.s{fill:#686872;font-size:13px}
+.xs{fill:#686872;font-size:12px}
+.c{font-size:13px}
+.cap{fill:#7b7b85;font-size:11.5px;font-weight:600;letter-spacing:.08em}
+.m{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:13px}
+.ms{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:12px;fill:#686872}
+.on{fill:#ffffff;font-weight:600}
+.ln{fill:none;stroke:#9aa0aa;stroke-width:1.5}
+.lnb{fill:none;stroke:#3385ff;stroke-width:1.5}
+.lnd{fill:none;stroke:#3385ff;stroke-width:1.5;stroke-dasharray:5 4}
+.vb{fill:none;stroke:#c3c8d0;stroke-width:1;stroke-dasharray:3 4}
+.ah{fill:#9aa0aa}
+.ahb{fill:#3385ff}
+.dot{fill:#3385ff}
+@media (prefers-color-scheme: dark) {
+.bg{fill:#1f1f21}
+.card{fill:#2a2a2d;stroke:#3b3b40}
+.cf{fill:#1b2a43;stroke:#2e5596}
+.cfband{fill:#22375a}
+.sys{fill:#28282b;stroke:#38383d}
+.warm{fill:#382b19;stroke:#8a6228}
+.chip{fill:#323236;stroke:#45454b}
+.chipb{fill:#24324a;stroke:#35588f}
+text{fill:#f0f0f3}
+.s,.xs,.ms{fill:#a2a2ab}
+.cap{fill:#8e8e97}
+.on{fill:#ffffff}
+.ln{stroke:#7a7f88}
+.vb{stroke:#4a4a50}
+.ah{fill:#7a7f88}
+}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahb" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="bg" width="640" height="912"/>
+<text x="24" y="30" class="cap">SYSTEM</text>
+<rect class="card" x="24" y="44" width="300" height="60" rx="10"/>
+<text x="40" y="69" class="m b">cutefish-dm</text>
+<text x="40" y="89" class="s">display manager, root</text>
+<rect class="card" x="52" y="128" width="272" height="60" rx="10"/>
+<text x="68" y="153" class="m b">cutefish-compositor --login</text>
+<text x="68" y="173" class="s">login screen on VT1</text>
+<rect class="card" x="52" y="212" width="272" height="60" rx="10"/>
+<text x="68" y="237" class="m b">cutefish-dm-helper</text>
+<text x="68" y="257" class="s">PAM, then the session</text>
+<path class="ln" d="M38 104 V242 H49" marker-end="url(#a)"/>
+<path class="ln" d="M38 158 H49" marker-end="url(#a)"/>
+<rect class="cfs" x="80" y="296" width="244" height="60" rx="10"/>
+<text x="96" y="321" class="m on">cutefish-session</text>
+<text x="96" y="341" class="on">the user's session, VT2</text>
+<path class="ln" d="M66 272 V326 H77" marker-end="url(#a)"/>
+<rect class="sys" x="344" y="44" width="272" height="312" rx="10"/>
+<text x="360" y="70" class="b">Handover</text>
+<text x="360" y="96" class="s">The login screen asks</text>
+<text x="360" y="117" class="s">cutefish-dm to log in over</text>
+<text x="360" y="138" class="s">greetd's protocol.</text>
+<text x="360" y="180" class="s">A VT in graphics mode</text>
+<text x="360" y="201" class="s">keeps the last frame until</text>
+<text x="360" y="222" class="s">the next compositor draws,</text>
+<text x="360" y="243" class="s">so no console shows.</text>
+<text x="360" y="285" class="s">Logging out brings the</text>
+<text x="360" y="306" class="s">login screen up first.</text>
+<text x="24" y="396" class="cap">STARTED BY CUTEFISH-SESSION, IN ORDER</text>
+<path class="lnb" d="M120 358 V380" marker-end="url(#ab)"/>
+<rect class="cf" x="24" y="408" width="592" height="130" rx="10"/>
+<circle class="cfs" cx="50" cy="434" r="12"/>
+<text x="50" y="438.5" class="on" text-anchor="middle">1</text>
+<text x="72" y="439" class="m b">cutefish-compositor</text>
+<text x="243.266" y="439" class="s">with the shell inside it</text>
+<text x="72" y="464" class="xs">writes --ready-fd once it is up, and serves the</text>
+<text x="72" y="480" class="xs">desktop's trusted connection; its own children:</text>
+<rect class="chip" x="72" y="494" width="85.9392" height="28" rx="14"/>
+<text x="114.97" y="512.5" class="c" text-anchor="middle">Xwayland</text>
+<rect class="chip" x="164.939" y="494" width="111.57" height="28" rx="14"/>
+<text x="220.724" y="512.5" class="c" text-anchor="middle">input method</text>
+<rect class="chip" x="283.509" y="494" width="169.17" height="28" rx="14"/>
+<text x="368.094" y="512.5" class="c" text-anchor="middle">cutefish-auth-helper</text>
+<rect class="cf" x="24" y="548" width="592" height="90" rx="10"/>
+<circle class="cfs" cx="50" cy="574" r="12"/>
+<text x="50" y="578.5" class="on" text-anchor="middle">2</text>
+<text x="72" y="579" class="b">Session daemons</text>
+<rect class="chipb" x="72" y="594" width="179.266" height="28" rx="7"/>
+<text x="161.633" y="612.5" class="m" text-anchor="middle">cutefish-appruntime</text>
+<rect class="chipb" x="259.266" y="594" width="162.501" height="28" rx="7"/>
+<text x="340.516" y="612.5" class="m" text-anchor="middle">cutefish-services</text>
+<rect class="cf" x="24" y="648" width="592" height="126" rx="10"/>
+<circle class="cfs" cx="50" cy="674" r="12"/>
+<text x="50" y="678.5" class="on" text-anchor="middle">3</text>
+<text x="72" y="679" class="b">Once org.cutefish.Services is on the bus</text>
+<rect class="chipb" x="72" y="694" width="405.59" height="28" rx="7"/>
+<text x="274.795" y="712.5" class="m" text-anchor="middle">cutefish-filemanager --daemon --desktop-socket</text>
+<rect class="chipb" x="72" y="730" width="196.03" height="28" rx="7"/>
+<text x="170.015" y="748.5" class="m" text-anchor="middle">cutefish-polkit-agent</text>
+<rect class="cf" x="24" y="784" width="592" height="66" rx="10"/>
+<circle class="cfs" cx="50" cy="810" r="12"/>
+<text x="50" y="814.5" class="on" text-anchor="middle">4</text>
+<text x="72" y="815" class="b">Autostart entries</text>
+<text x="72" y="836" class="s">through the app runtime, each in a scope of its own</text>
+<text x="24" y="876" class="xs">Core processes are restarted up to five times. The compositor is not: its exit</text>
+<text x="24" y="893" class="xs">ends the session.</text>
+</svg>

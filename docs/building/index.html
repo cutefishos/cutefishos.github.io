@@ -1,0 +1,505 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Building Cutefish from Source - Cutefish</title><meta name="description" content="How to build the Cutefish desktop from source and install it on an existing Linux distribution."><link rel="canonical" href="https://cutefish.org/docs/building/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Cutefish" href="/rss.xml"><meta property="og:site_name" content="Cutefish"><meta property="og:type" content="website"><meta property="og:title" content="Building Cutefish from Source - Cutefish"><meta property="og:description" content="How to build the Cutefish desktop from source and install it on an existing Linux distribution."><meta property="og:url" content="https://cutefish.org/docs/building/"><meta property="og:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Cutefish desktop with the Dock"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@cutefishos"><meta name="twitter:title" content="Building Cutefish from Source - Cutefish"><meta name="twitter:description" content="How to build the Cutefish desktop from source and install it on an existing Linux distribution."><meta name="twitter:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><link rel="stylesheet" href="/_astro/Base.BjIL4Lm1.css"><link rel="stylesheet" href="/_astro/Article.5vZ1h0Zs.css"><style>nav[data-astro-cid-wk4lxtzo]{flex-direction:column;gap:16px;display:flex}h2[data-astro-cid-wk4lxtzo]{color:var(--text);margin:0 0 4px;font-size:.875rem}ul[data-astro-cid-wk4lxtzo]{margin:0;padding:0;list-style:none}a[data-astro-cid-wk4lxtzo]{color:var(--secondary-text);padding:5px 0;font-size:.875rem;line-height:1.4;display:block}.overview[data-astro-cid-wk4lxtzo]{color:var(--text);font-weight:600}a[data-astro-cid-wk4lxtzo]:hover{color:var(--text);text-decoration:none}a[data-astro-cid-wk4lxtzo][aria-current]{color:var(--highlight);font-weight:600}
+</style></head><body><header class="site-header" data-astro-cid-nen7h5rs><div class="container bar" data-astro-cid-nen7h5rs><div class="left" data-astro-cid-nen7h5rs><a class="brand" href="/" data-astro-cid-nen7h5rs><img src="/favicon.svg" alt="" width="28" height="28" data-astro-cid-nen7h5rs><span data-astro-cid-nen7h5rs>Cutefish</span></a><nav class="desktop-nav" data-astro-cid-nen7h5rs><a href="/news" data-astro-cid-nen7h5rs>News</a><a href="/docs" aria-current="page" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav></div><div class="social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" data-tooltip="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" data-tooltip="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" data-tooltip="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" data-astro-cid-nen7h5rs><span class="icon-open" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg></span><span class="icon-close" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg></span></button></div><div class="mobile-menu" id="mobile-menu" data-astro-cid-nen7h5rs><div class="container mobile-menu-inner" data-astro-cid-nen7h5rs><nav class="mobile-nav" data-astro-cid-nen7h5rs><a href="/news" data-astro-cid-nen7h5rs>News</a><a href="/docs" aria-current="page" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav><div class="mobile-social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" title="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" title="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div></div></div></header><script type="module">var e=document.querySelector(`.site-header`),t=e?.querySelector(`.menu-toggle`),n=e?.querySelector(`.mobile-menu`);function r(){e?.classList.toggle(`scrolled`,window.scrollY>0)}function i(n){e?.classList.toggle(`menu-open`,n),t?.setAttribute(`aria-expanded`,String(n))}t?.addEventListener(`click`,()=>{i(!e?.classList.contains(`menu-open`))}),n?.addEventListener(`click`,e=>{e.target.closest(`a`)&&i(!1)}),document.addEventListener(`click`,t=>{e?.classList.contains(`menu-open`)&&!e.contains(t.target)&&i(!1)}),document.addEventListener(`keydown`,n=>{n.key===`Escape`&&e?.classList.contains(`menu-open`)&&(i(!1),t?.focus())}),window.matchMedia(`(min-width: 640px)`).addEventListener(`change`,e=>{e.matches&&i(!1)}),window.addEventListener(`scroll`,r,{passive:!0}),r();</script><main><script>
+    try {
+      if (localStorage.getItem('cutefish-docs-sidebar') === 'collapsed') {
+        document.documentElement.classList.add('docs-sidebar-collapsed');
+      }
+    } catch {}
+  </script><article class="container with-sidebar" data-astro-cid-scd62v54><div class="sidebar" id="docs-sidebar" data-astro-cid-scd62v54><button type="button" class="sidebar-collapse" aria-expanded="true" aria-controls="docs-sidebar" aria-label="Hide sidebar" title="Hide sidebar" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" />
+  <path d="M9 4v16" />
+  <path d="M15 10l-2 2l2 2" />
+</svg></button><nav aria-label="Docs" data-astro-cid-wk4lxtzo><a class="overview" href="/docs" data-astro-cid-wk4lxtzo>Overview</a><section data-astro-cid-wk4lxtzo><ul data-astro-cid-wk4lxtzo><li data-astro-cid-wk4lxtzo><a href="/docs/architecture" data-astro-cid-wk4lxtzo>Architecture</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/building" aria-current="page" data-astro-cid-wk4lxtzo>Building Cutefish from Source</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/translating" data-astro-cid-wk4lxtzo>Adding a Language</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/design-rules" data-astro-cid-wk4lxtzo>Design Rules</a></li></ul></section></nav></div><div class="main" data-astro-cid-scd62v54><header class="post-header" data-astro-cid-scd62v54><button type="button" class="sidebar-expand" aria-expanded="false" aria-controls="docs-sidebar" aria-label="Show sidebar" title="Show sidebar" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" />
+  <path d="M9 4v16" />
+  <path d="M14 10l2 2l-2 2" />
+</svg><span data-astro-cid-scd62v54>Docs</span></button><a class="back" href="/docs" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" />
+</svg>All docs</a><h1 data-astro-cid-scd62v54>Building Cutefish from Source</h1></header><div class="post" data-astro-cid-scd62v54><div class="prose" data-astro-cid-scd62v54>
+<p>How to build the Cutefish desktop from source and install it on an existing
+Linux distribution.</p>
+<p>This guide is written for people trying Cutefish early and for AI coding
+agents doing the build for them. Commands are complete and run in order;
+an agent can follow them step by step.</p>
+<p>Cutefish is developed and tested on Debian 13 (trixie). Other distributions
+work if they ship the library versions listed under
+<a href="#requirements">Requirements</a>; the package names below are Debian’s, and
+<a href="#other-distributions">Other distributions</a> explains how to find the
+equivalents.</p>
+<h2 id="components">Components</h2>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Need</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/cutefishos/cutefish-toolkit">cutefish-toolkit</a></td>
+<td>Required</td>
+<td>UI toolkit every component is built on</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/cutefish-framework">cutefish-framework</a></td>
+<td>Required</td>
+<td>Clients of system services, file operations, PDF documents</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/cutefish-core">cutefish-core</a></td>
+<td>Required</td>
+<td>Session, system services, polkit agent, screen recorder</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/cutefish-compositor">cutefish-compositor</a></td>
+<td>Required</td>
+<td>Wayland compositor, window manager, menu bar, dock, launcher, lock screen</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/filemanager">filemanager</a></td>
+<td>Required</td>
+<td>File manager; also draws the desktop and its icons</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/icons">icons</a></td>
+<td>Required</td>
+<td>Default icon theme</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/wallpapers">wallpapers</a></td>
+<td>Required</td>
+<td>Default wallpaper</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/settings">settings</a></td>
+<td>Recommended</td>
+<td>System Settings</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/terminal">terminal</a></td>
+<td>Recommended</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/xdg-desktop-portal-cutefish">xdg-desktop-portal-cutefish</a></td>
+<td>Recommended</td>
+<td>File chooser, screen sharing and settings for sandboxed and browser apps</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/cutefish-dm">cutefish-dm</a></td>
+<td>Optional</td>
+<td>Login screen; skip it if you keep SDDM, GDM or LightDM</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/qt-plugins">qt-plugins</a></td>
+<td>Optional</td>
+<td>Qt 6 apps follow dark mode, system fonts and icons, open the Cutefish file chooser, and scroll like Cutefish apps</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/text-editor">text-editor</a></td>
+<td>Optional</td>
+<td>Text editor</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/video-player">video-player</a></td>
+<td>Optional</td>
+<td>Video player</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/calendar">calendar</a></td>
+<td>Optional</td>
+<td>Calendar</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/calculator">calculator</a></td>
+<td>Optional</td>
+<td>Calculator</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/clock">clock</a></td>
+<td>Optional</td>
+<td>World clock, alarms, stopwatch and timers</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/disk-utility">disk-utility</a></td>
+<td>Optional</td>
+<td>Disks, partitions, volumes and disk images</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/preview">preview</a></td>
+<td>Optional</td>
+<td>Image and PDF viewer</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/system-monitor">system-monitor</a></td>
+<td>Optional</td>
+<td>System monitor</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cutefishos/cutefish-computer-use">cutefish-computer-use</a></td>
+<td>Optional</td>
+<td>MCP server that lets agents such as Claude Code and Codex see and use the desktop, with your permission</td>
+</tr>
+</tbody>
+</table>
+<p>Without the recommended components the desktop runs, but the Settings and
+Terminal icons pinned to the dock open nothing.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>A GPU with an EGL and OpenGL ES 2 driver and kernel modesetting. Virtual
+machines need a 3D-capable display device, such as virtio-gpu with
+virgl.</li>
+<li>systemd and systemd-logind.</li>
+<li>Wayland 1.23 or newer, wayland-protocols 1.39 or newer, PipeWire 0.3.65 or
+newer, CMake 3.22 or newer.</li>
+<li>A C++20 compiler (GCC or Clang) and Clang, which builds Skia.</li>
+<li>Network access before building, to download Skia for cutefish-toolkit,
+PDFium for cutefish-framework, and libghostty-vt with the Zig compiler
+that builds it for terminal.</li>
+<li>Optional components: Qt 6 for qt-plugins, libmpv 0.35 or newer for
+video-player, Rust and Cargo for cutefish-computer-use.</li>
+<li>gettext’s <code>msgfmt</code> for the translations. Without it everything still
+builds, in English only.</li>
+</ul>
+<p>Everything installs into <code>/usr</code>. Use <code>-DCMAKE_INSTALL_PREFIX=/usr</code> as shown;
+other prefixes do not work, because the session and the compositor start
+and trust their programs by their <code>/usr/bin</code> paths.</p>
+<h2 id="1-install-the-build-dependencies">1. Install the build dependencies</h2>
+<p>On Debian 13, for the required and recommended components:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> apt</span><span style="color:#9ECBFF"> update</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> apt</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> git</span><span style="color:#9ECBFF"> cmake</span><span style="color:#9ECBFF"> ninja-build</span><span style="color:#9ECBFF"> pkg-config</span><span style="color:#9ECBFF"> clang</span><span style="color:#9ECBFF"> python3</span><span style="color:#9ECBFF"> gettext</span><span style="color:#9ECBFF"> curl</span><span style="color:#9ECBFF"> minisign</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libwayland-dev</span><span style="color:#9ECBFF"> libwayland-bin</span><span style="color:#9ECBFF"> wayland-protocols</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libegl-dev</span><span style="color:#9ECBFF"> libgles-dev</span><span style="color:#9ECBFF"> libgbm-dev</span><span style="color:#9ECBFF"> libdrm-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libxkbcommon-dev</span><span style="color:#9ECBFF"> libinput-dev</span><span style="color:#9ECBFF"> libseat-dev</span><span style="color:#9ECBFF"> libudev-dev</span><span style="color:#9ECBFF"> libsystemd-dev</span><span style="color:#9ECBFF"> libpam0g-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libfontconfig-dev</span><span style="color:#9ECBFF"> libfreetype-dev</span><span style="color:#9ECBFF"> libharfbuzz-dev</span><span style="color:#9ECBFF"> libicu-dev</span><span style="color:#9ECBFF"> libexpat1-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libpng-dev</span><span style="color:#9ECBFF"> libjpeg-dev</span><span style="color:#9ECBFF"> zlib1g-dev</span><span style="color:#9ECBFF"> libwebp-dev</span><span style="color:#9ECBFF"> libtiff-dev</span><span style="color:#9ECBFF"> libheif-dev</span><span style="color:#9ECBFF"> libjxl-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    liblcms2-dev</span><span style="color:#9ECBFF"> libopenjp2-7-dev</span><span style="color:#9ECBFF"> libhwy-dev</span><span style="color:#9ECBFF"> libabsl-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libpipewire-0.3-dev</span><span style="color:#9ECBFF"> libspa-0.2-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libavcodec-dev</span><span style="color:#9ECBFF"> libavformat-dev</span><span style="color:#9ECBFF"> libavutil-dev</span><span style="color:#9ECBFF"> libswscale-dev</span><span style="color:#9ECBFF"> libva-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libxcb1-dev</span><span style="color:#9ECBFF"> libxcb-composite0-dev</span><span style="color:#9ECBFF"> libxcb-xfixes0-dev</span><span style="color:#9ECBFF"> libxcb-shape0-dev</span><span style="color:#9ECBFF"> libxcb-sync-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libarchive-dev</span><span style="color:#9ECBFF"> libfuse3-dev</span><span style="color:#9ECBFF"> libmtp-dev</span><span style="color:#9ECBFF"> libsmbclient-dev</span><span style="color:#9ECBFF"> libssh-dev</span><span style="color:#9ECBFF"> libzip-dev</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    libcrypt-dev</span><span style="color:#9ECBFF"> libxcursor-dev</span><span style="color:#9ECBFF"> libpcre2-dev</span><span style="color:#9ECBFF"> gtk-update-icon-cache</span></span></code></pre>
+<p>Add these for the optional components you want:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Packages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cutefish-dm</td>
+<td>none beyond the list above</td>
+</tr>
+<tr>
+<td>qt-plugins</td>
+<td><code>qt6-base-dev qt6-base-private-dev qt6-declarative-dev qt6-declarative-private-dev librsvg2-dev</code></td>
+</tr>
+<tr>
+<td>text-editor</td>
+<td>none beyond the list above</td>
+</tr>
+<tr>
+<td>video-player</td>
+<td><code>libmpv-dev</code></td>
+</tr>
+<tr>
+<td>calendar</td>
+<td><code>libcurl4-openssl-dev libical-dev</code></td>
+</tr>
+<tr>
+<td>calculator</td>
+<td>none beyond the list above</td>
+</tr>
+<tr>
+<td>clock</td>
+<td>none beyond the list above</td>
+</tr>
+<tr>
+<td>disk-utility</td>
+<td>none beyond the list above</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>none beyond the list above</td>
+</tr>
+<tr>
+<td>system-monitor</td>
+<td>none beyond the list above</td>
+</tr>
+<tr>
+<td>cutefish-computer-use</td>
+<td><code>rustc cargo librust-wayland-client-dev librust-wayland-scanner-dev librust-wayland-protocols-dev librust-wayland-backend-dev librust-serde-json-dev librust-png-dev librust-jpeg-encoder-dev librust-base64-dev librust-bitflags-dev librust-libc-dev librust-memmap2-dev</code></td>
+</tr>
+</tbody>
+</table>
+<p>To build the tests as well, add <code>libgtest-dev</code> and configure with
+<code>-DBUILD_TESTING=ON</code> instead of <code>OFF</code> in step 3.</p>
+<h2 id="2-get-the-sources">2. Get the sources</h2>
+<p>Clone the repositories side by side. Leave out the optional ones you do not
+want.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#B392F0">mkdir</span><span style="color:#79B8FF"> -p</span><span style="color:#9ECBFF"> ~/cutefish</span><span style="color:#E1E4E8"> &amp;&amp; </span><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/cutefish</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> repo </span><span style="color:#F97583">in</span><span style="color:#9ECBFF"> cutefish-toolkit</span><span style="color:#9ECBFF"> cutefish-framework</span><span style="color:#9ECBFF"> cutefish-core</span><span style="color:#9ECBFF"> cutefish-compositor</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    filemanager</span><span style="color:#9ECBFF"> icons</span><span style="color:#9ECBFF"> wallpapers</span><span style="color:#9ECBFF"> settings</span><span style="color:#9ECBFF"> terminal</span><span style="color:#9ECBFF"> xdg-desktop-portal-cutefish</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    cutefish-dm</span><span style="color:#9ECBFF"> qt-plugins</span><span style="color:#9ECBFF"> text-editor</span><span style="color:#9ECBFF"> video-player</span><span style="color:#9ECBFF"> calendar</span><span style="color:#9ECBFF"> calculator</span><span style="color:#9ECBFF"> clock</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    disk-utility</span><span style="color:#9ECBFF"> preview</span><span style="color:#9ECBFF"> system-monitor</span><span style="color:#9ECBFF"> cutefish-computer-use</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">do</span></span>
+<span class="line"><span style="color:#B392F0">    git</span><span style="color:#9ECBFF"> clone</span><span style="color:#9ECBFF"> https://github.com/cutefishos/</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">.git</span></span>
+<span class="line"><span style="color:#F97583">done</span></span></code></pre>
+<p>cutefish-toolkit builds a pinned revision of Skia and cutefish-framework a
+pinned revision of PDFium, which have to be fetched first:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#B392F0">cutefish-toolkit/scripts/fetch-skia.sh</span></span>
+<span class="line"><span style="color:#B392F0">cutefish-framework/scripts/fetch-pdfium.sh</span></span></code></pre>
+<h2 id="3-build-and-install">3. Build and install</h2>
+<p>terminal links <a href="https://github.com/ghostty-org/ghostty">libghostty-vt</a>
+1.0 statically, found as the pkg-config module <code>cutefish-ghostty-vt</code>. Build
+it first, with the Zig 0.17 release it needs; both downloads are checked
+against their publishers’ minisign keys. Skip this if you leave out
+terminal.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#B392F0">mkdir</span><span style="color:#79B8FF"> -p</span><span style="color:#9ECBFF"> ~/cutefish/ghostty-vt</span><span style="color:#E1E4E8"> &amp;&amp; </span><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/cutefish/ghostty-vt</span></span>
+<span class="line"><span style="color:#E1E4E8">zig</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">zig-</span><span style="color:#E1E4E8">$(</span><span style="color:#B392F0">uname</span><span style="color:#79B8FF"> -m</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">-linux-0.17.1</span></span>
+<span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -fsSLO</span><span style="color:#9ECBFF"> https://ziglang.org/download/0.17.1/</span><span style="color:#E1E4E8">$zig</span><span style="color:#9ECBFF">.tar.xz</span></span>
+<span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -fsSLO</span><span style="color:#9ECBFF"> https://ziglang.org/download/0.17.1/</span><span style="color:#E1E4E8">$zig</span><span style="color:#9ECBFF">.tar.xz.minisig</span></span>
+<span class="line"><span style="color:#B392F0">minisign</span><span style="color:#79B8FF"> -Vm</span><span style="color:#E1E4E8"> $zig</span><span style="color:#9ECBFF">.tar.xz</span><span style="color:#79B8FF"> -P</span><span style="color:#9ECBFF"> RWSGOq2NVecA2UPNdBUZykf1CCb147pkmdtYxgb3Ti+JO/wCYvhbAb/U</span></span>
+<span class="line"><span style="color:#B392F0">tar</span><span style="color:#79B8FF"> -xJf</span><span style="color:#E1E4E8"> $zig</span><span style="color:#9ECBFF">.tar.xz</span></span>
+<span class="line"><span style="color:#E1E4E8">base</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">https://release.files.ghostty.org/libghostty-vt/1.0.1</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> f </span><span style="color:#F97583">in</span><span style="color:#9ECBFF"> libghostty-vt-1.0.1.tar.gz</span><span style="color:#9ECBFF"> libghostty-vt-1.0.1-deps.tar.gz</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">do</span></span>
+<span class="line"><span style="color:#B392F0">    curl</span><span style="color:#79B8FF"> -fsSLO</span><span style="color:#E1E4E8"> $base</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">$f</span></span>
+<span class="line"><span style="color:#B392F0">    curl</span><span style="color:#79B8FF"> -fsSLO</span><span style="color:#E1E4E8"> $base</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">$f</span><span style="color:#9ECBFF">.minisig</span></span>
+<span class="line"><span style="color:#B392F0">    minisign</span><span style="color:#79B8FF"> -Vm</span><span style="color:#E1E4E8"> $f </span><span style="color:#79B8FF">-P</span><span style="color:#9ECBFF"> RWQlAjJC23149WL2sEpT/l0QKy7hMIFhYdQOFy0Z7z7PbneUgvlsnYcV</span></span>
+<span class="line"><span style="color:#B392F0">    tar</span><span style="color:#79B8FF"> -xzf</span><span style="color:#E1E4E8"> $f</span></span>
+<span class="line"><span style="color:#F97583">done</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> libghostty-vt-1.0.1</span></span>
+<span class="line"><span style="color:#E1E4E8">DESTDIR</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">~/cutefish/ghostty-vt/stage</span><span style="color:#79B8FF"> .</span><span style="color:#9ECBFF">./</span><span style="color:#E1E4E8">$zig</span><span style="color:#9ECBFF">/zig</span><span style="color:#9ECBFF"> build</span><span style="color:#79B8FF"> --prefix</span><span style="color:#9ECBFF"> /usr</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">    --prefix-lib-dir</span><span style="color:#9ECBFF"> lib/cutefish-ghostty-vt</span><span style="color:#79B8FF"> --prefix-include-dir</span><span style="color:#9ECBFF"> include/cutefish-ghostty-vt</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">    --system</span><span style="color:#9ECBFF"> ../libghostty-vt-1.0.1-deps</span><span style="color:#79B8FF"> -Doptimize=ReleaseFast</span></span></code></pre>
+<p>Install only the static library, the headers and a pkg-config file of
+Cutefish’s own, so nothing of it is needed at run time and a distribution’s
+libghostty-vt can sit beside it:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/cutefish/ghostty-vt/stage/usr</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -Dm644</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> /usr/lib/cutefish-ghostty-vt</span><span style="color:#9ECBFF"> lib/cutefish-ghostty-vt/libghostty-vt.a</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> cp</span><span style="color:#79B8FF"> -r</span><span style="color:#9ECBFF"> include/cutefish-ghostty-vt</span><span style="color:#9ECBFF"> /usr/include/</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -d</span><span style="color:#9ECBFF"> /usr/share/pkgconfig</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> tee</span><span style="color:#9ECBFF"> /usr/share/pkgconfig/cutefish-ghostty-vt.pc</span><span style="color:#F97583"> &gt;</span><span style="color:#9ECBFF"> /dev/null</span><span style="color:#F97583"> &lt;&lt;</span><span style="color:#9ECBFF"> 'EOF'</span></span>
+<span class="line"><span style="color:#9ECBFF">libdir=/usr/lib/cutefish-ghostty-vt</span></span>
+<span class="line"><span style="color:#9ECBFF">includedir=/usr/include/cutefish-ghostty-vt</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9ECBFF">Name: cutefish-ghostty-vt</span></span>
+<span class="line"><span style="color:#9ECBFF">Description: libghostty-vt, static, for building Cutefish</span></span>
+<span class="line"><span style="color:#9ECBFF">Version: 1.0.1</span></span>
+<span class="line"><span style="color:#9ECBFF">Cflags: -I${includedir} -DGHOSTTY_STATIC</span></span>
+<span class="line"><span style="color:#9ECBFF">Libs: -L${libdir} -lghostty-vt -lm</span></span>
+<span class="line"><span style="color:#9ECBFF">EOF</span></span>
+<span class="line"><span style="color:#B392F0">pkg-config</span><span style="color:#79B8FF"> --modversion</span><span style="color:#9ECBFF"> cutefish-ghostty-vt</span></span></code></pre>
+<p>The last command prints <code>1.0.1</code>.</p>
+<p>Then build the projects in this order. Each project is installed before the next is
+configured, because later projects find earlier ones through their
+installed CMake packages.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/cutefish</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> repo </span><span style="color:#F97583">in</span><span style="color:#9ECBFF"> cutefish-toolkit</span><span style="color:#9ECBFF"> cutefish-framework</span><span style="color:#9ECBFF"> qt-plugins</span><span style="color:#9ECBFF"> icons</span><span style="color:#9ECBFF"> cutefish-core</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    cutefish-dm</span><span style="color:#9ECBFF"> filemanager</span><span style="color:#9ECBFF"> terminal</span><span style="color:#9ECBFF"> xdg-desktop-portal-cutefish</span><span style="color:#9ECBFF"> settings</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    system-monitor</span><span style="color:#9ECBFF"> text-editor</span><span style="color:#9ECBFF"> video-player</span><span style="color:#9ECBFF"> calendar</span><span style="color:#9ECBFF"> calculator</span><span style="color:#9ECBFF"> clock</span><span style="color:#9ECBFF"> disk-utility</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    preview</span><span style="color:#9ECBFF"> cutefish-compositor</span><span style="color:#9ECBFF"> wallpapers</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">do</span></span>
+<span class="line"><span style="color:#E1E4E8">    [ </span><span style="color:#F97583">-d</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8"> ] </span><span style="color:#F97583">||</span><span style="color:#F97583"> continue</span></span>
+<span class="line"><span style="color:#B392F0">    cmake</span><span style="color:#79B8FF"> -S</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF"> -B</span><span style="color:#9ECBFF"> "build/</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF"> -DCMAKE_INSTALL_PREFIX=/usr</span><span style="color:#79B8FF"> -DCMAKE_BUILD_TYPE=Release</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">        -DBUILD_TESTING=OFF</span><span style="color:#F97583"> ||</span><span style="color:#F97583"> break</span></span>
+<span class="line"><span style="color:#B392F0">    cmake</span><span style="color:#79B8FF"> --build</span><span style="color:#9ECBFF"> "build/</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF"> --parallel</span><span style="color:#9ECBFF"> "$(</span><span style="color:#B392F0">nproc</span><span style="color:#9ECBFF">)"</span><span style="color:#F97583"> ||</span><span style="color:#F97583"> break</span></span>
+<span class="line"><span style="color:#B392F0">    sudo</span><span style="color:#9ECBFF"> cmake</span><span style="color:#79B8FF"> --install</span><span style="color:#9ECBFF"> "build/</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">"</span><span style="color:#F97583"> ||</span><span style="color:#F97583"> break</span></span>
+<span class="line"><span style="color:#F97583">done</span></span></code></pre>
+<p>The loop stops at the first failure; fix it, usually a missing package, and
+run it again. cutefish-toolkit takes the longest, since it builds Skia.</p>
+<p>cutefish-computer-use is built with Cargo instead:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/cutefish/cutefish-computer-use</span></span>
+<span class="line"><span style="color:#B392F0">cargo</span><span style="color:#9ECBFF"> build</span><span style="color:#79B8FF"> --release</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> target/release/cutefish-computer-use</span><span style="color:#9ECBFF"> /usr/bin/</span></span></code></pre>
+<p>To let an agent use it, see
+<a href="https://cutefish.org/blog/letting-agents-use-the-desktop">Letting agents use the desktop</a>.</p>
+<p>To build the compositor without X11 application support, which also drops
+the <code>libxcb-*</code> build dependencies, configure it with
+<code>-DCUTEFISH_ENABLE_XWAYLAND=OFF</code>.</p>
+<h2 id="4-install-the-runtime-dependencies">4. Install the runtime dependencies</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> apt</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> accountsservice</span><span style="color:#9ECBFF"> polkitd</span><span style="color:#9ECBFF"> gsettings-desktop-schemas</span><span style="color:#9ECBFF"> xdg-user-dirs</span><span style="color:#9ECBFF"> locales</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    network-manager</span><span style="color:#9ECBFF"> bluez</span><span style="color:#9ECBFF"> upower</span><span style="color:#9ECBFF"> power-profiles-daemon</span><span style="color:#9ECBFF"> udisks2</span><span style="color:#9ECBFF"> fuse3</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    pipewire</span><span style="color:#9ECBFF"> pipewire-pulse</span><span style="color:#9ECBFF"> wireplumber</span><span style="color:#9ECBFF"> gnome-keyring</span><span style="color:#9ECBFF"> libpam-gnome-keyring</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    xdg-desktop-portal</span><span style="color:#9ECBFF"> xwayland</span><span style="color:#9ECBFF"> adwaita-icon-theme</span></span></code></pre>
+<p><code>xwayland</code> runs X11 applications; <code>adwaita-icon-theme</code> provides the fallback
+cursors; <code>locales</code> lets Cutefish generate the locale of a language picked in
+Settings, so its dates and numbers follow it too. Disk Utility formats with
+<code>e2fsprogs</code>, <code>exfatprogs</code>, <code>dosfstools</code>, <code>ntfs-3g</code>, <code>btrfs-progs</code> and
+<code>xfsprogs</code>; a format whose tools are missing is offered disabled. <code>systemd-coredump</code> is recommended, so the crash dialog can show
+what crashed.</p>
+<h2 id="5-log-in">5. Log in</h2>
+<h3 id="with-your-existing-display-manager">With your existing display manager</h3>
+<p>Log out, choose <strong>Cutefish (Wayland)</strong> in the session menu of SDDM, GDM or
+LightDM, and log in. Nothing else is needed; cutefish-dm can stay
+uninstalled.</p>
+<h3 id="with-cutefish-dm-optional">With cutefish-dm (optional)</h3>
+<p>cutefish-dm runs its login screen as a system user, which a source install
+has to create once:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> useradd</span><span style="color:#79B8FF"> --system</span><span style="color:#79B8FF"> --user-group</span><span style="color:#79B8FF"> --home-dir</span><span style="color:#9ECBFF"> /var/lib/cutefish-greeter</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">    --create-home</span><span style="color:#9ECBFF"> cutefish-greeter</span></span></code></pre>
+<p>Then replace the current display manager. This takes effect at the next
+boot; replace <code>sddm</code> with <code>gdm3</code> or <code>lightdm</code> as appropriate.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> systemctl</span><span style="color:#9ECBFF"> disable</span><span style="color:#9ECBFF"> sddm</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> systemctl</span><span style="color:#9ECBFF"> enable</span><span style="color:#9ECBFF"> cutefish-dm</span></span></code></pre>
+<p>To go back, run the same commands with the names swapped.</p>
+<h2 id="updating">Updating</h2>
+<p>Pull every repository, fetch Skia and PDFium again in case their pinned
+revisions changed, and run the loop in step 3 again, along with the Cargo build of
+cutefish-computer-use if you have it:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/cutefish</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> repo </span><span style="color:#F97583">in</span><span style="color:#9ECBFF"> */</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">do</span><span style="color:#E1E4E8"> [ </span><span style="color:#F97583">-d</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">/.git"</span><span style="color:#E1E4E8"> ] &amp;&amp; </span><span style="color:#B392F0">git</span><span style="color:#79B8FF"> -C</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">$repo</span><span style="color:#9ECBFF">"</span><span style="color:#9ECBFF"> pull</span><span style="color:#79B8FF"> --ff-only</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">done</span></span>
+<span class="line"><span style="color:#B392F0">cutefish-toolkit/scripts/fetch-skia.sh</span></span>
+<span class="line"><span style="color:#B392F0">cutefish-framework/scripts/fetch-pdfium.sh</span></span></code></pre>
+<p>libghostty-vt needs rebuilding only when terminal’s README asks for a newer
+version.</p>
+<p>Log out and back in afterwards. The file manager also draws the desktop, so
+a new filemanager build takes effect at the next login.</p>
+<h2 id="uninstalling">Uninstalling</h2>
+<p>Each build directory records what it installed:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/cutefish</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> manifest </span><span style="color:#F97583">in</span><span style="color:#9ECBFF"> build/*/install_manifest.txt</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">do</span></span>
+<span class="line"><span style="color:#B392F0">    xargs</span><span style="color:#79B8FF"> -d</span><span style="color:#9ECBFF"> '\n'</span><span style="color:#9ECBFF"> sudo</span><span style="color:#9ECBFF"> rm</span><span style="color:#79B8FF"> -f</span><span style="color:#79B8FF"> --</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">$manifest</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#F97583">done</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> rm</span><span style="color:#79B8FF"> -f</span><span style="color:#9ECBFF"> /usr/bin/cutefish-computer-use</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> rm</span><span style="color:#79B8FF"> -rf</span><span style="color:#9ECBFF"> /usr/lib/cutefish-ghostty-vt</span><span style="color:#9ECBFF"> /usr/include/cutefish-ghostty-vt</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">    /usr/share/pkgconfig/cutefish-ghostty-vt.pc</span></span></code></pre>
+<p>Switch back to your previous display manager first if you enabled
+cutefish-dm.</p>
+<h2 id="other-distributions">Other distributions</h2>
+<p>Build dependencies are looked up through pkg-config, apart from a few
+libraries found by name, noted in the table. Install the package that
+provides each module below; on Fedora, <code>sudo dnf install 'pkgconfig(&lt;module&gt;)'</code> does this directly, and on Arch Linux,
+<code>pacman -F &lt;module&gt;.pc</code> names the package.</p>
+<table>
+<thead>
+<tr>
+<th>Components</th>
+<th>pkg-config modules</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All</td>
+<td><code>wayland-client</code> (&gt;= 1.23), <code>wayland-server</code>, <code>wayland-egl</code>, <code>wayland-scanner</code>, <code>wayland-protocols</code> (&gt;= 1.39), <code>egl</code>, <code>glesv2</code>, <code>xkbcommon</code>, <code>libsystemd</code>, <code>fontconfig</code>, <code>freetype2</code>, <code>harfbuzz</code>, <code>icu-uc</code>, <code>icu-i18n</code>, <code>expat</code>, <code>libpng</code>, <code>libjpeg</code>, <code>zlib</code>, <code>libwebp</code>, <code>libtiff-4</code>, <code>libheif</code>, <code>libjxl</code>, <code>libjxl_threads</code></td>
+</tr>
+<tr>
+<td>cutefish-framework</td>
+<td><code>libpipewire-0.3</code> (&gt;= 0.3.65), <code>libspa-0.2</code>, <code>harfbuzz-subset</code>, <code>lcms2</code>, <code>libopenjp2</code>, <code>libhwy</code>, <code>absl_flat_hash_set</code>, <code>absl_inlined_vector</code>, <code>absl_cleanup</code></td>
+</tr>
+<tr>
+<td>cutefish-core</td>
+<td><code>gbm</code>, <code>libdrm</code>, <code>libavcodec</code>, <code>libavformat</code>, <code>libavutil</code>, <code>libswscale</code>, <code>libva</code></td>
+</tr>
+<tr>
+<td>cutefish-compositor</td>
+<td><code>gbm</code>, <code>libdrm</code>, <code>libinput</code>, <code>libseat</code>, <code>libudev</code>, <code>xcb</code>, <code>xcb-composite</code>, <code>xcb-xfixes</code>, <code>xcb-shape</code>, <code>xcb-sync</code>; the PAM library</td>
+</tr>
+<tr>
+<td>cutefish-dm</td>
+<td>the PAM library</td>
+</tr>
+<tr>
+<td>filemanager</td>
+<td><code>libarchive</code>, <code>fuse3</code>, <code>libmtp</code>, <code>smbclient</code>, <code>libssh</code>, <code>libudev</code>, and the libzip headers and library</td>
+</tr>
+<tr>
+<td>settings</td>
+<td><code>xcursor</code>; the libcrypt library</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td><code>libpcre2-8</code>; <code>cutefish-ghostty-vt</code>, built in step 3</td>
+</tr>
+<tr>
+<td>text-editor</td>
+<td><code>libpcre2-8</code></td>
+</tr>
+<tr>
+<td>video-player</td>
+<td><code>mpv</code> (&gt;= 2.0, from libmpv 0.35)</td>
+</tr>
+<tr>
+<td>calendar</td>
+<td><code>libcurl</code>, <code>libical</code></td>
+</tr>
+<tr>
+<td>qt-plugins</td>
+<td>Qt 6 Core, Gui, Widgets, DBus, Quick and their private headers; <code>librsvg-2.0</code></td>
+</tr>
+</tbody>
+</table>
+<p>cutefish-computer-use’s <code>.cargo/config.toml</code> builds offline against Debian’s
+packaged crates in <code>/usr/share/cargo/registry</code>. Elsewhere, delete that file
+and Cargo fetches the same crates from crates.io.</p>
+<p>Besides libraries, the build needs <code>git</code>, <code>cmake</code>, <code>ninja</code>, <code>pkg-config</code>,
+<code>clang</code>, <code>python3</code>, gettext (for translations), <code>gtk-update-icon-cache</code>
+(for icons), and <code>curl</code> and <code>minisign</code> (for libghostty-vt). Use the Zig
+release step 3 downloads rather than a distribution’s Zig, since
+libghostty-vt 1.0 needs Zig 0.17. The runtime services in step 4 go by the same names on most
+distributions:
+NetworkManager, BlueZ, UPower, power-profiles-daemon, UDisks2, PipeWire with
+WirePlumber, AccountsService, polkit, GNOME Keyring, xdg-desktop-portal and
+Xwayland.</p>
+</div><aside class="contents" aria-labelledby="contents-heading" data-astro-cid-scd62v54><h2 id="contents-heading" data-astro-cid-scd62v54>Contents</h2><nav aria-labelledby="contents-heading" data-astro-cid-scd62v54><ul data-astro-cid-scd62v54><li data-astro-cid-scd62v54><a href="#components" data-astro-cid-scd62v54>Components</a></li><li data-astro-cid-scd62v54><a href="#requirements" data-astro-cid-scd62v54>Requirements</a></li><li data-astro-cid-scd62v54><a href="#1-install-the-build-dependencies" data-astro-cid-scd62v54>1. Install the build dependencies</a></li><li data-astro-cid-scd62v54><a href="#2-get-the-sources" data-astro-cid-scd62v54>2. Get the sources</a></li><li data-astro-cid-scd62v54><a href="#3-build-and-install" data-astro-cid-scd62v54>3. Build and install</a></li><li data-astro-cid-scd62v54><a href="#4-install-the-runtime-dependencies" data-astro-cid-scd62v54>4. Install the runtime dependencies</a></li><li data-astro-cid-scd62v54><a href="#5-log-in" data-astro-cid-scd62v54>5. Log in</a></li><li class="nested" data-astro-cid-scd62v54><a href="#with-your-existing-display-manager" data-astro-cid-scd62v54>With your existing display manager</a></li><li class="nested" data-astro-cid-scd62v54><a href="#with-cutefish-dm-optional" data-astro-cid-scd62v54>With cutefish-dm (optional)</a></li><li data-astro-cid-scd62v54><a href="#updating" data-astro-cid-scd62v54>Updating</a></li><li data-astro-cid-scd62v54><a href="#uninstalling" data-astro-cid-scd62v54>Uninstalling</a></li><li data-astro-cid-scd62v54><a href="#other-distributions" data-astro-cid-scd62v54>Other distributions</a></li></ul></nav></aside></div></div></article><script type="module">var e=document.querySelector(`.contents`),t=[...document.querySelectorAll(`.contents a`)],n=t.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))),r=89,i=-1;function a(t,n){if(!e||e.scrollHeight<=e.clientHeight)return;let r=e.getBoundingClientRect(),i=t.getBoundingClientRect(),a=i.top-r.top+e.scrollTop,o=a+i.height;a<e.scrollTop+48?e.scrollTo({top:Math.max(0,a-48),behavior:n?`smooth`:`auto`}):o>e.scrollTop+e.clientHeight-48&&e.scrollTo({top:o-e.clientHeight+48,behavior:n?`smooth`:`auto`})}function o(e=!0){let o=-1;window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-1?o=n.length-1:n.forEach((e,t)=>{e&&e.getBoundingClientRect().top<=r&&(o=t)}),o!==i&&(i=o,t.forEach((e,t)=>{t===o?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`)}),o>=0&&a(t[o],e))}var s=!1;window.addEventListener(`scroll`,()=>{s||(s=!0,requestAnimationFrame(()=>{s=!1,o(!0)}))},{passive:!0}),t.length>0&&o(!1);var c=`cutefish-docs-sidebar`,l=document.querySelector(`.sidebar-collapse`),u=document.querySelector(`.sidebar-expand`);function d(e,t){if(document.documentElement.classList.toggle(`docs-sidebar-collapsed`,e),t)try{e?localStorage.setItem(c,`collapsed`):localStorage.removeItem(c)}catch{}}l&&u&&(l.addEventListener(`click`,()=>{d(!0,!0)}),u.addEventListener(`click`,()=>{d(!1,!0)}));</script></main><footer class="site-footer" data-astro-cid-jo6i4kqk><div class="container" data-astro-cid-jo6i4kqk><div class="top" data-astro-cid-jo6i4kqk><div class="about" data-astro-cid-jo6i4kqk><p class="tagline" data-astro-cid-jo6i4kqk>A fast, clean Linux distribution designed with Mac users in mind.</p></div><nav class="groups" data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Get Cutefish</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://download.cutefish.org/" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk>Downloads</a></li><li data-astro-cid-jo6i4kqk><a href="/docs" data-astro-cid-jo6i4kqk>Docs</a></li><li data-astro-cid-jo6i4kqk><a href="/reef" data-astro-cid-jo6i4kqk>Reef</a></li><li data-astro-cid-jo6i4kqk><a href="/blog/how-cutefish-is-built" data-astro-cid-jo6i4kqk>Build from Source</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Community</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>GitHub</a></li><li data-astro-cid-jo6i4kqk><a href="https://github.com/sponsors/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+</svg>GitHub Sponsors</a></li><li data-astro-cid-jo6i4kqk><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg>Discord</a></li><li data-astro-cid-jo6i4kqk><a href="https://x.com/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg>X</a></li><li data-astro-cid-jo6i4kqk><a href="mailto:hello@cutefish.org" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+  <path d="M3 7l9 6l9 -6" />
+</svg>Email</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Site</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="/news" data-astro-cid-jo6i4kqk>News</a></li><li data-astro-cid-jo6i4kqk><a href="/about" data-astro-cid-jo6i4kqk>About</a></li><li data-astro-cid-jo6i4kqk><a href="/privacy" data-astro-cid-jo6i4kqk>Privacy</a></li><li data-astro-cid-jo6i4kqk><a href="/legal" data-astro-cid-jo6i4kqk>Legal</a></li><li data-astro-cid-jo6i4kqk><a href="/rss.xml" data-astro-cid-jo6i4kqk>RSS</a></li></ul></div></nav></div><div class="bottom" data-astro-cid-jo6i4kqk><p data-astro-cid-jo6i4kqk>&copy; 2021&ndash;2026 Cutefish</p><p data-astro-cid-jo6i4kqk>Apple, Mac and macOS are trademarks of Apple Inc. Linux is the registered trademark of Linus Torvalds. Cutefish is not affiliated with Apple.</p></div></div></footer></body></html>

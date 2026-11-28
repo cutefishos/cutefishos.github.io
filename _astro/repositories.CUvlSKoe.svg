@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 848" width="640" height="848" role="img" aria-labelledby="t d">
+<title id="t">Cutefish repositories</title>
+<desc id="d">Which repositories build on cutefish-framework and cutefish-toolkit, which build on the toolkit alone, which stand alone, and the packaging repository that builds them all.</desc>
+<style>
+.bg{fill:#f6f7f9}
+.card{fill:#ffffff;stroke:#dfe2e7;stroke-width:1}
+.cf{fill:#ebf3ff;stroke:#a8c7fb;stroke-width:1}
+.cfs{fill:#3385ff}
+.cfband{fill:#d6e6ff}
+.sys{fill:#eceef1;stroke:#dadde2;stroke-width:1}
+.warm{fill:#fff3e2;stroke:#f2c27c;stroke-width:1}
+.chip{fill:#ffffff;stroke:#d5d9df;stroke-width:1}
+.chipb{fill:#ffffff;stroke:#b9d2fb;stroke-width:1}
+text{font-family:system-ui, -apple-system, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;fill:#323238;font-size:14px}
+.b{font-weight:600}
+.s{fill:#686872;font-size:13px}
+.xs{fill:#686872;font-size:12px}
+.c{font-size:13px}
+.cap{fill:#7b7b85;font-size:11.5px;font-weight:600;letter-spacing:.08em}
+.m{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:13px}
+.ms{font-family:ui-monospace, 'SF Mono', 'Cascadia Mono', 'DejaVu Sans Mono', Menlo, monospace;font-size:12px;fill:#686872}
+.on{fill:#ffffff;font-weight:600}
+.ln{fill:none;stroke:#9aa0aa;stroke-width:1.5}
+.lnb{fill:none;stroke:#3385ff;stroke-width:1.5}
+.lnd{fill:none;stroke:#3385ff;stroke-width:1.5;stroke-dasharray:5 4}
+.vb{fill:none;stroke:#c3c8d0;stroke-width:1;stroke-dasharray:3 4}
+.ah{fill:#9aa0aa}
+.ahb{fill:#3385ff}
+.dot{fill:#3385ff}
+@media (prefers-color-scheme: dark) {
+.bg{fill:#1f1f21}
+.card{fill:#2a2a2d;stroke:#3b3b40}
+.cf{fill:#1b2a43;stroke:#2e5596}
+.cfband{fill:#22375a}
+.sys{fill:#28282b;stroke:#38383d}
+.warm{fill:#382b19;stroke:#8a6228}
+.chip{fill:#323236;stroke:#45454b}
+.chipb{fill:#24324a;stroke:#35588f}
+text{fill:#f0f0f3}
+.s,.xs,.ms{fill:#a2a2ab}
+.cap{fill:#8e8e97}
+.on{fill:#ffffff}
+.ln{stroke:#7a7f88}
+.vb{stroke:#4a4a50}
+.ah{fill:#7a7f88}
+}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahb" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="bg" width="640" height="848"/>
+<rect class="sys" x="24" y="24" width="592" height="62" rx="10"/>
+<text x="40" y="50" class="m b">packaging</text>
+<text x="40" y="70" class="xs">builds every repository into Debian packages, the APT repository and the ISO</text>
+<rect class="card" x="24" y="114" width="246" height="263" rx="10"/>
+<text x="40" y="141" class="b">Toolkit and framework</text>
+<rect class="chipb" x="40" y="156" width="179.266" height="28" rx="7"/>
+<text x="129.633" y="174.5" class="m" text-anchor="middle">cutefish-compositor</text>
+<rect class="chipb" x="40" y="191" width="128.971" height="28" rx="7"/>
+<text x="104.486" y="209.5" class="m" text-anchor="middle">cutefish-core</text>
+<rect class="chipb" x="40" y="226" width="112.206" height="28" rx="7"/>
+<text x="96.1032" y="244.5" class="m" text-anchor="middle">filemanager</text>
+<rect class="chipb" x="159.206" y="226" width="87.0592" height="28" rx="7"/>
+<text x="202.736" y="244.5" class="m" text-anchor="middle">settings</text>
+<rect class="chipb" x="40" y="261" width="78.6768" height="28" rx="7"/>
+<text x="79.3384" y="279.5" class="m" text-anchor="middle">preview</text>
+<rect class="card" x="282" y="114" width="334" height="263" rx="10"/>
+<text x="298" y="141" class="b">Toolkit alone</text>
+<rect class="chipb" x="298" y="156" width="112.206" height="28" rx="7"/>
+<text x="354.103" y="174.5" class="m" text-anchor="middle">cutefish-dm</text>
+<rect class="chipb" x="298" y="191" width="246.325" height="28" rx="7"/>
+<text x="421.162" y="209.5" class="m" text-anchor="middle">xdg-desktop-portal-cutefish</text>
+<rect class="chipb" x="298" y="226" width="170.883" height="28" rx="7"/>
+<text x="383.442" y="244.5" class="m" text-anchor="middle">cutefish-installer</text>
+<rect class="chipb" x="475.883" y="226" width="87.0592" height="28" rx="7"/>
+<text x="519.413" y="244.5" class="m" text-anchor="middle">terminal</text>
+<rect class="chipb" x="298" y="261" width="112.206" height="28" rx="7"/>
+<text x="354.103" y="279.5" class="m" text-anchor="middle">text-editor</text>
+<rect class="chipb" x="417.206" y="261" width="120.589" height="28" rx="7"/>
+<text x="477.501" y="279.5" class="m" text-anchor="middle">video-player</text>
+<rect class="chipb" x="298" y="296" width="87.0592" height="28" rx="7"/>
+<text x="341.53" y="314.5" class="m" text-anchor="middle">calendar</text>
+<rect class="chipb" x="392.059" y="296" width="103.824" height="28" rx="7"/>
+<text x="443.971" y="314.5" class="m" text-anchor="middle">calculator</text>
+<rect class="chipb" x="502.883" y="296" width="61.912" height="28" rx="7"/>
+<text x="533.839" y="314.5" class="m" text-anchor="middle">clock</text>
+<rect class="chipb" x="298" y="331" width="120.589" height="28" rx="7"/>
+<text x="358.294" y="349.5" class="m" text-anchor="middle">disk-utility</text>
+<rect class="chipb" x="425.589" y="331" width="137.354" height="28" rx="7"/>
+<text x="494.266" y="349.5" class="m" text-anchor="middle">system-monitor</text>
+<rect class="cf" x="24" y="407" width="246" height="58" rx="10"/>
+<text x="38" y="432" class="m b">cutefish-framework</text>
+<text x="38" y="451" class="s">clients/ · files/ · pdf/</text>
+<path class="lnb" d="M147.0 379 V403" marker-end="url(#ab)"/>
+<rect class="cf" x="24" y="495" width="592" height="104" rx="10"/>
+<text x="40" y="522" class="m b">cutefish-toolkit</text>
+<rect class="chipb" x="40" y="537" width="275" height="46" rx="8"/>
+<text x="54" y="556" class="m">Cutefish::ToolkitBase</text>
+<text x="54" y="574" class="xs">loop, D-Bus, files, settings</text>
+<rect class="chipb" x="325" y="537" width="275" height="46" rx="8"/>
+<text x="339" y="556" class="m">Cutefish::Toolkit</text>
+<text x="339" y="574" class="xs">Wayland, Skia GPU, views, text</text>
+<path class="lnb" d="M147.0 467 V491" marker-end="url(#ab)"/>
+<path class="lnb" d="M449.0 379 V491" marker-end="url(#ab)"/>
+<rect class="sys" x="24" y="609" width="592" height="82" rx="10"/>
+<rect class="chip" x="40" y="621" width="45.825" height="26" rx="13"/>
+<text x="62.9125" y="638.5" class="c" text-anchor="middle">Skia</text>
+<rect class="chip" x="91.825" y="621" width="80.54" height="26" rx="13"/>
+<text x="132.095" y="638.5" class="c" text-anchor="middle">HarfBuzz</text>
+<rect class="chip" x="178.365" y="621" width="80.54" height="26" rx="13"/>
+<text x="218.635" y="638.5" class="c" text-anchor="middle">FreeType</text>
+<rect class="chip" x="264.905" y="621" width="45.03" height="26" rx="13"/>
+<text x="287.42" y="638.5" class="c" text-anchor="middle">ICU</text>
+<rect class="chip" x="315.935" y="621" width="88.755" height="26" rx="13"/>
+<text x="360.313" y="638.5" class="c" text-anchor="middle">fontconfig</text>
+<rect class="chip" x="410.69" y="621" width="85.84" height="26" rx="13"/>
+<text x="453.61" y="638.5" class="c" text-anchor="middle">libwayland</text>
+<rect class="chip" x="502.53" y="621" width="62.52" height="26" rx="13"/>
+<text x="533.79" y="638.5" class="c" text-anchor="middle">sd-bus</text>
+<rect class="chip" x="40" y="653" width="89.02" height="26" rx="13"/>
+<text x="84.51" y="670.5" class="c" text-anchor="middle">EGL, GLES</text>
+<text x="24" y="721" class="cap">STANDALONE</text>
+<rect class="card" x="24" y="733" width="592" height="91" rx="10"/>
+<rect class="chip" x="40" y="747" width="103.824" height="28" rx="7"/>
+<text x="91.912" y="765.5" class="m" text-anchor="middle">qt-plugins</text>
+<rect class="chip" x="150.824" y="747" width="196.03" height="28" rx="7"/>
+<text x="248.839" y="765.5" class="m" text-anchor="middle">cutefish-computer-use</text>
+<rect class="chip" x="353.854" y="747" width="145.736" height="28" rx="7"/>
+<text x="426.722" y="765.5" class="m" text-anchor="middle">cutefish-webkit</text>
+<rect class="chip" x="506.59" y="747" width="61.912" height="28" rx="7"/>
+<text x="537.546" y="765.5" class="m" text-anchor="middle">icons</text>
+<rect class="chip" x="40" y="782" width="103.824" height="28" rx="7"/>
+<text x="91.912" y="800.5" class="m" text-anchor="middle">wallpapers</text>
+<rect class="chip" x="150.824" y="782" width="137.354" height="28" rx="7"/>
+<text x="219.501" y="800.5" class="m" text-anchor="middle">plymouth-theme</text>
+</svg>

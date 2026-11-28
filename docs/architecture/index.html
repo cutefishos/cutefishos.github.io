@@ -1,0 +1,651 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Architecture - Cutefish</title><meta name="description" content="How the Cutefish desktop is put together: the processes that run, the libraries they share, the Wayland protocols between them, and the path a frame and an input event take through the system. It is written for people who want to read or change the code, and assumes some familiarity with Linux and Wayland."><link rel="canonical" href="https://cutefish.org/docs/architecture/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Cutefish" href="/rss.xml"><meta property="og:site_name" content="Cutefish"><meta property="og:type" content="website"><meta property="og:title" content="Architecture - Cutefish"><meta property="og:description" content="How the Cutefish desktop is put together: the processes that run, the libraries they share, the Wayland protocols between them, and the path a frame and an input event take through the system. It is written for people who want to read or change the code, and assumes some familiarity with Linux and Wayland."><meta property="og:url" content="https://cutefish.org/docs/architecture/"><meta property="og:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Cutefish desktop with the Dock"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@cutefishos"><meta name="twitter:title" content="Architecture - Cutefish"><meta name="twitter:description" content="How the Cutefish desktop is put together: the processes that run, the libraries they share, the Wayland protocols between them, and the path a frame and an input event take through the system. It is written for people who want to read or change the code, and assumes some familiarity with Linux and Wayland."><meta name="twitter:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><link rel="stylesheet" href="/_astro/Base.BjIL4Lm1.css"><link rel="stylesheet" href="/_astro/Article.5vZ1h0Zs.css"><style>nav[data-astro-cid-wk4lxtzo]{flex-direction:column;gap:16px;display:flex}h2[data-astro-cid-wk4lxtzo]{color:var(--text);margin:0 0 4px;font-size:.875rem}ul[data-astro-cid-wk4lxtzo]{margin:0;padding:0;list-style:none}a[data-astro-cid-wk4lxtzo]{color:var(--secondary-text);padding:5px 0;font-size:.875rem;line-height:1.4;display:block}.overview[data-astro-cid-wk4lxtzo]{color:var(--text);font-weight:600}a[data-astro-cid-wk4lxtzo]:hover{color:var(--text);text-decoration:none}a[data-astro-cid-wk4lxtzo][aria-current]{color:var(--highlight);font-weight:600}
+</style></head><body><header class="site-header" data-astro-cid-nen7h5rs><div class="container bar" data-astro-cid-nen7h5rs><div class="left" data-astro-cid-nen7h5rs><a class="brand" href="/" data-astro-cid-nen7h5rs><img src="/favicon.svg" alt="" width="28" height="28" data-astro-cid-nen7h5rs><span data-astro-cid-nen7h5rs>Cutefish</span></a><nav class="desktop-nav" data-astro-cid-nen7h5rs><a href="/news" data-astro-cid-nen7h5rs>News</a><a href="/docs" aria-current="page" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav></div><div class="social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" data-tooltip="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" data-tooltip="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" data-tooltip="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" data-astro-cid-nen7h5rs><span class="icon-open" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg></span><span class="icon-close" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg></span></button></div><div class="mobile-menu" id="mobile-menu" data-astro-cid-nen7h5rs><div class="container mobile-menu-inner" data-astro-cid-nen7h5rs><nav class="mobile-nav" data-astro-cid-nen7h5rs><a href="/news" data-astro-cid-nen7h5rs>News</a><a href="/docs" aria-current="page" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav><div class="mobile-social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" title="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" title="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div></div></div></header><script type="module">var e=document.querySelector(`.site-header`),t=e?.querySelector(`.menu-toggle`),n=e?.querySelector(`.mobile-menu`);function r(){e?.classList.toggle(`scrolled`,window.scrollY>0)}function i(n){e?.classList.toggle(`menu-open`,n),t?.setAttribute(`aria-expanded`,String(n))}t?.addEventListener(`click`,()=>{i(!e?.classList.contains(`menu-open`))}),n?.addEventListener(`click`,e=>{e.target.closest(`a`)&&i(!1)}),document.addEventListener(`click`,t=>{e?.classList.contains(`menu-open`)&&!e.contains(t.target)&&i(!1)}),document.addEventListener(`keydown`,n=>{n.key===`Escape`&&e?.classList.contains(`menu-open`)&&(i(!1),t?.focus())}),window.matchMedia(`(min-width: 640px)`).addEventListener(`change`,e=>{e.matches&&i(!1)}),window.addEventListener(`scroll`,r,{passive:!0}),r();</script><main><script>
+    try {
+      if (localStorage.getItem('cutefish-docs-sidebar') === 'collapsed') {
+        document.documentElement.classList.add('docs-sidebar-collapsed');
+      }
+    } catch {}
+  </script><article class="container with-sidebar" data-astro-cid-scd62v54><div class="sidebar" id="docs-sidebar" data-astro-cid-scd62v54><button type="button" class="sidebar-collapse" aria-expanded="true" aria-controls="docs-sidebar" aria-label="Hide sidebar" title="Hide sidebar" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" />
+  <path d="M9 4v16" />
+  <path d="M15 10l-2 2l2 2" />
+</svg></button><nav aria-label="Docs" data-astro-cid-wk4lxtzo><a class="overview" href="/docs" data-astro-cid-wk4lxtzo>Overview</a><section data-astro-cid-wk4lxtzo><ul data-astro-cid-wk4lxtzo><li data-astro-cid-wk4lxtzo><a href="/docs/architecture" aria-current="page" data-astro-cid-wk4lxtzo>Architecture</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/building" data-astro-cid-wk4lxtzo>Building Cutefish from Source</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/translating" data-astro-cid-wk4lxtzo>Adding a Language</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/design-rules" data-astro-cid-wk4lxtzo>Design Rules</a></li></ul></section></nav></div><div class="main" data-astro-cid-scd62v54><header class="post-header" data-astro-cid-scd62v54><button type="button" class="sidebar-expand" aria-expanded="false" aria-controls="docs-sidebar" aria-label="Show sidebar" title="Show sidebar" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" />
+  <path d="M9 4v16" />
+  <path d="M14 10l2 2l-2 2" />
+</svg><span data-astro-cid-scd62v54>Docs</span></button><a class="back" href="/docs" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" />
+</svg>All docs</a><h1 data-astro-cid-scd62v54>Architecture</h1></header><div class="post" data-astro-cid-scd62v54><div class="prose" data-astro-cid-scd62v54>
+<p>How the Cutefish desktop is put together: the processes that run, the
+libraries they share, the Wayland protocols between them, and the path a
+frame and an input event take through the system. It is written for people
+who want to read or change the code, and assumes some familiarity with Linux
+and Wayland.</p>
+<p><img alt="The Cutefish system in tiers: kernel, system services, desktop processes, libraries and applications" loading="lazy" decoding="async" width="640" height="1016" src="/_astro/overview.CVdQWat3_26q9S3.svg"></p>
+<h2 id="principles">Principles</h2>
+<p>A few decisions shape everything below:</p>
+<ul>
+<li><strong>One compositor.</strong> Cutefish runs only on its own Wayland compositor,
+<code>cutefish-compositor</code>. Window management, rendering, input, the lock and
+login screens and the whole desktop shell live in that one process. There
+is no X11 session and no support for other compositors.</li>
+<li><strong>One toolkit.</strong> Every Cutefish program, from the compositor’s shell to the
+calculator, draws with <code>cutefish-toolkit</code>, a C++20 toolkit on Skia. It is
+written for this one compositor and this one design, which is what keeps it
+small.</li>
+<li><strong>Own protocols, version 1.</strong> What standard Wayland protocols cannot say,
+private <code>cutefish_*</code> protocols say. Their XML lives in the compositor, the
+toolkit carries an identical copy of the ones it uses, and they are
+extended within version 1.</li>
+<li><strong>No desktop frameworks underneath.</strong> Cutefish uses no KDE Frameworks,
+Plasma, KWin, GNOME or GIO components. It talks to the standard system
+services (systemd, D-Bus, NetworkManager, BlueZ, UPower, PipeWire, polkit,
+PackageKit) directly, through its own clients.</li>
+<li><strong>Third-party applications fit in.</strong> GTK, Qt, Chromium and Electron
+applications run as ordinary Wayland clients, X11 applications through
+Xwayland, and sandboxed applications through <code>xdg-desktop-portal</code>.</li>
+</ul>
+<p>Much of the compositor and the toolkit follows the structure of Chromium’s
+Exo, Ash, Ozone, Viz and <code>views</code> code, reimplemented for this desktop.</p>
+<h2 id="repositories">Repositories</h2>
+<p>Each component is a repository under
+<a href="https://github.com/cutefishos">github.com/cutefishos</a>. Everything installs
+into <code>/usr</code>; <a href="/docs/building">Building Cutefish from Source</a> builds the
+desktop’s repositories in order.</p>
+<p><img alt="Which repositories build on cutefish-framework and cutefish-toolkit, and which stand alone" loading="lazy" decoding="async" width="640" height="848" src="/_astro/repositories.CUvlSKoe_Z1EFjXw.svg"></p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cutefish-toolkit</code></td>
+<td>The UI toolkit, and the base library that daemons use on its own</td>
+</tr>
+<tr>
+<td><code>cutefish-framework</code></td>
+<td>Clients of system services, the file library, PDF documents</td>
+</tr>
+<tr>
+<td><code>cutefish-compositor</code></td>
+<td>Wayland compositor, window manager, renderer, shell, lock and login screen</td>
+</tr>
+<tr>
+<td><code>cutefish-core</code></td>
+<td>The session, the app runtime, the services daemon, polkit agent, privacy service, screen recorder</td>
+</tr>
+<tr>
+<td><code>cutefish-dm</code></td>
+<td>Display manager</td>
+</tr>
+<tr>
+<td><code>filemanager</code></td>
+<td>File manager; its daemon also draws the desktop icons and the file dialogs</td>
+</tr>
+<tr>
+<td><code>xdg-desktop-portal-cutefish</code></td>
+<td>Portal backend: settings, file chooser, idle inhibition, screen cast</td>
+</tr>
+<tr>
+<td><code>qt-plugins</code></td>
+<td>Platform theme and image formats for third-party Qt 6 applications</td>
+</tr>
+<tr>
+<td><code>cutefish-computer-use</code></td>
+<td>MCP server that lets agents see and use the desktop, with the user’s consent</td>
+</tr>
+<tr>
+<td><code>cutefish-webkit</code></td>
+<td>Web engine: a WebKit port that renders with Skia into DMA-BUFs</td>
+</tr>
+<tr>
+<td><code>cutefish-installer</code></td>
+<td>Installs the live system onto a disk</td>
+</tr>
+<tr>
+<td>Applications</td>
+<td><code>settings</code>, <code>terminal</code>, <code>text-editor</code>, <code>preview</code>, <code>video-player</code>, <code>calendar</code>, <code>calculator</code>, <code>clock</code>, <code>disk-utility</code>, <code>system-monitor</code></td>
+</tr>
+<tr>
+<td>Data</td>
+<td><code>icons</code>, <code>wallpapers</code>, <code>plymouth-theme</code></td>
+</tr>
+<tr>
+<td><code>packaging</code></td>
+<td>Debian packaging, the APT repository workflow and the live ISO</td>
+</tr>
+<tr>
+<td><code>cutefish</code></td>
+<td>Project overview and this documentation</td>
+</tr>
+</tbody>
+</table>
+<p>The repositories carry no packaging of their own; it all lives in
+<code>packaging</code>.</p>
+<h2 id="from-power-on-to-the-desktop">From power on to the desktop</h2>
+<p><img alt="cutefish-dm starts the login screen and, after login, cutefish-session, which starts the rest in order" loading="lazy" decoding="async" width="640" height="912" src="/_astro/session.sOri8JZ-_ZhScNi.svg"></p>
+<h3 id="login">Login</h3>
+<p><code>cutefish-dm</code> is a root daemon on the system bus
+(<code>org.cutefish.DisplayManager</code>). It starts the login screen, which is the
+compositor itself started as <code>cutefish-compositor --login</code> on VT1, and talks
+to it over greetd’s protocol. When the user logs in, the daemon starts
+<code>cutefish-dm-helper</code>, which runs PAM and then the session the user picked: a
+Cutefish session, or any other <code>wayland-sessions</code> entry.</p>
+<p>The session runs on VT2. Only one VT at a time owns the display, so a
+handover is a VT switch. Before it, the display manager puts the target VT in
+graphics mode: the screen keeps the last frame instead of showing the text
+console, until the next compositor takes the display and commits its first
+frame. Before logging out, the session asks the display manager to switch back
+to the login screen, so the login screen is up before the session ends.</p>
+<p>The login screen shows the chosen account’s wallpaper. The user’s home may be
+closed or encrypted, so the display manager keeps a world-readable copy of it
+under <code>/var/lib/cutefish-dm/</code>.</p>
+<h3 id="the-session">The session</h3>
+<p><code>cutefish-session</code> starts the desktop in a fixed order:</p>
+<ol>
+<li><strong>The compositor.</strong> It gets the Wayland socket name, a pipe it writes to
+once it is ready (<code>--ready-fd</code>), and a control socket for the desktop’s
+trusted connection (<code>--shell-control-socket</code>). The shell starts inside it.</li>
+<li><strong>The session daemons</strong>, once the compositor is ready:
+<code>cutefish-appruntime</code> first, because it owns every application start, then
+<code>cutefish-services</code>.</li>
+<li><strong>The desktop</strong>, once <code>org.cutefish.Services</code> is on the bus:
+<code>cutefish-filemanager --daemon --desktop-socket &lt;fd&gt;</code>, which draws the
+desktop icons, and <code>cutefish-polkit-agent</code>, which asks for administrator
+passwords.</li>
+<li><strong>Autostart entries</strong>, through the app runtime.</li>
+</ol>
+<p>The session restarts the processes it started when they exit, one second
+after the first exit and two seconds more for each restart after it, at most
+five times; a process that stayed up for 30 seconds starts a fresh count. The
+compositor is the exception: when it exits, the session ends, since there is
+no display left to run on.</p>
+<h3 id="applications">Applications</h3>
+<p>Nothing in the desktop forks applications itself. The dock, the launchpad,
+the file manager, notifications and agents all ask <code>cutefish-appruntime</code>
+(<code>org.cutefish.AppRuntime</code>), which starts each application as its own child
+in a systemd scope of its own. The runtime therefore knows which application
+every process belongs to, so it can quit it and reopen it after a crash.</p>
+<h2 id="cutefish-compositor">cutefish-compositor</h2>
+<p>The compositor is one process: Wayland server, window manager, renderer,
+DRM/KMS output, input, server-side decoration, the lock and login screen, the
+application switcher, the overview and desks, rootless Xwayland, and the
+desktop shell with the wallpaper. Every source directory builds a static
+library (<code>cutefish-wayland</code>, <code>cutefish-wm</code>, <code>cutefish-render</code>, …) linked into
+the executable, so each test links only what it exercises.</p>
+<p><img alt="Window state, frames and input inside the compositor" loading="lazy" decoding="async" width="640" height="560" src="/_astro/compositor.BuPHDnU3_Z2ctbTW.svg"></p>
+<h3 id="window-state">Window state</h3>
+<p>State moves through a fixed chain of layers:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>wl_resource  -&gt;  Surface  -&gt;  role (xdg toplevel, subsurface, X11)  -&gt;  wm::Window  -&gt;  scene::Node</span></span>
+<span class="line"><span> wayland/        compositor/       wm/, xwayland/                         wm/            scene/</span></span></code></pre>
+<ul>
+<li><strong>Protocol adapters</strong> (<code>wayland/</code>, one per protocol) translate requests and
+hold no window state. The window manager never sees a <code>wl_resource</code>.</li>
+<li><strong>Surfaces</strong> (<code>compositor/</code>) keep pending, cached and current state, so a
+subsurface in synchronized mode applies together with its parent.</li>
+<li><strong>Roles</strong> turn a surface into an xdg toplevel or popup, a subsurface, or an
+X11 window from the built-in window manager for Xwayland.</li>
+<li><strong>Windows</strong> (<code>wm/</code>) are where activation, stacking, placement, modality,
+snapping, maximizing, desks and the overview happen, the same for Wayland
+and X11 windows.</li>
+<li><strong>The scene</strong> (<code>scene/</code>) is one logical tree for all outputs; each output
+renders its own viewport of it.</li>
+</ul>
+<p>Shell windows enter the same chain without a client: they are surfaces whose
+contents the shell commits from inside the process.</p>
+<h3 id="frames">Frames</h3>
+<p>Rendering is EGL and OpenGL ES on GBM, with one render target per output.</p>
+<ul>
+<li><strong>Damage.</strong> Each output repaints only what changed since its buffer was last
+shown, and each buffer is repaired with the damage it missed.</li>
+<li><strong>Planes.</strong> Before composing, each frame decides which client DMA-BUFs go
+straight onto KMS planes, where the scene and the hardware allow it; only
+the rest is composed with GLES, so a full-screen video or game is not
+composed at all. Imports use explicit synchronization where the client offers it, and
+the cursor is a hardware cursor plane.</li>
+<li><strong>Effects.</strong> Background blur follows the backdrop-filter model: the scene
+behind a surface is sampled and blurred, clipped to a rounded shape, and the
+client’s translucent buffer is drawn over it, so text and icons stay sharp.
+The client owns the tint and the compositor owns the blur; the glass of the
+dock and of popup menus is drawn the same way. The renderer also draws
+window shadows and animates windows opening, closing, minimizing and
+changing size, without ever sending clients intermediate sizes.</li>
+<li><strong>Scheduling.</strong> An output scheduler decides when each frame begins, on the
+display’s own vblank, taken from each flip’s timestamp. Demand that arrives
+early in a refresh waits for a draw point at least a third of a refresh
+before the next vblank, and earlier while recent frames took longer to
+draw, so what clients commit in the meantime makes the same frame; later
+demand, such as a key press, is drawn at once. Up to two frames may be in
+flight, so a frame that overruns its refresh costs that one refresh and not
+the next.</li>
+</ul>
+<p>Outputs have fractional scales. The compositor always renders at the native
+resolution; clients learn their scale through <code>wp_fractional_scale_v1</code> and
+present buffers of exactly the output’s device size through
+<code>wp_viewporter</code>, which are mapped one to one.</p>
+<h3 id="input">Input</h3>
+<p><code>libinput</code> on a <code>libseat</code> session feeds the <code>InputManager</code>, and one <code>Seat</code>
+with its pointer, keyboard and touch objects decides where every event goes:
+to a shortcut, to the focused client, or to the shell. Keymaps come from
+<code>xkbcommon</code>. The seat implements pointer constraints and relative motion,
+touchpad gestures, touchscreens, drag and drop,
+the clipboard and primary selection, and text input, which it relays to the
+input method the user picked in Settings. Three-finger swipes switch desks and
+open the overview.</p>
+<h3 id="lock-and-login-screen">Lock and login screen</h3>
+<p>The lock screen and the login screen are drawn by the compositor itself;
+external lockers are not supported. A password is checked by
+<code>cutefish-auth-helper</code>, a separate PAM process started for each attempt, so
+PAM modules never run inside the compositor.</p>
+<h3 id="xwayland">Xwayland</h3>
+<p>X11 applications run in a rootless Xwayland that starts on demand when the
+first X11 client connects. The compositor’s own window manager for X11
+integrates them into the same windows, scene, decorations, animations and
+task list as Wayland windows, and bridges the clipboard and drag and drop
+between the two.</p>
+<h3 id="services-on-d-bus">Services on D-Bus</h3>
+<p>The compositor owns <code>org.cutefish.DisplayConfig</code> (interface
+<code>org.cutefish.DisplayConfig1</code>: outputs, arrangement, night light),
+<code>org.cutefish.Mouse1</code>, <code>Touchpad1</code>, <code>Touchscreen1</code>, <code>Keyboard1</code>,
+<code>InputMethod1</code>, <code>Shortcuts1</code>, <code>HotCorners1</code>, <code>Applications1</code> and
+<code>ComputerControl1</code>, and <code>org.freedesktop.ScreenSaver</code>, and follows logind for
+sleep and session state. Settings changes the compositor’s preferences only through these
+interfaces.</p>
+<h2 id="the-shell-inside-the-compositor">The shell inside the compositor</h2>
+<p>The menu bar with the application menus, the dock, the launchpad, Control
+Center and its status panels, notifications, the on-screen display, the
+clipboard picker, the screenshot interface, password prompts for networks and
+Bluetooth, not-responding sheets and the wallpaper are all part of the
+compositor, in <code>src/shell/</code>. There is no shell process.</p>
+<p>This costs something: a crash in the shell ends the session. In return the
+shell has no IPC round trips, it animates on the exact frame the compositor
+draws, it calls the window manager directly instead of through a
+window-management protocol, and it uses less memory than a separate process
+would.</p>
+<p>How it works:</p>
+<ul>
+<li>Each shell window is a toolkit <code>EmbeddedWindow</code> whose frames become the
+contents of a client-less compositor surface. Stacking, the work area,
+focus, desks, the overview and dock auto-hide treat it like any window of
+its role.</li>
+<li>At the start of each output frame, every shell window that asked for a
+frame is rendered by Skia straight into a texture of the compositor’s own
+EGL context, in one batch, then committed with its damage like a client’s
+buffer.</li>
+<li>Input reaches the shell as one more client of the seat, so grabs, popups,
+the cursor and the lock screen’s gate apply to it as to anyone.</li>
+<li>Menus and popups are the toolkit’s; the compositor places them against the
+work area as it places xdg popups.</li>
+</ul>
+<p>Each part of the shell is a component with its own static library, and each
+owns its D-Bus name: <code>org.cutefish.MenuBar</code>, <code>Dock</code>, <code>Launchpad</code>, <code>Osd</code>,
+<code>Screenshot</code>, <code>Notification</code>, <code>ClipboardHistory</code> and <code>SecretAgent</code>, plus the
+standard <code>org.freedesktop.Notifications</code>, the status notifier watcher and the
+application menu registrar that third-party applications use. Nothing in the
+shell blocks the compositor’s thread: D-Bus calls are asynchronous, files are
+read and written on one serial file thread, and pictures decode on the
+toolkit’s thread pool.</p>
+<p>The desktop icons are not the shell’s. The file manager’s daemon draws them
+in a window with the desktop role, below every application and over the
+wallpaper the compositor draws.</p>
+<h2 id="connections-and-privilege">Connections and privilege</h2>
+<p>Privilege belongs to a Wayland connection, never to a user id alone: every
+client of a session runs as the same user, so the user id by itself says
+nothing.</p>
+<p><img alt="What each kind of connection may use" loading="lazy" decoding="async" width="640" height="579" src="/_astro/trust.BrOQL40T_QVda1.svg"></p>
+<ul>
+<li><strong>Applications</strong> connect to the public socket and see the public protocols:
+the core and xdg protocols, viewporter, fractional scale, presentation time,
+linux-dmabuf with explicit sync, text input, cursor shape, xdg-activation
+and xdg-foreign, pointer constraints and gestures, idle inhibition, and the
+Cutefish protocols meant for every application, such as
+<code>cutefish_surface_blur_v1</code> (blur and glass behind a window) and
+<code>cutefish_window_hints_v1</code>.</li>
+<li><strong>The desktop window</strong> gets a trusted connection. For every start of the
+file manager’s daemon, the session makes a socket pair, passes one end to
+the compositor over its control socket and the other to the daemon. Only on
+that connection is <code>cutefish_shell_v1</code> visible, which gives a surface the
+desktop role and sends it the work area.</li>
+<li><strong>Allowlisted programs</strong> are recognized by the user id and the executable
+the kernel reports for the connecting process (<code>/proc/&lt;pid&gt;/exe</code>). Screen
+capture (<code>ext-image-copy-capture</code>), clipboard data control and computer
+control are offered to them and to no other public client.</li>
+<li><strong>Private connections</strong> are ones the compositor makes itself: for
+Xwayland, for the input method, and for the screen recorder, which
+captures on a connection the shell hands it.</li>
+</ul>
+<p>The <code>cutefish_*</code> protocols are extended inside version 1, in the
+compositor’s <code>protocols/</code> and in the identical copies the toolkit carries of
+the ones it uses.</p>
+<h2 id="cutefish-toolkit">cutefish-toolkit</h2>
+<p>The toolkit is two shared libraries:</p>
+<ul>
+<li><code>Cutefish::ToolkitBase</code> (<code>libcutefish-toolkit-base</code>, namespace
+<code>cutefish::base</code>): an epoll event loop with timers and callbacks, a thread
+pool whose results come back through the loop, signals, D-Bus on sd-bus,
+XDG paths, atomic file writes and file watching, INI settings, JSON,
+processes, desktop entries and MIME types, locale data from CLDR and ICU
+collation. It has no Skia, Wayland or EGL in it; daemons such as the
+display manager and the portal link only this.</li>
+<li><code>Cutefish::Toolkit</code> (<code>libcutefish-toolkit</code>, namespace <code>cutefish::ui</code>): the
+Wayland platform, GPU rendering, views, text and controls. Skia is fetched
+at a pinned revision, built as part of the toolkit and linked statically
+with hidden symbols; only <code>cutefish::*</code> symbols are exported.</li>
+</ul>
+<p><img alt="Toolkit layers and the three platforms it runs on" loading="lazy" decoding="async" width="640" height="606" src="/_astro/toolkit.CYtug2Lt_Z1keiah.svg"></p>
+<h3 id="layers">Layers</h3>
+<ol>
+<li><strong>Base</strong>: the library above.</li>
+<li><strong>Platform</strong>: <code>Wayland</code> for applications, <code>Embedded</code> for the compositor,
+<code>Headless</code> for tests and captures. One view tree runs on all three.</li>
+<li><strong>GPU</strong>: Skia’s Ganesh backend on EGL and GLES; Skia’s CPU raster backend
+when headless.</li>
+<li><strong>Views</strong>: a retained tree in logical units. Views keep their state in
+plain members and ask for work with <code>requestLayout()</code> and <code>requestPaint()</code>.
+Layout is incremental: only views that asked, their ancestors, and views
+whose size changed lay out again.</li>
+<li><strong>Text</strong>: SkParagraph on HarfBuzz, ICU, FreeType and fontconfig, with
+editing, bidirectional text and input methods through text-input-v3.</li>
+<li><strong>Controls</strong>: buttons, switches, sliders, segmented controls, tab bars, text
+fields, scroll views with shared touchpad physics, list views, menus,
+dialogs, the window header with its buttons, and the file chooser, all
+following the <a href="/docs/design-rules">Design Rules</a>.</li>
+</ol>
+<p>Views can carry a name (<code>View::name()</code>), which layout dumps and tests use to
+find them; it is not shown.</p>
+<p>UI is plain C++. There is no markup language, script engine or binding
+system; colors are named by purpose and mixed from recipes per theme, so light
+and dark mode come from one table.</p>
+<h3 id="pixels">Pixels</h3>
+<ul>
+<li>Layout is in logical units and the painter maps to device pixels.
+Rectangles put each edge on its own device pixel; rounded shapes and icons
+snap their first edge and keep their size; hairlines are one device pixel.</li>
+<li>At a whole scale, text follows fontconfig’s hinting. At a fractional scale,
+glyphs are drawn unhinted at quarter-pixel positions with each baseline on a
+device row.</li>
+<li>The buffer is <code>round(logical size × scale)</code>, and the viewport destination is
+the logical size.</li>
+</ul>
+<h3 id="frames-1">Frames</h3>
+<p>Rendering runs on the UI thread, paced by <code>wl_surface.frame</code>, with a swap
+interval of 0 so EGL never blocks. A configure is laid out and rendered before
+control returns to the loop, and <code>ack_configure</code>, the buffer at the new size,
+the viewport and the next frame request go out in one commit. Animations step
+on the window’s frame time.</p>
+<p><img alt="One frame from an application’s input to the display" loading="lazy" decoding="async" width="640" height="453" src="/_astro/frame.WVmHemOm_1huVLS.svg"></p>
+<h3 id="start-up">Start-up</h3>
+<p>An application’s first frame does not wait for work that can run alongside
+it: the EGL driver loads and Skia’s GL context is made on a thread, the fonts
+load on a thread of their own, the keymap compiles on the thread pool, the
+appearance settings arrive with the session bus connection, and Skia’s compiled GL programs are kept on disk between runs.</p>
+<h3 id="inside-the-compositor">Inside the compositor</h3>
+<p>On the embedded platform there is no Wayland connection, no EGL setup and no
+D-Bus connection of the toolkit’s own. The compositor’s loop drives the
+toolkit’s, feeds it input from the seat, and asks each <code>EmbeddedWindow</code> to
+render at the output’s frame time. Skia draws into a texture of the
+compositor’s EGL context under a fixed contract for the GL state it leaves
+behind; without a usable GL context the window renders on the CPU and only
+its damage is uploaded.</p>
+<h2 id="session-services-cutefish-core">Session services: cutefish-core</h2>
+<table>
+<thead>
+<tr>
+<th>Program</th>
+<th>Bus</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cutefish-session</code></td>
+<td>session</td>
+<td>Starts and restarts the desktop’s processes and autostart entries; log out, restart, power off and suspend (<code>org.cutefish.Session</code>)</td>
+</tr>
+<tr>
+<td><code>cutefish-appruntime</code></td>
+<td>session</td>
+<td>Starts every application in a scope of its own, quits and reopens them (<code>org.cutefish.AppRuntime</code>)</td>
+</tr>
+<tr>
+<td><code>cutefish-services</code></td>
+<td>session</td>
+<td>Appearance and fonts, language and region, battery, brightness, night light and dark-mode schedules, power and sleep policy, permission prompts, software updates, crash dialogs, the network proxy, and a clipboard that outlives the application that copied</td>
+</tr>
+<tr>
+<td><code>cutefish-polkit-agent</code></td>
+<td>session</td>
+<td>Administrator password dialogs</td>
+</tr>
+<tr>
+<td><code>cutefish-privacy</code></td>
+<td>system</td>
+<td>Camera and microphone switches that hold for every user and process</td>
+</tr>
+<tr>
+<td><code>cutefish-screenrecorder</code></td>
+<td></td>
+<td>Screen recording, encoded on the GPU through VA-API, or with x264 without it</td>
+</tr>
+</tbody>
+</table>
+<p><code>cutefish-services</code> publishes its parts under <code>org.cutefish.Services</code>
+(<code>Appearance</code>, <code>Battery</code>, <code>Brightness</code>, <code>Language</code>, <code>NightLight</code>,
+<code>Permissions</code>, <code>Power</code>, <code>SoftwareUpdate</code>). It writes the session’s fontconfig
+file and mirrors the font settings into GTK’s settings, so third-party
+applications render text the way Cutefish does.</p>
+<h2 id="system-integration">System integration</h2>
+<h3 id="cutefish-framework">cutefish-framework</h3>
+<p>The framework builds on <code>ToolkitBase</code> and installs three CMake packages:</p>
+<ul>
+<li><code>CutefishClients</code>: one small library per system service, asked for by name:
+accounts, appearance, audio (native PipeWire with WirePlumber), BlueZ,
+display, fingerprint, NetworkManager, PackageKit, power profiles, time and
+date, UPower.</li>
+<li><code>CutefishFiles</code>: directory listing and models, MIME types, file operations
+as tasks, trash, volumes and thumbnails.</li>
+<li><code>CutefishPdf</code>: PDF pages, text, search, links and outlines, read with
+PDFium.</li>
+</ul>
+<p>The compositor’s shell, Settings, cutefish-core, the file manager and Preview
+use these instead of each talking to the services in its own way.</p>
+<h3 id="third-party-applications">Third-party applications</h3>
+<ul>
+<li><strong>Qt</strong> applications load the <code>cutefish</code> platform theme from <code>qt-plugins</code>:
+they follow dark mode, the system fonts, icons and cursors, open the
+Cutefish file chooser, and scroll with the same touchpad physics as
+Cutefish’s own applications.</li>
+<li><strong>Sandboxed and browser</strong> applications reach the desktop through
+<code>xdg-desktop-portal-cutefish</code>: the color scheme setting, the file chooser
+(whose dialog runs in the file manager’s daemon, with its folders and
+favorites), idle inhibition and screen casting through PipeWire.</li>
+<li><strong>Chromium-based</strong> applications started through the app runtime get a
+command-line switch that makes them follow fontconfig’s hinting.</li>
+<li><strong>Notifications</strong> from any toolkit reach the shell’s
+<code>org.freedesktop.Notifications</code>.</li>
+</ul>
+<h3 id="the-file-managers-daemon">The file manager’s daemon</h3>
+<p>One resident process serves every file manager window and dialog of the
+session: the desktop icons, folders opened from the dock or the desktop,
+<code>org.freedesktop.FileManager1</code> requests, space-bar file previews, and the
+portal’s file dialogs. Opening a window costs no process start, and the file
+chooser shows folders exactly as the file manager does.</p>
+<h2 id="applications-1">Applications</h2>
+<p>Every built-in application is a toolkit Wayland client that starts through
+the app runtime and keeps its settings in <code>~/.config/cutefish/</code>. Some lean on
+a library for the work at their core:</p>
+<ul>
+<li><strong>Terminal</strong> keeps its terminal state, parsing, scrollback, selection and
+input encoding in <a href="https://github.com/ghostty-org/ghostty">libghostty-vt</a>;
+the pty, the drawing and the windows are its own.</li>
+<li><strong>Video Player</strong> draws libmpv into a toolkit subsurface with its own GL
+context, synchronized with the window only while it resizes.</li>
+<li><strong>Preview</strong> shows images through the toolkit’s decoders and PDFs through
+<code>CutefishPdf</code>.</li>
+<li><strong>Settings</strong> is a client of nearly every service: the compositor’s
+interfaces, <code>cutefish-services</code> and the framework’s clients.</li>
+</ul>
+<p><code>cutefish-webkit</code> is the desktop’s web engine: a WebKit port based on WPE
+WebKit that renders with Skia into DMA-BUF buffers and hands them to the
+embedding application through a C API, with web processes in WebKit’s
+bubblewrap sandbox.</p>
+<h2 id="agents-computer-use">Agents: computer use</h2>
+<p><code>cutefish-computer-use</code> is an MCP server, written in Rust, that lets agent
+applications such as Claude Code and Codex see the screen and use the pointer
+and keyboard. It is the only client of the compositor’s
+<code>cutefish_computer_control_v1</code>, and captures through
+<code>ext-image-copy-capture</code>.</p>
+<p>The compositor enforces the boundary, not the server:</p>
+<ul>
+<li>Control starts only after the user agrees in a dialog that the compositor
+asked for and the agent cannot click, type into or fake.</li>
+<li>While an agent is in control, the menu bar shows a Stop button.</li>
+<li>Real input always wins: touching the pointer or keyboard pauses the agent.</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p>User preferences live flat in <code>~/.config/cutefish/</code>, in files named after the
+process that writes them, without the <code>cutefish-</code> prefix; most processes
+write one. Each file has one
+writer; any other process changes a value through the writer’s D-Bus
+interface.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Written by</th>
+<th>Holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>compositor.conf</code></td>
+<td>compositor</td>
+<td>keyboard, mouse, touchpad, touchscreen, input method, shortcuts, desks, hot corners</td>
+</tr>
+<tr>
+<td><code>display.json</code></td>
+<td>compositor</td>
+<td>output arrangements</td>
+</tr>
+<tr>
+<td><code>shell.conf</code></td>
+<td>compositor’s shell</td>
+<td>dock, launchpad, notifications, screenshots, menu bar</td>
+</tr>
+<tr>
+<td><code>services.conf</code></td>
+<td><code>cutefish-services</code></td>
+<td>appearance, language, region, power, battery, night light, software updates</td>
+</tr>
+<tr>
+<td><code>filemanager.conf</code></td>
+<td>file manager</td>
+<td>folder views, places, the desktop’s icons</td>
+</tr>
+<tr>
+<td><code>&lt;application&gt;.conf</code></td>
+<td>each application</td>
+<td>its own settings and window size</td>
+</tr>
+</tbody>
+</table>
+<p>Standard files stay standard: default applications are in
+<code>~/.config/mimeapps.list</code> and the default terminal in
+<code>~/.config/xdg-terminals.list</code>.</p>
+<h2 id="translations">Translations</h2>
+<p>User-visible text is translated with gettext catalogs in each repository’s
+<code>po/</code> directory; <a href="/docs/translating">Adding a Language</a> explains how to add or
+correct one.</p>
+<h2 id="building-and-shipping">Building and shipping</h2>
+<p>Every repository builds with CMake (the computer-use server with Cargo), and
+the toolkit builds its pinned Skia with GN and Ninja.</p>
+<p>Packages are built by public GitHub Actions workflows in the <code>packaging</code>
+repository, on fresh Debian 13 machines, for <code>amd64</code> and <code>arm64</code>. They are
+published to the APT repository at
+<a href="https://download.cutefish.org">download.cutefish.org</a>, with signed build
+provenance for every file. The live ISO is built with live-build from the same
+repository, and <code>cutefish-installer</code> installs it: a toolkit application with
+a D-Bus activated root service, which runs only from a live medium, that
+erases the chosen disk, copies the image onto it, creates the first user and
+installs the boot loader.</p>
+<h2 id="testing">Testing</h2>
+<p>Each repository has GoogleTest suites, and the architecture is shaped to make
+them meaningful:</p>
+<ul>
+<li><strong>Headless rendering.</strong> Any view tree renders to PNG through Skia’s CPU
+backend, with the same output on every machine.</li>
+<li><strong>Layout dumps.</strong> Every view’s logical and device rectangle is listed, so
+alignment and centering are read off rather than measured from pixels.</li>
+<li><strong>Scripted input.</strong> The toolkit’s test driver works a headless window as its
+user would, finding views by name and by the text they show, and feeding
+input through the toolkit’s test input instead of screen coordinates.</li>
+<li><strong>A headless compositor.</strong> <code>cutefish-compositor --no-drm</code> runs with virtual
+outputs and a 60 Hz clock; window-manager, protocol and shell tests run
+against it, and pixel tests run on a software GL driver.</li>
+<li><strong>Fake services.</strong> Session and service tests run on a private D-Bus with
+fake logind, UPower and other services.</li>
+</ul>
+</div><aside class="contents" aria-labelledby="contents-heading" data-astro-cid-scd62v54><h2 id="contents-heading" data-astro-cid-scd62v54>Contents</h2><nav aria-labelledby="contents-heading" data-astro-cid-scd62v54><ul data-astro-cid-scd62v54><li data-astro-cid-scd62v54><a href="#principles" data-astro-cid-scd62v54>Principles</a></li><li data-astro-cid-scd62v54><a href="#repositories" data-astro-cid-scd62v54>Repositories</a></li><li data-astro-cid-scd62v54><a href="#from-power-on-to-the-desktop" data-astro-cid-scd62v54>From power on to the desktop</a></li><li class="nested" data-astro-cid-scd62v54><a href="#login" data-astro-cid-scd62v54>Login</a></li><li class="nested" data-astro-cid-scd62v54><a href="#the-session" data-astro-cid-scd62v54>The session</a></li><li class="nested" data-astro-cid-scd62v54><a href="#applications" data-astro-cid-scd62v54>Applications</a></li><li data-astro-cid-scd62v54><a href="#cutefish-compositor" data-astro-cid-scd62v54>cutefish-compositor</a></li><li class="nested" data-astro-cid-scd62v54><a href="#window-state" data-astro-cid-scd62v54>Window state</a></li><li class="nested" data-astro-cid-scd62v54><a href="#frames" data-astro-cid-scd62v54>Frames</a></li><li class="nested" data-astro-cid-scd62v54><a href="#input" data-astro-cid-scd62v54>Input</a></li><li class="nested" data-astro-cid-scd62v54><a href="#lock-and-login-screen" data-astro-cid-scd62v54>Lock and login screen</a></li><li class="nested" data-astro-cid-scd62v54><a href="#xwayland" data-astro-cid-scd62v54>Xwayland</a></li><li class="nested" data-astro-cid-scd62v54><a href="#services-on-d-bus" data-astro-cid-scd62v54>Services on D-Bus</a></li><li data-astro-cid-scd62v54><a href="#the-shell-inside-the-compositor" data-astro-cid-scd62v54>The shell inside the compositor</a></li><li data-astro-cid-scd62v54><a href="#connections-and-privilege" data-astro-cid-scd62v54>Connections and privilege</a></li><li data-astro-cid-scd62v54><a href="#cutefish-toolkit" data-astro-cid-scd62v54>cutefish-toolkit</a></li><li class="nested" data-astro-cid-scd62v54><a href="#layers" data-astro-cid-scd62v54>Layers</a></li><li class="nested" data-astro-cid-scd62v54><a href="#pixels" data-astro-cid-scd62v54>Pixels</a></li><li class="nested" data-astro-cid-scd62v54><a href="#frames-1" data-astro-cid-scd62v54>Frames</a></li><li class="nested" data-astro-cid-scd62v54><a href="#start-up" data-astro-cid-scd62v54>Start-up</a></li><li class="nested" data-astro-cid-scd62v54><a href="#inside-the-compositor" data-astro-cid-scd62v54>Inside the compositor</a></li><li data-astro-cid-scd62v54><a href="#session-services-cutefish-core" data-astro-cid-scd62v54>Session services: cutefish-core</a></li><li data-astro-cid-scd62v54><a href="#system-integration" data-astro-cid-scd62v54>System integration</a></li><li class="nested" data-astro-cid-scd62v54><a href="#cutefish-framework" data-astro-cid-scd62v54>cutefish-framework</a></li><li class="nested" data-astro-cid-scd62v54><a href="#third-party-applications" data-astro-cid-scd62v54>Third-party applications</a></li><li class="nested" data-astro-cid-scd62v54><a href="#the-file-managers-daemon" data-astro-cid-scd62v54>The file manager’s daemon</a></li><li data-astro-cid-scd62v54><a href="#applications-1" data-astro-cid-scd62v54>Applications</a></li><li data-astro-cid-scd62v54><a href="#agents-computer-use" data-astro-cid-scd62v54>Agents: computer use</a></li><li data-astro-cid-scd62v54><a href="#configuration" data-astro-cid-scd62v54>Configuration</a></li><li data-astro-cid-scd62v54><a href="#translations" data-astro-cid-scd62v54>Translations</a></li><li data-astro-cid-scd62v54><a href="#building-and-shipping" data-astro-cid-scd62v54>Building and shipping</a></li><li data-astro-cid-scd62v54><a href="#testing" data-astro-cid-scd62v54>Testing</a></li></ul></nav></aside></div></div></article><script type="module">var e=document.querySelector(`.contents`),t=[...document.querySelectorAll(`.contents a`)],n=t.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))),r=89,i=-1;function a(t,n){if(!e||e.scrollHeight<=e.clientHeight)return;let r=e.getBoundingClientRect(),i=t.getBoundingClientRect(),a=i.top-r.top+e.scrollTop,o=a+i.height;a<e.scrollTop+48?e.scrollTo({top:Math.max(0,a-48),behavior:n?`smooth`:`auto`}):o>e.scrollTop+e.clientHeight-48&&e.scrollTo({top:o-e.clientHeight+48,behavior:n?`smooth`:`auto`})}function o(e=!0){let o=-1;window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-1?o=n.length-1:n.forEach((e,t)=>{e&&e.getBoundingClientRect().top<=r&&(o=t)}),o!==i&&(i=o,t.forEach((e,t)=>{t===o?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`)}),o>=0&&a(t[o],e))}var s=!1;window.addEventListener(`scroll`,()=>{s||(s=!0,requestAnimationFrame(()=>{s=!1,o(!0)}))},{passive:!0}),t.length>0&&o(!1);var c=`cutefish-docs-sidebar`,l=document.querySelector(`.sidebar-collapse`),u=document.querySelector(`.sidebar-expand`);function d(e,t){if(document.documentElement.classList.toggle(`docs-sidebar-collapsed`,e),t)try{e?localStorage.setItem(c,`collapsed`):localStorage.removeItem(c)}catch{}}l&&u&&(l.addEventListener(`click`,()=>{d(!0,!0)}),u.addEventListener(`click`,()=>{d(!1,!0)}));</script></main><footer class="site-footer" data-astro-cid-jo6i4kqk><div class="container" data-astro-cid-jo6i4kqk><div class="top" data-astro-cid-jo6i4kqk><div class="about" data-astro-cid-jo6i4kqk><p class="tagline" data-astro-cid-jo6i4kqk>A fast, clean Linux distribution designed with Mac users in mind.</p></div><nav class="groups" data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Get Cutefish</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://download.cutefish.org/" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk>Downloads</a></li><li data-astro-cid-jo6i4kqk><a href="/docs" data-astro-cid-jo6i4kqk>Docs</a></li><li data-astro-cid-jo6i4kqk><a href="/reef" data-astro-cid-jo6i4kqk>Reef</a></li><li data-astro-cid-jo6i4kqk><a href="/blog/how-cutefish-is-built" data-astro-cid-jo6i4kqk>Build from Source</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Community</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>GitHub</a></li><li data-astro-cid-jo6i4kqk><a href="https://github.com/sponsors/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+</svg>GitHub Sponsors</a></li><li data-astro-cid-jo6i4kqk><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg>Discord</a></li><li data-astro-cid-jo6i4kqk><a href="https://x.com/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg>X</a></li><li data-astro-cid-jo6i4kqk><a href="mailto:hello@cutefish.org" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+  <path d="M3 7l9 6l9 -6" />
+</svg>Email</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Site</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="/news" data-astro-cid-jo6i4kqk>News</a></li><li data-astro-cid-jo6i4kqk><a href="/about" data-astro-cid-jo6i4kqk>About</a></li><li data-astro-cid-jo6i4kqk><a href="/privacy" data-astro-cid-jo6i4kqk>Privacy</a></li><li data-astro-cid-jo6i4kqk><a href="/legal" data-astro-cid-jo6i4kqk>Legal</a></li><li data-astro-cid-jo6i4kqk><a href="/rss.xml" data-astro-cid-jo6i4kqk>RSS</a></li></ul></div></nav></div><div class="bottom" data-astro-cid-jo6i4kqk><p data-astro-cid-jo6i4kqk>&copy; 2021&ndash;2026 Cutefish</p><p data-astro-cid-jo6i4kqk>Apple, Mac and macOS are trademarks of Apple Inc. Linux is the registered trademark of Linus Torvalds. Cutefish is not affiliated with Apple.</p></div></div></footer></body></html>

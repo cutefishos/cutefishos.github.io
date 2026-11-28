@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cutefish</title><description>A Linux distribution for people at home on a Mac. Its desktop, compositor and built-in apps are written from scratch in C++ and Skia.</description><link>https://cutefish.org/</link><language>en</language><lastBuildDate>Sun, 15 Nov 2026 09:00:00 GMT</lastBuildDate><atom:link href="https://cutefish.org/rss.xml" rel="self" type="application/rss+xml"/><item><title>What&apos;s new in Cutefish: 17 languages, Preview and software updates</title><link>https://cutefish.org/blog/whats-new-november-2026/</link><guid isPermaLink="true">https://cutefish.org/blog/whats-new-november-2026/</guid><description>Cutefish now speaks 17 languages, opens images and PDFs in its new Preview app, installs its own updates and comes with its own installer.</description><pubDate>Sun, 15 Nov 2026 09:00:00 GMT</pubDate><content:encoded>&lt;p&gt;The first Cutefish ISO went up on October 20. A lot has changed since then.
+Here are the biggest changes.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;The Cutefish desktop with Control Center open&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2160&quot; height=&quot;1440&quot; src=&quot;https://cutefish.org/_astro/november-desktop.BFlu1pRw_2eT2kw.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;17-languages&quot;&gt;17 languages&lt;/h2&gt;
+&lt;p&gt;Cutefish now speaks 17 languages: English, Spanish, Brazilian Portuguese,
+French, German, Russian, Japanese, Korean, Italian, Polish, Czech,
+Indonesian, Vietnamese, Malay, and Chinese in three forms: Simplified,
+Traditional for Taiwan, and Traditional for Hong Kong.&lt;/p&gt;
+&lt;p&gt;Every part of the desktop is translated: the Dock, the menu bar, the
+launcher, Settings, and every app that comes with Cutefish. If you change
+the language in Settings, open apps switch right away. You don’t have to
+log out. Dates, times and numbers follow your region, which you choose on
+the same Language &amp;amp; Region page.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/november-cal-ja.png&quot; alt=&quot;Cutefish Calendar in Japanese&quot; width=&quot;925&quot; height=&quot;651&quot;&gt;
+&lt;p&gt;You can pick the language on the installer’s first screen, and the
+installed system starts in it.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/november-installer.png&quot; alt=&quot;The installer&apos;s first screen, with a list of languages&quot; width=&quot;896&quot; height=&quot;616&quot;&gt;
+&lt;p&gt;If a translation reads wrong in your language, you can fix it with a pull
+request to that app’s repository on
+&lt;a href=&quot;https://github.com/cutefishos&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;preview&quot;&gt;Preview&lt;/h2&gt;
+&lt;p&gt;Preview is a new app for images and PDF documents. It opens PDFs with page
+thumbnails and the table of contents in the sidebar. You can search a
+document, select and copy its text, and follow its links. Images can be
+zoomed, panned and rotated. Rotating a JPEG keeps its quality, because the
+picture itself is not encoded again.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/november-preview.png&quot; alt=&quot;Preview showing a PDF with page thumbnails in the sidebar&quot; width=&quot;878&quot; height=&quot;686&quot;&gt;
+&lt;p&gt;Preview is now the default app for images and PDFs.&lt;/p&gt;
+&lt;h2 id=&quot;software-updates&quot;&gt;Software updates&lt;/h2&gt;
+&lt;p&gt;Cutefish checks for updates once a day. Settings has a new Software Update
+page that lists what is waiting. You can install updates there and keep
+working while they install, or let Cutefish install them the next time you
+restart.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/november-update.png&quot; alt=&quot;The Software Update page in Settings, listing available updates&quot; width=&quot;941&quot; height=&quot;661&quot;&gt;
+&lt;h2 id=&quot;our-own-installer&quot;&gt;Our own installer&lt;/h2&gt;
+&lt;p&gt;The ISO now comes with Cutefish’s own installer. It walks you through the
+language, the disk, your account and the time zone, and includes manual
+partitioning. There is also an ISO for arm64 computers now, next to the
+one for amd64.&lt;/p&gt;
+&lt;h2 id=&quot;dock-magnification&quot;&gt;Dock magnification&lt;/h2&gt;
+&lt;p&gt;Dock icons can now grow as the pointer passes over them, and the icons
+around them grow a little less. Turn it on with the Magnification slider
+in Settings &amp;gt; Dock &amp;amp; Desktop.&lt;/p&gt;
+&lt;p&gt;&lt;video src=&quot;https://cutefish.org/videos/blog/dock-magnification.mp4&quot; width=&quot;1000&quot; height=&quot;200&quot; autoplay muted loop playsinline aria-label=&quot;The pointer moving along the Dock, with the icons under it growing and shrinking&quot;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;h2 id=&quot;the-desktop&quot;&gt;The desktop&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Launcher folders.&lt;/strong&gt; Drag one app onto another in the launcher to group
+them into a folder.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dock.&lt;/strong&gt; An app’s icon hops while it starts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Glass.&lt;/strong&gt; Menus and the menu bar’s panels, such as Control Center,
+share a new glass look. The Dock has a glass of its own, and
+Settings &amp;gt; Dock &amp;amp; Desktop &amp;gt; Glass effect sets how tinted it is.
+Settings &amp;gt; Appearance &amp;gt; Reduce Transparency turns the glass off.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;App menus in the menu bar.&lt;/strong&gt; Files, Terminal, Text Editor and the
+other apps now show their menus at the top of the screen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Calculator.&lt;/strong&gt; A new keypad with round keys.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Startup.&lt;/strong&gt; A new boot menu theme and a new splash screen with the
+Cutefish logo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;try-it&quot;&gt;Try it&lt;/h2&gt;
+&lt;p&gt;Nightly ISOs and the APT repository for Debian 13 are at
+&lt;a href=&quot;https://download.cutefish.org&quot;&gt;download.cutefish.org&lt;/a&gt;. If you already run
+Cutefish, an update brings all of this to you.&lt;/p&gt;</content:encoded></item><item><title>Mac apps on Cutefish: the first milestone</title><link>https://cutefish.org/blog/mac-apps-first-milestone/</link><guid isPermaLink="true">https://cutefish.org/blog/mac-apps-first-milestone/</guid><description>Reef has reached its first milestone. Real Mac apps install from their disk images and run completely, from a text editor and a terminal to a feed reader with a real web engine.</description><pubDate>Mon, 02 Nov 2026 09:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Ten days ago we wrote about &lt;a href=&quot;https://cutefish.org/blog/running-mac-apps&quot;&gt;Reef&lt;/a&gt;, the part of
+Cutefish that runs apps made for the Mac. Today it reaches its first
+milestone. Real Mac apps install from the same disk images a Mac user
+downloads, and run completely on Cutefish: a text editor, a terminal, a
+feed reader, an archive utility and a speed test. Here is what that
+took, and what changed along the way.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-netnewswire.png&quot; alt=&quot;NetNewsWire, a Mac app, reading an article on Cutefish&quot; width=&quot;1080&quot; height=&quot;720&quot;&gt;
+&lt;h2 id=&quot;more-apps-run&quot;&gt;More apps run&lt;/h2&gt;
+&lt;p&gt;NetNewsWire, the feed reader, runs completely: the sidebar, the article
+list, the article view, the toolbar, swipe actions, adding and refreshing
+feeds, all three settings panes, and the unread count on its Dock icon.
+Its articles are drawn by a real web engine, which Reef didn’t have ten
+days ago.&lt;/p&gt;
+&lt;p&gt;Ghostty, the terminal, runs with its Metal renderer, its inspector and
+custom shaders. It got a post of its own:
+&lt;a href=&quot;https://cutefish.org/blog/ghostty-mac-on-cutefish&quot;&gt;The Mac version of Ghostty, on Linux&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Open a Mac app from the Dock and its icon hops once while the app
+starts, the same as every other app on Cutefish. Here it is with Ghostty,
+first at normal speed, then up close and slowed down four times.&lt;/p&gt;
+&lt;p&gt;&lt;video src=&quot;https://cutefish.org/videos/blog/reef-ghostty-dock-bounce.mp4&quot; width=&quot;1080&quot; height=&quot;720&quot; autoplay muted loop playsinline aria-label=&quot;Ghostty&apos;s Dock icon hopping once as it starts, then its window opening&quot;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;&lt;video src=&quot;https://cutefish.org/videos/blog/reef-ghostty-dock-bounce-slow.mp4&quot; width=&quot;760&quot; height=&quot;400&quot; autoplay muted loop playsinline aria-label=&quot;A close-up of Ghostty&apos;s Dock icon hopping, slowed down four times&quot;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;Keka, the archive utility, compresses and extracts zip and tar.gz
+archives.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-keka.png&quot; alt=&quot;Keka&apos;s compression settings on Cutefish&quot; width=&quot;354&quot; height=&quot;416&quot;&gt;
+&lt;p&gt;Speedtest by Ookla runs a full test (latency, download, upload, packet
+loss) and keeps a history of past results. In the screenshot we blurred
+our results, the test server and our provider.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-speedtest.png&quot; alt=&quot;Speedtest after a test, with the results blurred&quot; width=&quot;490&quot; height=&quot;590&quot;&gt;
+&lt;p&gt;CotEditor, which mostly worked last time, now remembers its windows. Quit
+it with untitled documents still open, and they come back, text and all,
+the next time you open it. Its windows can also be grouped into tabs and
+go full screen, with the menu bar sliding in when you move the pointer
+to the top of the screen.&lt;/p&gt;
+&lt;h2 id=&quot;installing-an-app&quot;&gt;Installing an app&lt;/h2&gt;
+&lt;p&gt;Mac apps usually come as a disk image, a &lt;code&gt;.dmg&lt;/code&gt; file. On Cutefish you
+install them the same way you would on a Mac. Double-click the disk image
+in Files and it opens under Locations. Then drag the app into your
+Applications folder. Files reads these images itself.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-disk-image.png&quot; alt=&quot;A CotEditor disk image opened in Files&quot; width=&quot;824&quot; height=&quot;521&quot;&gt;
+&lt;p&gt;An installed app shows up in the launcher and can be pinned to the Dock.
+To remove it, drag it to the Trash. Nothing else is written anywhere: the
+folder is the app.&lt;/p&gt;
+&lt;p&gt;If an app needs something Reef can’t do yet, a dialog tells you so,
+instead of the app silently failing to open.&lt;/p&gt;
+&lt;h2 id=&quot;opening-your-files&quot;&gt;Opening your files&lt;/h2&gt;
+&lt;p&gt;A Mac app tells the system which kinds of documents it can open. Cutefish
+reads that list, so once an app is installed, Files offers it for those
+documents, right next to the Linux apps. Right-click a Swift source file
+and choose Open with, and CotEditor is there:&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-open-with-coteditor.png&quot; alt=&quot;Files&apos; Open with menu for a Swift file, offering CotEditor and TextMate next to Linux apps&quot; width=&quot;804&quot; height=&quot;501&quot;&gt;
+&lt;p&gt;Choose it, and CotEditor opens the file with its syntax colouring, like
+any other editor would. If CotEditor is already running, the file opens
+in a new window of the same app.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-coteditor-opened.png&quot; alt=&quot;CotEditor showing the Swift file opened from Files&quot; width=&quot;865&quot; height=&quot;510&quot;&gt;
+&lt;p&gt;It works the same way for archives. Keka offers itself for a zip file:&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-open-with-keka.png&quot; alt=&quot;Files&apos; Open with menu for a zip file, offering Keka&quot; width=&quot;804&quot; height=&quot;501&quot;&gt;
+&lt;p&gt;Keka extracts it, posts a Cutefish notification when it’s done, and shows
+the extracted folder in a Files window, the same steps it takes on a Mac.&lt;/p&gt;
+&lt;img src=&quot;https://cutefish.org/images/blog/reef-keka-extracted.png&quot; alt=&quot;The extracted folder selected in Files, with Keka&apos;s notification at the top right&quot; width=&quot;1080&quot; height=&quot;720&quot;&gt;
+&lt;h2 id=&quot;whats-new-underneath&quot;&gt;What’s new underneath&lt;/h2&gt;
+&lt;p&gt;Each new app needs parts of macOS that no earlier app used. These were
+the biggest:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;A web engine.&lt;/strong&gt; Many Mac apps show part of their interface as a web
+page, through a web view. We ported WebKit, the open-source web engine,
+to Cutefish. The engine itself is WebKit’s own, and the layer that
+connects it to our display and input is ours. NetNewsWire is the first
+app to use it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Core Data&lt;/strong&gt;, the database layer many Mac apps store their data in. It
+writes the same file format as on a Mac, with migrations between data
+model versions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Metal&lt;/strong&gt;, the Mac’s graphics interface. Reef runs it on OpenGL and
+translates an app’s Metal shaders when they load.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network framework&lt;/strong&gt;, which newer apps use to open connections and
+follow network changes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Window restoration and autosave&lt;/strong&gt;, so apps come back the way you
+left them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scrolling&lt;/strong&gt; that follows the Mac’s wheel acceleration and touchpad
+momentum, so scrolling in a Mac app feels the way its developers
+expected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All of this brings Reef to about 460,000 lines of our own code across
+more than 80 frameworks. It was 300,000 lines ten days ago.&lt;/p&gt;
+&lt;h2 id=&quot;faster-and-lighter&quot;&gt;Faster and lighter&lt;/h2&gt;
+&lt;p&gt;We keep measuring Mac apps against Cutefish’s own apps on the same
+laptop. Some of the changes since the first post:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A CotEditor frame while scrolling takes about 3 ms to draw, down from
+4.4 ms. Cutefish Text Editor takes 1.2 ms.&lt;/li&gt;
+&lt;li&gt;CotEditor stays responsive in a file of 100,000 lines. Before, typing
+in it froze the window. Now a key press reaches the screen in about
+70 ms.&lt;/li&gt;
+&lt;li&gt;CotEditor needs 146 MB of memory with a 20,000-line file open, down
+from 245 MB.&lt;/li&gt;
+&lt;li&gt;Ghostty draws a frame of live window resizing in 2.4 ms instead of
+6.7 ms. Closing one of its tabs now frees the tab’s memory and ends its
+shell.&lt;/li&gt;
+&lt;li&gt;NetNewsWire, Ghostty and CotEditor open 10 to 40 ms sooner.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There’s still a gap to native apps, and we’re working on it.&lt;/p&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+&lt;p&gt;Reef will ship in Cutefish as soon as possible, so you can try these apps
+yourself.&lt;/p&gt;</content:encoded></item><item><title>The Mac version of Ghostty, on Linux</title><link>https://cutefish.org/blog/ghostty-mac-on-cutefish/</link><guid isPermaLink="true">https://cutefish.org/blog/ghostty-mac-on-cutefish/</guid><description>Ghostty comes in a Mac version and a Linux version. On Cutefish you can run either. We put them side by side and explain why we reach for the Mac one.</description><pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://ghostty.org&quot;&gt;Ghostty&lt;/a&gt; is a popular terminal app, the window where
+you type commands. It comes in two versions, one for the Mac and one for
+Linux. On most Linux systems you can only use the Linux version. On
+Cutefish you can also run the Mac version, thanks to
+&lt;a href=&quot;https://cutefish.org/blog/running-mac-apps&quot;&gt;Reef&lt;/a&gt;, the part of Cutefish that runs Mac apps.&lt;/p&gt;
+&lt;p&gt;We tried both, with the same settings and Ghostty’s standard look, and
+the Mac version gives the better experience. Here they are next to each
+other, the Mac version on the left.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Ghostty’s Mac version (left) and Linux version (right) on Cutefish&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2160&quot; height=&quot;810&quot; src=&quot;https://cutefish.org/_astro/ghostty-side-by-side.DQiFMIaI_2vfywN.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;it-looks-at-home&quot;&gt;It looks at home&lt;/h2&gt;
+&lt;p&gt;The Mac version’s title bar takes on the colour of the terminal, with the
+same three window buttons as every other Cutefish window.&lt;/p&gt;
+&lt;p&gt;The Mac version also puts all its menus in the Cutefish menu bar at the top
+of the screen, with the keyboard shortcut for each command written next to
+it. Everything Ghostty can do is a click away, and you can learn the
+shortcuts as you go.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Ghostty’s View menu in the Cutefish menu bar&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1300&quot; height=&quot;800&quot; src=&quot;https://cutefish.org/_astro/ghostty-menu.GxjGtHM7_Z1F95gd.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Tabs sit neatly under the title, each with its shortcut, and you can
+split a window into several terminals.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Tabs and a split window: Mac version left, Linux version right&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2160&quot; height=&quot;870&quot; src=&quot;https://cutefish.org/_astro/ghostty-tabs.BDpx927Y_Z1JInoU.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;If you like a see-through window, the Mac version softly blurs what’s
+behind it, title bar included, so the text stays easy to read.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;See-through windows: Mac version left, Linux version right&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2160&quot; height=&quot;810&quot; src=&quot;https://cutefish.org/_astro/ghostty-blur.CbZKJ0gp_Z1YuD7x.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;it-feels-smooth&quot;&gt;It feels smooth&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;It opens straight into a terminal.&lt;/strong&gt; The Mac version’s window shows the
+terminal from the very first moment it appears, and is ready for typing
+almost at once.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Opening a window, frame by frame. Top: Mac version. Bottom: Linux version.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2352&quot; height=&quot;552&quot; src=&quot;https://cutefish.org/_astro/ghostty-first-frames.DkDVnp9n_1IzqVg.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scrolling glides.&lt;/strong&gt; Flick the touchpad and the text keeps gliding and
+gently slows down, like everywhere else on Cutefish.&lt;/p&gt;
+&lt;h2 id=&quot;its-the-ghostty-mac-users-know&quot;&gt;It’s the Ghostty Mac users know&lt;/h2&gt;
+&lt;p&gt;The Mac version uses the same settings file and the same shortcuts as
+Ghostty on a Mac. If you’ve used it there, you already know it here. Mac
+extras come along too: the Quick Terminal drops down from the top of the
+screen whenever you need it, and if you close a tab by mistake, Undo
+brings it back within a few seconds.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Ghostty’s Quick Terminal dropping down from the top of the screen&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1440&quot; height=&quot;960&quot; src=&quot;https://cutefish.org/_astro/ghostty-quick-terminal.CRai5Quy_AySiJ.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;how-fast-is-it&quot;&gt;How fast is it?&lt;/h2&gt;
+&lt;p&gt;We timed both versions on the same laptop.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Mac version&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Linux version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Time until the window appears&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;&lt;strong&gt;0.18 s&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.39 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time until you can type&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;&lt;strong&gt;0.21 s&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.44 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time from a key press to the letter on screen&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;16 ms&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;18 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time to show a 50 MB file&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;2.4 s&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;2.5 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stutters while typing, scrolling and resizing&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;none&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;none&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Memory used&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;147 MB&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;132 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The Mac version opens in less than half the time. Once it’s open, both
+are equally quick: letters appear just as fast, long output scrolls by
+just as fast, and neither stutters.&lt;/p&gt;
+&lt;h2 id=&quot;the-trade-offs&quot;&gt;The trade-offs&lt;/h2&gt;
+&lt;p&gt;The Mac version uses about 15 MB more memory, because it brings along the
+parts of Cutefish that run Mac apps. It also works the processor harder
+while you resize the window or scroll, which on a laptop means a little
+more battery. For everyday typing you won’t feel a difference.&lt;/p&gt;
+&lt;h2 id=&quot;our-recommendation&quot;&gt;Our recommendation&lt;/h2&gt;
+&lt;p&gt;If you use Ghostty on Cutefish, we recommend the Mac version. It opens
+faster, fits in with the rest of the desktop, and feels smoother to use.&lt;/p&gt;</content:encoded></item><item><title>Running Mac apps on Cutefish</title><link>https://cutefish.org/blog/running-mac-apps/</link><guid isPermaLink="true">https://cutefish.org/blog/running-mac-apps/</guid><description>Cutefish will be able to run apps made for the Mac, menu bar apps included. What that takes, how it differs from Darling and Wine, and what runs so far.</description><pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Cutefish will be able to run apps made for the Mac. Not just regular apps
+with windows, but also the small menu bar apps that sit next to the clock.
+A Mac app on Cutefish opens in a normal window, puts its menus in our menu
+bar and shows up in the Dock, like any other app on the desktop.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Things 3, TextMate, Hex Fiend and Itsycal running on the Cutefish desktop&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1440&quot; height=&quot;960&quot; src=&quot;https://cutefish.org/_astro/reef-desktop.GkZNwx9o_1cOSQ4.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Every app in this screenshot is a Mac app. We did not modify or recompile
+any of them for Linux. They are the same downloads a Mac user would get.&lt;/p&gt;
+&lt;h2 id=&quot;why-this-is-hard&quot;&gt;Why this is hard&lt;/h2&gt;
+&lt;p&gt;A Mac app does very little on its own. To open a window, show a menu, draw
+a line of text or work out what day it is, it calls into macOS: AppKit for
+windows and controls, Foundation for text, dates and files, Core Graphics
+for drawing, SwiftUI for newer interfaces, and dozens of other frameworks.&lt;/p&gt;
+&lt;p&gt;None of that exists on Linux. To run a Mac app we have to provide all of it
+ourselves, and it has to behave the way macOS does. When our answer is even
+slightly off, the app lays out its window wrong, draws nothing, or crashes.&lt;/p&gt;
+&lt;p&gt;In practice that means writing our own version of a large part of macOS’s
+programming interfaces. We call it Reef. It is over 300,000 lines of code
+across more than 70 frameworks, and AppKit and Foundation alone are over
+70,000 lines each. Underneath sit a loader for Mac programs (they use a
+different binary format, Mach-O), an Objective-C runtime, support for Swift
+and a low-level system library. Even so, this covers only part of macOS,
+which has tens of thousands of these functions.&lt;/p&gt;
+&lt;h2 id=&quot;how-we-work&quot;&gt;How we work&lt;/h2&gt;
+&lt;p&gt;Nobody knows exactly which parts of macOS a given app needs, so we can’t
+write everything up front. We go app by app. We run a real Mac app and look
+at where it breaks: a missing function, a window drawn wrong, a button that
+does nothing. Then we work out what a Mac does there, implement it as a
+general feature rather than a fix for that one app, add a test, and run the
+app again.&lt;/p&gt;
+&lt;p&gt;Each app makes the next one easier, since apps share most of what they use.
+But how much is left is genuinely unknown. The next app can always reach
+for something nobody has used yet.&lt;/p&gt;
+&lt;p&gt;Some of what we run into:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A drop-down and the label beside it should share a text baseline. We
+measured the baseline from a slightly different edge than macOS does, and
+the drop-downs in settings windows sat a few points off their labels.&lt;/li&gt;
+&lt;li&gt;macOS tints an image automatically when its name ends in “Template”. We
+didn’t, and one app’s window buttons came out as thick black rings.&lt;/li&gt;
+&lt;li&gt;Asking for a redraw while a window is being prepared for drawing
+shouldn’t trigger another one. In our code it did, and an idle window was
+redrawing more than a hundred times a second.&lt;/li&gt;
+&lt;li&gt;Apps check which version of macOS they’re on and change their behaviour,
+so every version difference is a decision for us.&lt;/li&gt;
+&lt;li&gt;Newer apps use SwiftUI, whose internals Apple doesn’t publish. We build
+it from the documentation and compare our output with a real Mac, pixel
+by pixel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;part-of-the-desktop&quot;&gt;Part of the desktop&lt;/h2&gt;
+&lt;p&gt;Mac apps use the same building blocks as every other Cutefish app. Our
+graphics toolkit draws their windows, text and controls. Our compositor
+gives them the same shadows, outlines and animations as other windows, and
+their menus get the same glass. Our shell puts their menus in the Cutefish
+menu bar, their icons in the Dock and their entries in the launcher.&lt;/p&gt;
+&lt;p&gt;Menu bar apps were the real test. On a Mac, Itsycal draws a small icon with
+the date in the menu bar and drops a calendar from it when you click.
+Cutefish has status item support designed for exactly this: the app draws
+its own item at whatever width it needs, and its popup opens right
+underneath it.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Itsycal: a Mac menu bar calendar, living in the Cutefish status bar&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;960&quot; height=&quot;540&quot; src=&quot;https://cutefish.org/_astro/reef-itsycal.Bi2MEYhr_Z1cbIEJ.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;what-runs&quot;&gt;What runs&lt;/h2&gt;
+&lt;p&gt;Itsycal works completely: the date in the status bar, the calendar popup,
+the right-click menu and the settings window.&lt;/p&gt;
+&lt;p&gt;TextMate, the text editor, and Hex Fiend, the hex editor, open and edit
+files. Below, Hex Fiend is looking at a Linux program. CotEditor, a newer
+editor built partly with SwiftUI, opens, edits and saves files, with its
+syntax colouring, inspector, find panel and settings working.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;TextMate editing a file on Cutefish&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1426&quot; height=&quot;1134&quot; src=&quot;https://cutefish.org/_astro/reef-textmate.CSmynEs5_ZEkVVT.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Hex Fiend, a Mac app, opening a Linux program&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;760&quot; height=&quot;840&quot; src=&quot;https://cutefish.org/_astro/reef-hexfiend.wbSuhdIh_Y6N22.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Things 3, the to-do app, runs, and parts of it are drawn by our own SwiftUI.
+It isn’t finished yet.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Things 3’s welcome card, drawn by Cutefish’s SwiftUI implementation&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1600&quot; height=&quot;1212&quot; src=&quot;https://cutefish.org/_astro/reef-things-welcome.ClK29w42_ZSaWmU.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Things 3’s tutorial project&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1600&quot; height=&quot;1212&quot; src=&quot;https://cutefish.org/_astro/reef-things.C9bwyPuy_ZOtueg.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;how-fast-it-is&quot;&gt;How fast it is&lt;/h2&gt;
+&lt;p&gt;Reef doesn’t emulate a processor or translate instructions. A Mac app’s own
+code runs directly on your CPU, the same way a Linux program does. What
+costs time is the part we wrote: our AppKit, Foundation and SwiftUI have to
+do the work macOS does for the app, and they are much younger than Apple’s.&lt;/p&gt;
+&lt;p&gt;To see where we stand, we compared CotEditor, a Mac text editor built with
+AppKit and SwiftUI, with Cutefish’s own text editor on the same laptop. Both
+open the same files and get the same input.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;CotEditor, a Mac app, and Cutefish Text Editor with the same file open&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2136&quot; height=&quot;1008&quot; src=&quot;https://cutefish.org/_astro/reef-coteditor.DprPNAIx_Z1EHKOr.webp&quot;&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;CotEditor on Reef&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Cutefish Text Editor&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Start to first frame&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;235 ms&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;115 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Open a 4,000-line file&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.36 s&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.12 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Open a 20,000-line file&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.50 s&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.12 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Key press to the letter on screen&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;21 ms&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;18 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU time to type 80 characters&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.4 s&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.17 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time to draw a frame while scrolling&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;4.4 ms&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.2 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time to draw a frame while resizing the window&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.8 ms&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.2 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scrolling and live window resizing&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;60 fps&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;60 fps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;What you feel is close: text appears within a few milliseconds of the
+native editor, files open in well under a second, and scrolling and
+resizing keep up with the screen. What you don’t see is the work behind it.
+CotEditor still uses several times the CPU to get there, which costs
+battery.&lt;/p&gt;
+&lt;p&gt;When this post first went up, typing 80 characters took 1.9 s of CPU time,
+a scrolling frame took 6.0 ms and a frame of live resizing 7.3 ms, with two
+frames drawn for every step of the resize. Since then:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scrolling moves the pixels already on screen and draws only the strip
+that comes into view, instead of redrawing all the visible text.&lt;/li&gt;
+&lt;li&gt;Our SwiftUI keeps the parts of a view that didn’t change, and keeps
+their measured sizes, instead of rebuilding and measuring the whole tree.&lt;/li&gt;
+&lt;li&gt;Typing redraws only the lines a change touches, and work handed between
+background threads wakes far fewer of them.&lt;/li&gt;
+&lt;li&gt;Resizing draws one frame per step, and no longer measures every menu
+item of every toolbar pop-up on each frame. It uses less than half the
+CPU it did.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The rest of the gap is mostly the app’s own work: CotEditor lays out three
+nested split views and wraps its text again for every new window width,
+and it asks for some of its redraws itself. These were problems in our
+code, not limits of the approach, and we’re still working on them.&lt;/p&gt;
+&lt;h2 id=&quot;what-wont-work&quot;&gt;What won’t work&lt;/h2&gt;
+&lt;p&gt;Anything that goes through Apple’s servers is out of reach. That includes
+the App Store. A Mac app on Cutefish can’t sell you a subscription or an
+in-app purchase, and one you bought on a Mac won’t carry over. Apps sold
+only in the Mac App Store can’t be installed at all, because the download
+is tied to an Apple account. We need a version from the developer’s own
+website.&lt;/p&gt;
+&lt;p&gt;iCloud is the same. Sign in with Apple doesn’t work, and an app that syncs
+through iCloud keeps its data on your computer.&lt;/p&gt;
+&lt;p&gt;If an app sells licences on its own website or syncs through its own
+service, none of this applies.&lt;/p&gt;
+&lt;h2 id=&quot;where-the-code-comes-from&quot;&gt;Where the code comes from&lt;/h2&gt;
+&lt;p&gt;Reef is our own code. It doesn’t use code from Darling or from Wine. We
+don’t take apart or copy Apple’s closed macOS software, and we don’t use
+Apple’s developer kit. When we need to know how something should behave,
+we read Apple’s documentation, look at what the app is asking for, and
+compare with the same app running on a Mac.&lt;/p&gt;
+&lt;p&gt;We do build on the parts of its platform that Apple releases as open
+source. These are included in Reef under their own licences:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Core Foundation, from
+&lt;a href=&quot;https://github.com/swiftlang/swift-corelibs-foundation&quot;&gt;swift-corelibs-foundation&lt;/a&gt;
+(Apache 2.0)&lt;/li&gt;
+&lt;li&gt;Grand Central Dispatch, which apps use to run work in the background, from
+&lt;a href=&quot;https://github.com/swiftlang/swift-corelibs-libdispatch&quot;&gt;swift-corelibs-libdispatch&lt;/a&gt;
+(Apache 2.0)&lt;/li&gt;
+&lt;li&gt;the Swift standard library and runtime, from
+&lt;a href=&quot;https://github.com/swiftlang/swift&quot;&gt;swiftlang/swift&lt;/a&gt; (Apache 2.0)&lt;/li&gt;
+&lt;li&gt;LZFSE, Apple’s compression format, from
+&lt;a href=&quot;https://github.com/lzfse/lzfse&quot;&gt;lzfse/lzfse&lt;/a&gt; (BSD 3-Clause)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We also read objc4, dyld, xnu and Libc from
+&lt;a href=&quot;https://github.com/apple-oss-distributions&quot;&gt;apple-oss-distributions&lt;/a&gt; to
+understand how the Mac behaves, without copying from them. Reef’s
+Objective-C runtime and loader are our own. Reef also includes LLVM’s
+libc++, libc++abi and libunwind, SQLite, curl and Tcl. Thanks to everyone
+behind these projects.&lt;/p&gt;
+&lt;h2 id=&quot;darling-and-wine&quot;&gt;Darling and Wine&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.darlinghq.org/&quot;&gt;Darling&lt;/a&gt; is the best-known project for running
+macOS software on Linux, and &lt;a href=&quot;https://www.winehq.org/&quot;&gt;Wine&lt;/a&gt; has done the
+same for Windows apps for decades. Wine isn’t an emulator. It reimplements
+the Windows programming interfaces, and Reef takes the same approach for the
+Mac, so “Wine for Mac apps” is a reasonable way to think about it.&lt;/p&gt;
+&lt;p&gt;The difference is mostly scope. Darling aims to run macOS software in
+general. It is well ahead of us on command-line tools and the system layer
+underneath, and it works on any Linux desktop. Wine runs a huge range of
+Windows software across Linux desktops. Reef only targets graphical Mac
+apps, only on Cutefish, and is built around Cutefish’s own toolkit,
+compositor and shell. Command-line tools aren’t something we’re aiming for.&lt;/p&gt;
+&lt;p&gt;We have a lot of respect for what both communities have built.&lt;/p&gt;
+&lt;h2 id=&quot;is-it-open-source&quot;&gt;Is it open source?&lt;/h2&gt;
+&lt;p&gt;Not for now. This is a large investment and a feature that sets Cutefish
+apart, and it needs to be protected while it grows. Opening it later is
+possible, for example once community sponsorship can sustain the work.&lt;/p&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+&lt;p&gt;More apps and more of SwiftUI, so that modern Mac apps work, and after that
+a web engine, which many apps depend on. We’ll write again when there’s
+more to show.&lt;/p&gt;</content:encoded></item><item><title>Letting agents use the desktop</title><link>https://cutefish.org/blog/letting-agents-use-the-desktop/</link><guid isPermaLink="true">https://cutefish.org/blog/letting-agents-use-the-desktop/</guid><description>How to let Claude Code, Claude Desktop, Codex or another agent see the Cutefish desktop and use its pointer and keyboard, with your permission.</description><pubDate>Tue, 20 Oct 2026 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Agents like Claude Code and Codex can already read files and run commands.
+With &lt;a href=&quot;https://github.com/cutefishos/cutefish-computer-use&quot;&gt;cutefish-computer-use&lt;/a&gt;
+they can also see the screen, click, type and move windows, so they can work
+with graphical applications the way you do. It is an MCP server: any agent app
+that supports MCP can use it.&lt;/p&gt;
+&lt;p&gt;Control goes through cutefish-compositor itself, not a screen recorder and a
+fake keyboard. The compositor decides when an agent may act, shows that it is
+acting, and stops it the moment you want.&lt;/p&gt;
+&lt;h2 id=&quot;what-keeps-you-in-charge&quot;&gt;What keeps you in charge&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;You say yes first.&lt;/strong&gt; The first time an agent tries to use the desktop,
+Cutefish asks you. The agent cannot click, type into or fake this dialog.
+It asks again next time, unless you choose to always allow that app;
+&lt;strong&gt;Settings › Privacy&lt;/strong&gt; lists those apps and takes them off again.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You can always see it, and stop it.&lt;/strong&gt; While an agent is in control, a Stop
+button sits in the status bar. Locking the screen stops it too.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Your input wins.&lt;/strong&gt; Moving the pointer or typing pauses the agent until you
+are done.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;It cannot answer for you.&lt;/strong&gt; Permission prompts, password dialogs and the
+lock screen are off limits to it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Only one program is trusted.&lt;/strong&gt; The compositor offers control only to
+&lt;code&gt;/usr/bin/cutefish-computer-use&lt;/code&gt;, and the screen can only be read while you
+have allowed control.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;install&quot;&gt;Install&lt;/h2&gt;
+&lt;p&gt;cutefish-computer-use comes with Cutefish Desktop. If your system does not
+have it yet, install it from the Cutefish repository:&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;shell&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#B392F0&quot;&gt;sudo&lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt; apt&lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt; install&lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt; cutefish-computer-use&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then log out and back in: the compositor looks for the server when the session
+starts.&lt;/p&gt;
+&lt;h2 id=&quot;claude-code-codex-and-other-command-line-agents&quot;&gt;Claude Code, Codex and other command-line agents&lt;/h2&gt;
+&lt;p&gt;Add it as a stdio MCP server. For Claude Code:&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;shell&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#B392F0&quot;&gt;claude&lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt; mcp&lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt; add&lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt; cutefish&lt;/span&gt;&lt;span style=&quot;color:#79B8FF&quot;&gt; --&lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt; /usr/bin/cutefish-computer-use&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For Codex, add this to &lt;code&gt;~/.codex/config.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;toml&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;[&lt;/span&gt;&lt;span style=&quot;color:#B392F0&quot;&gt;mcp_servers&lt;/span&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color:#B392F0&quot;&gt;cutefish&lt;/span&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;command = &lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt;&quot;/usr/bin/cutefish-computer-use&quot;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Other agents take the same command in their MCP settings.&lt;/p&gt;
+&lt;h2 id=&quot;claude-desktop&quot;&gt;Claude Desktop&lt;/h2&gt;
+&lt;p&gt;Open &lt;strong&gt;Settings&lt;/strong&gt;, then &lt;strong&gt;Developer&lt;/strong&gt;, and choose &lt;strong&gt;Edit config&lt;/strong&gt;. Add the
+server to &lt;code&gt;claude_desktop_config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;json&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#79B8FF&quot;&gt;  &quot;mcpServers&quot;&lt;/span&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#79B8FF&quot;&gt;    &quot;cutefish&quot;&lt;/span&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;: {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#79B8FF&quot;&gt;      &quot;command&quot;&lt;/span&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color:#9ECBFF&quot;&gt;&quot;/usr/bin/cutefish-computer-use&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#E1E4E8&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Restart Claude Desktop. The Developer page now lists &lt;code&gt;cutefish&lt;/code&gt; as running.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Claude Desktop’s Developer settings, with the cutefish server running&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1790&quot; height=&quot;986&quot; src=&quot;https://cutefish.org/_astro/computer-use-claude-desktop-developer.CaeEyaDr_Z13KiJQ.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;trying-it&quot;&gt;Trying it&lt;/h2&gt;
+&lt;p&gt;Ask for something that needs the screen, such as “Take a screenshot of my
+desktop and tell me which apps are in the Dock.” Claude Desktop first asks
+whether it may use the tool:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Claude Desktop asking to use Screenshot from cutefish&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1656&quot; height=&quot;994&quot; src=&quot;https://cutefish.org/_astro/computer-use-claude-desktop-tool-permission.BHtY6jEt_2q6UnI.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Claude Desktop asks this once for each tool. Choose &lt;strong&gt;Always allow&lt;/strong&gt; so it does
+not ask again; the dialog that decides whether an agent may use your desktop
+is the next one, and it comes from Cutefish. In Claude Code, allow
+&lt;code&gt;mcp__cutefish&lt;/code&gt; with &lt;code&gt;/permissions&lt;/code&gt; for the same effect.&lt;/p&gt;
+&lt;p&gt;Cutefish then asks whether the agent may control the computer. This dialog
+comes from the compositor, not from the agent, and the agent cannot answer
+it. Tick &lt;strong&gt;Always allow this app&lt;/strong&gt; if you do not want to be asked again:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Cutefish asking: Let “claude-ai” control this computer?&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;802&quot; height=&quot;422&quot; src=&quot;https://cutefish.org/_astro/computer-use-cutefish-consent-prompt.CzsYFava_ZPT2RG.webp&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Once you allow it, the agent sees the desktop and gets to work. The Stop
+button in the status bar shows that it is in control; press it whenever you
+want it to stop.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Claude listing the apps in the Dock, with the Stop button in the status bar&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1656&quot; height=&quot;980&quot; src=&quot;https://cutefish.org/_astro/computer-use-claude-desktop-result.PQoofIDs_CeCkR.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;what-it-can-do&quot;&gt;What it can do&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;See:&lt;/strong&gt; screenshots of the desktop or of one window, and zoomed views of
+part of the screen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Point:&lt;/strong&gt; click, double-click, drag, scroll and hold buttons.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Type:&lt;/strong&gt; text in any language, key chords and the session’s own
+shortcuts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Windows and apps:&lt;/strong&gt; list, focus, move, resize and close windows, open
+applications, files and links, and set the clipboard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bug reports and ideas are welcome on
+&lt;a href=&quot;https://github.com/cutefishos/cutefish-computer-use/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>How Cutefish packages are built, and how to check them</title><link>https://cutefish.org/blog/how-cutefish-is-built/</link><guid isPermaLink="true">https://cutefish.org/blog/how-cutefish-is-built/</guid><description>Cutefish packages and ISOs are built in the open by a public workflow, signed only by that workflow, and every file can be traced back to the build that made it.</description><pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Cutefish Desktop now has an APT repository for Debian 13 at
+&lt;a href=&quot;https://download.cutefish.org&quot;&gt;download.cutefish.org&lt;/a&gt;, and nightly ISOs for testing. Installing a package means
+trusting whoever built it, so we built the pipeline to need as little trust as
+possible, and to let you check every step yourself instead of taking our word
+for it.&lt;/p&gt;
+&lt;h2 id=&quot;in-short&quot;&gt;In short&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;No one builds by hand.&lt;/strong&gt; Every package and ISO is built by a public
+GitHub Actions workflow, from public source, on a fresh machine that is
+thrown away afterwards. No developer’s computer is involved.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No one signs by hand.&lt;/strong&gt; The key that signs the repository is a secret
+only that workflow can use. Apart from an offline backup, it is never on
+anyone’s computer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Every file can be traced.&lt;/strong&gt; Each one has a public, signed record of the
+exact repository, commit and build that produced it, kept in a transparency
+log that nobody, including us, can rewrite.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tampering is caught.&lt;/strong&gt; APT refuses a changed or swapped file, because it
+no longer matches the signed index, and the file fails the provenance
+check too.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;built-in-the-open&quot;&gt;Built in the open&lt;/h2&gt;
+&lt;p&gt;No package in the repository is built on a developer’s computer or on a
+server we run. Every package is built by
+&lt;a href=&quot;https://github.com/cutefishos/packaging/actions&quot;&gt;GitHub Actions&lt;/a&gt; on
+GitHub-hosted machines, in a fresh Debian 13 container that is thrown away
+after each build.&lt;/p&gt;
+&lt;p&gt;Everything that goes into a build is public:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The source code comes straight from the project repositories under
+&lt;a href=&quot;https://github.com/cutefishos&quot;&gt;github.com/cutefishos&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The packaging and the build steps are in the
+&lt;a href=&quot;https://github.com/cutefishos/packaging&quot;&gt;packaging&lt;/a&gt; repository. The
+workflow that builds and publishes the packages is
+&lt;a href=&quot;https://github.com/cutefishos/packaging/blob/main/.github/workflows/build.yml&quot;&gt;&lt;code&gt;.github/workflows/build.yml&lt;/code&gt;&lt;/a&gt;,
+and anyone can read what it does.&lt;/li&gt;
+&lt;li&gt;Build tools and libraries come from the official Debian archive.&lt;/li&gt;
+&lt;li&gt;Skia, the graphics library the toolkit uses, is fetched at a fixed revision
+from Google’s own repository, skia.googlesource.com.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The log of every build is public, too. You can open any run on the
+&lt;a href=&quot;https://github.com/cutefishos/packaging/actions&quot;&gt;Actions page&lt;/a&gt; and read
+every command it ran and everything it printed.&lt;/p&gt;
+&lt;h2 id=&quot;every-package-names-its-commit&quot;&gt;Every package names its commit&lt;/h2&gt;
+&lt;p&gt;Nightly packages carry the commit they were built from in their version. For
+example, &lt;code&gt;0.1.0+git20261019175928.ef1a42b-1&lt;/code&gt; was built from commit
+&lt;code&gt;ef1a42b&lt;/code&gt;, made on October 19, 2026 at 17:59:28 UTC. To see the exact code
+inside a package, look up that commit in the project’s repository.&lt;/p&gt;
+&lt;p&gt;The repository serves the source packages next to the binary ones, so you
+can also download the source of any package with &lt;code&gt;apt source&lt;/code&gt; and compare it
+with GitHub.&lt;/p&gt;
+&lt;p&gt;Each build also lists exactly what it used and what it made, at the end of
+its log and on the run’s summary page:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;commits&lt;/code&gt;: the commit of the packaging repository and of every project
+that went into the build.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SHA256SUMS&lt;/code&gt;: the SHA-256 checksum of every file the build produced.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both are published with the packages, at
+&lt;code&gt;https://download.cutefish.org/debian/dists/trixie-nightly/commits&lt;/code&gt; and
+&lt;code&gt;https://download.cutefish.org/debian/dists/trixie-nightly/SHA256SUMS&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;tracing-a-file-back-to-its-build&quot;&gt;Tracing a file back to its build&lt;/h2&gt;
+&lt;p&gt;For every file it produces, the build also creates a signed
+&lt;a href=&quot;https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds&quot;&gt;build provenance attestation&lt;/a&gt;.
+It records which repository, which workflow, which commit and which run
+produced the file with a given checksum. GitHub signs it through
+&lt;a href=&quot;https://www.sigstore.dev/&quot;&gt;Sigstore&lt;/a&gt;, not with any key of ours, and it is
+recorded in Sigstore’s public transparency log, so it cannot be quietly
+created or changed afterwards.&lt;/p&gt;
+&lt;p&gt;To check a package you downloaded, use the &lt;a href=&quot;https://cli.github.com/&quot;&gt;GitHub CLI&lt;/a&gt;,
+version 2.49 or later, signed in with &lt;code&gt;gh auth login&lt;/code&gt;. The &lt;code&gt;gh&lt;/code&gt; package in
+Debian 13 is older; get a current one from cli.github.com.&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;plaintext&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span&gt;apt download cutefish-core&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;gh attestation verify cutefish-core_*.deb --repo cutefishos/packaging&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If the file was not built by the Cutefish workflow, or was changed in any way
+after it was built, the check fails. If it passes, the output links to the
+exact workflow run, whose full log you can read.&lt;/p&gt;
+&lt;h2 id=&quot;the-iso&quot;&gt;The ISO&lt;/h2&gt;
+&lt;p&gt;The live ISO is built the same way, by
+&lt;a href=&quot;https://github.com/cutefishos/packaging/blob/main/.github/workflows/iso.yml&quot;&gt;&lt;code&gt;.github/workflows/iso.yml&lt;/code&gt;&lt;/a&gt;
+in the same repository, from the
+&lt;a href=&quot;https://github.com/cutefishos/packaging/tree/main/iso&quot;&gt;live-build configuration&lt;/a&gt;
+next to it. It installs the Cutefish packages from download.cutefish.org and
+everything else from the official Debian archive. Nightly ISOs are published
+on download.cutefish.org, each with three files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.iso&lt;/code&gt;: the image.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.iso.sha256&lt;/code&gt;: its SHA-256 checksum.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.packages&lt;/code&gt;: every package in the image, with its version.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;LATEST-amd64&lt;/code&gt; and &lt;code&gt;LATEST-arm64&lt;/code&gt; name the newest one for each architecture. To download it, check its checksum and verify
+its attestation:&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;plaintext&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span&gt;name=$(curl -fsSL https://download.cutefish.org/iso/nightly/LATEST-amd64)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;curl -fLO &quot;https://download.cutefish.org/iso/nightly/$name.iso&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;curl -fLO &quot;https://download.cutefish.org/iso/nightly/$name.iso.sha256&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;curl -fLO &quot;https://download.cutefish.org/iso/nightly/$name.packages&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;sha256sum -c &quot;$name.iso.sha256&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;gh attestation verify &quot;$name.iso&quot; --repo cutefishos/packaging&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Every Cutefish package in &lt;code&gt;.packages&lt;/code&gt; carries its commit in its version, as
+above, so you can trace the whole image back to its source.&lt;/p&gt;
+&lt;h2 id=&quot;signed-by-the-build-and-only-the-build&quot;&gt;Signed by the build, and only the build&lt;/h2&gt;
+&lt;p&gt;APT checks the signature of the repository before it installs anything from
+it. The Cutefish repository is signed with this key:&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;plaintext&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span&gt;Cutefish Archive &amp;lt;reionwong@gmail.com&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;ed25519, fingerprint 5F52 7F0C B976 4BA0 AF99  BAE5 F4A4 30BC 9E10 91A7&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The private key is stored as an encrypted secret of the packaging
+repository. Only the build workflow can read it, and nothing else ever signs
+with it. Apart from that secret, the only copy is an offline backup. Releases
+are not signed by hand on someone’s laptop.&lt;/p&gt;
+&lt;p&gt;Uploading to download.cutefish.org works the same way: the storage behind it only
+accepts uploads with a key that, again, only the build workflow holds.&lt;/p&gt;
+&lt;h2 id=&quot;installing&quot;&gt;Installing&lt;/h2&gt;
+&lt;p&gt;Download the key, check that its fingerprint matches the one above, and add
+the repository:&lt;/p&gt;
+&lt;pre class=&quot;astro-code github-dark&quot; style=&quot;background-color:#24292e;color:#e1e4e8; overflow-x: auto;&quot; tabindex=&quot;0&quot; data-language=&quot;plaintext&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span&gt;sudo curl -fsSLo /etc/apt/keyrings/cutefish.asc https://download.cutefish.org/debian/cutefish.asc&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;gpg --show-keys /etc/apt/keyrings/cutefish.asc&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;echo &quot;deb [signed-by=/etc/apt/keyrings/cutefish.asc] https://download.cutefish.org/debian trixie-nightly main&quot; \&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;  | sudo tee /etc/apt/sources.list.d/cutefish.list&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;sudo apt update&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;sudo apt install cutefish-desktop&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;signed-by&lt;/code&gt; limits the key to this repository, so it cannot vouch for
+packages from anywhere else.&lt;/p&gt;
+&lt;h2 id=&quot;what-an-attacker-would-need&quot;&gt;What an attacker would need&lt;/h2&gt;
+&lt;p&gt;Suppose someone wants to get a malicious package onto your computer through
+Cutefish:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Replacing a file on download.cutefish.org&lt;/strong&gt; is not enough. APT checks every
+package against the signed index, and the index against the signing key,
+so a swapped file is refused. Its provenance check fails as well.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stealing the signing key&lt;/strong&gt; is not enough either: the key alone cannot
+upload anything to download.cutefish.org. Even with the upload key as well, a
+package built anywhere else has no attestation from the Cutefish workflow,
+so it fails the provenance check. Only a run of that workflow, with its
+public log, can produce one.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Changing the source&lt;/strong&gt; means pushing a commit to a public repository. It
+shows up in the history, and the build that picks it up names that commit
+in the package version and in &lt;code&gt;commits&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Changing the build&lt;/strong&gt; means changing the workflow, which is public and
+versioned in the same way, and every run’s log shows what it did.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pull requests and forks never see the signing key or the upload key; GitHub
+only gives secrets to workflows running in the repository itself. The upload
+key can write to the Cutefish storage bucket and nothing else.&lt;/p&gt;
+&lt;p&gt;What remains is GitHub’s own infrastructure, which builds the packages, and
+Sigstore, which records the attestations. We rely on them, as most open
+source projects do.&lt;/p&gt;
+&lt;h2 id=&quot;what-this-does-not-cover&quot;&gt;What this does not cover&lt;/h2&gt;
+&lt;p&gt;The packages are not yet reproducible: building the same commit twice does
+not produce byte-identical files, so you cannot rebuild a package yourself and
+compare checksums. That is something we would like to get to.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;trixie-nightly&lt;/code&gt; is built from the latest code every night. It is meant for
+testing, and things in it can break.&lt;/p&gt;
+&lt;h2 id=&quot;only-from-official-sources&quot;&gt;Only from official sources&lt;/h2&gt;
+&lt;p&gt;Packages and ISOs from anywhere other than download.cutefish.org and
+&lt;a href=&quot;https://github.com/cutefishos&quot;&gt;github.com/cutefishos&lt;/a&gt; were not built by us.&lt;/p&gt;</content:encoded></item></channel></rss>

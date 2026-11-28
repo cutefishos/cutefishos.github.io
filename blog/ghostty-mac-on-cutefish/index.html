@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Mac version of Ghostty, on Linux - Cutefish</title><meta name="description" content="Ghostty comes in a Mac version and a Linux version. On Cutefish you can run either. We put them side by side and explain why we reach for the Mac one."><link rel="canonical" href="https://cutefish.org/blog/ghostty-mac-on-cutefish/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Cutefish" href="/rss.xml"><meta property="og:site_name" content="Cutefish"><meta property="og:type" content="article"><meta property="og:title" content="The Mac version of Ghostty, on Linux - Cutefish"><meta property="og:description" content="Ghostty comes in a Mac version and a Linux version. On Cutefish you can run either. We put them side by side and explain why we reach for the Mac one."><meta property="og:url" content="https://cutefish.org/blog/ghostty-mac-on-cutefish/"><meta property="og:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Cutefish desktop with the Dock"><meta property="article:published_time" content="2026-11-01T12:00:00.000Z"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@cutefishos"><meta name="twitter:title" content="The Mac version of Ghostty, on Linux - Cutefish"><meta name="twitter:description" content="Ghostty comes in a Mac version and a Linux version. On Cutefish you can run either. We put them side by side and explain why we reach for the Mac one."><meta name="twitter:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Mac version of Ghostty, on Linux","description":"Ghostty comes in a Mac version and a Linux version. On Cutefish you can run either. We put them side by side and explain why we reach for the Mac one.","datePublished":"2026-11-01T12:00:00.000Z","url":"https://cutefish.org/blog/ghostty-mac-on-cutefish/","author":{"@type":"Organization","name":"Cutefish","url":"https://cutefish.org/"},"publisher":{"@type":"Organization","name":"Cutefish","url":"https://cutefish.org/"}}</script><link rel="stylesheet" href="/_astro/Base.BjIL4Lm1.css"><link rel="stylesheet" href="/_astro/Article.5vZ1h0Zs.css"><style>time[data-astro-cid-saqyrroa]{color:var(--secondary-text);font-size:15px}
+</style></head><body><header class="site-header" data-astro-cid-nen7h5rs><div class="container bar" data-astro-cid-nen7h5rs><div class="left" data-astro-cid-nen7h5rs><a class="brand" href="/" data-astro-cid-nen7h5rs><img src="/favicon.svg" alt="" width="28" height="28" data-astro-cid-nen7h5rs><span data-astro-cid-nen7h5rs>Cutefish</span></a><nav class="desktop-nav" data-astro-cid-nen7h5rs><a href="/news" aria-current="page" data-astro-cid-nen7h5rs>News</a><a href="/docs" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav></div><div class="social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" data-tooltip="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" data-tooltip="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" data-tooltip="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" data-astro-cid-nen7h5rs><span class="icon-open" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg></span><span class="icon-close" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg></span></button></div><div class="mobile-menu" id="mobile-menu" data-astro-cid-nen7h5rs><div class="container mobile-menu-inner" data-astro-cid-nen7h5rs><nav class="mobile-nav" data-astro-cid-nen7h5rs><a href="/news" aria-current="page" data-astro-cid-nen7h5rs>News</a><a href="/docs" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav><div class="mobile-social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" title="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" title="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div></div></div></header><script type="module">var e=document.querySelector(`.site-header`),t=e?.querySelector(`.menu-toggle`),n=e?.querySelector(`.mobile-menu`);function r(){e?.classList.toggle(`scrolled`,window.scrollY>0)}function i(n){e?.classList.toggle(`menu-open`,n),t?.setAttribute(`aria-expanded`,String(n))}t?.addEventListener(`click`,()=>{i(!e?.classList.contains(`menu-open`))}),n?.addEventListener(`click`,e=>{e.target.closest(`a`)&&i(!1)}),document.addEventListener(`click`,t=>{e?.classList.contains(`menu-open`)&&!e.contains(t.target)&&i(!1)}),document.addEventListener(`keydown`,n=>{n.key===`Escape`&&e?.classList.contains(`menu-open`)&&(i(!1),t?.focus())}),window.matchMedia(`(min-width: 640px)`).addEventListener(`change`,e=>{e.matches&&i(!1)}),window.addEventListener(`scroll`,r,{passive:!0}),r();</script><main><article class="container" data-astro-cid-scd62v54><div class="main" data-astro-cid-scd62v54><header class="post-header" data-astro-cid-scd62v54><a class="back" href="/news" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" />
+</svg>All news</a><h1 data-astro-cid-scd62v54>The Mac version of Ghostty, on Linux</h1><time datetime="2026-11-01T12:00:00.000Z" data-astro-cid-saqyrroa>November 1, 2026</time></header><div class="post" data-astro-cid-scd62v54><div class="prose" data-astro-cid-scd62v54><p><a href="https://ghostty.org">Ghostty</a> is a popular terminal app, the window where
+you type commands. It comes in two versions, one for the Mac and one for
+Linux. On most Linux systems you can only use the Linux version. On
+Cutefish you can also run the Mac version, thanks to
+<a href="/blog/running-mac-apps">Reef</a>, the part of Cutefish that runs Mac apps.</p>
+<p>We tried both, with the same settings and Ghostty’s standard look, and
+the Mac version gives the better experience. Here they are next to each
+other, the Mac version on the left.</p>
+<p><img alt="Ghostty’s Mac version (left) and Linux version (right) on Cutefish" loading="lazy" decoding="async" width="2160" height="810" src="/_astro/ghostty-side-by-side.DQiFMIaI_2vfywN.webp"></p>
+<h2 id="it-looks-at-home">It looks at home</h2>
+<p>The Mac version’s title bar takes on the colour of the terminal, with the
+same three window buttons as every other Cutefish window.</p>
+<p>The Mac version also puts all its menus in the Cutefish menu bar at the top
+of the screen, with the keyboard shortcut for each command written next to
+it. Everything Ghostty can do is a click away, and you can learn the
+shortcuts as you go.</p>
+<p><img alt="Ghostty’s View menu in the Cutefish menu bar" loading="lazy" decoding="async" width="1300" height="800" src="/_astro/ghostty-menu.GxjGtHM7_Z1F95gd.webp"></p>
+<p>Tabs sit neatly under the title, each with its shortcut, and you can
+split a window into several terminals.</p>
+<p><img alt="Tabs and a split window: Mac version left, Linux version right" loading="lazy" decoding="async" width="2160" height="870" src="/_astro/ghostty-tabs.BDpx927Y_Z1JInoU.webp"></p>
+<p>If you like a see-through window, the Mac version softly blurs what’s
+behind it, title bar included, so the text stays easy to read.</p>
+<p><img alt="See-through windows: Mac version left, Linux version right" loading="lazy" decoding="async" width="2160" height="810" src="/_astro/ghostty-blur.CbZKJ0gp_Z1YuD7x.webp"></p>
+<h2 id="it-feels-smooth">It feels smooth</h2>
+<p><strong>It opens straight into a terminal.</strong> The Mac version’s window shows the
+terminal from the very first moment it appears, and is ready for typing
+almost at once.</p>
+<p><img alt="Opening a window, frame by frame. Top: Mac version. Bottom: Linux version." loading="lazy" decoding="async" width="2352" height="552" src="/_astro/ghostty-first-frames.DkDVnp9n_1IzqVg.webp"></p>
+<p><strong>Scrolling glides.</strong> Flick the touchpad and the text keeps gliding and
+gently slows down, like everywhere else on Cutefish.</p>
+<h2 id="its-the-ghostty-mac-users-know">It’s the Ghostty Mac users know</h2>
+<p>The Mac version uses the same settings file and the same shortcuts as
+Ghostty on a Mac. If you’ve used it there, you already know it here. Mac
+extras come along too: the Quick Terminal drops down from the top of the
+screen whenever you need it, and if you close a tab by mistake, Undo
+brings it back within a few seconds.</p>
+<p><img alt="Ghostty’s Quick Terminal dropping down from the top of the screen" loading="lazy" decoding="async" width="1440" height="960" src="/_astro/ghostty-quick-terminal.CRai5Quy_AySiJ.webp"></p>
+<h2 id="how-fast-is-it">How fast is it?</h2>
+<p>We timed both versions on the same laptop.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right">Mac version</th>
+<th style="text-align: right">Linux version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time until the window appears</td>
+<td style="text-align: right"><strong>0.18 s</strong></td>
+<td style="text-align: right">0.39 s</td>
+</tr>
+<tr>
+<td>Time until you can type</td>
+<td style="text-align: right"><strong>0.21 s</strong></td>
+<td style="text-align: right">0.44 s</td>
+</tr>
+<tr>
+<td>Time from a key press to the letter on screen</td>
+<td style="text-align: right">16 ms</td>
+<td style="text-align: right">18 ms</td>
+</tr>
+<tr>
+<td>Time to show a 50 MB file</td>
+<td style="text-align: right">2.4 s</td>
+<td style="text-align: right">2.5 s</td>
+</tr>
+<tr>
+<td>Stutters while typing, scrolling and resizing</td>
+<td style="text-align: right">none</td>
+<td style="text-align: right">none</td>
+</tr>
+<tr>
+<td>Memory used</td>
+<td style="text-align: right">147 MB</td>
+<td style="text-align: right">132 MB</td>
+</tr>
+</tbody>
+</table>
+<p>The Mac version opens in less than half the time. Once it’s open, both
+are equally quick: letters appear just as fast, long output scrolls by
+just as fast, and neither stutters.</p>
+<h2 id="the-trade-offs">The trade-offs</h2>
+<p>The Mac version uses about 15 MB more memory, because it brings along the
+parts of Cutefish that run Mac apps. It also works the processor harder
+while you resize the window or scroll, which on a laptop means a little
+more battery. For everyday typing you won’t feel a difference.</p>
+<h2 id="our-recommendation">Our recommendation</h2>
+<p>If you use Ghostty on Cutefish, we recommend the Mac version. It opens
+faster, fits in with the rest of the desktop, and feels smoother to use.</p>
+</div><aside class="contents" aria-labelledby="contents-heading" data-astro-cid-scd62v54><h2 id="contents-heading" data-astro-cid-scd62v54>Contents</h2><nav aria-labelledby="contents-heading" data-astro-cid-scd62v54><ul data-astro-cid-scd62v54><li data-astro-cid-scd62v54><a href="#it-looks-at-home" data-astro-cid-scd62v54>It looks at home</a></li><li data-astro-cid-scd62v54><a href="#it-feels-smooth" data-astro-cid-scd62v54>It feels smooth</a></li><li data-astro-cid-scd62v54><a href="#its-the-ghostty-mac-users-know" data-astro-cid-scd62v54>It’s the Ghostty Mac users know</a></li><li data-astro-cid-scd62v54><a href="#how-fast-is-it" data-astro-cid-scd62v54>How fast is it?</a></li><li data-astro-cid-scd62v54><a href="#the-trade-offs" data-astro-cid-scd62v54>The trade-offs</a></li><li data-astro-cid-scd62v54><a href="#our-recommendation" data-astro-cid-scd62v54>Our recommendation</a></li></ul></nav></aside></div></div></article><script type="module">var e=document.querySelector(`.contents`),t=[...document.querySelectorAll(`.contents a`)],n=t.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))),r=89,i=-1;function a(t,n){if(!e||e.scrollHeight<=e.clientHeight)return;let r=e.getBoundingClientRect(),i=t.getBoundingClientRect(),a=i.top-r.top+e.scrollTop,o=a+i.height;a<e.scrollTop+48?e.scrollTo({top:Math.max(0,a-48),behavior:n?`smooth`:`auto`}):o>e.scrollTop+e.clientHeight-48&&e.scrollTo({top:o-e.clientHeight+48,behavior:n?`smooth`:`auto`})}function o(e=!0){let o=-1;window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-1?o=n.length-1:n.forEach((e,t)=>{e&&e.getBoundingClientRect().top<=r&&(o=t)}),o!==i&&(i=o,t.forEach((e,t)=>{t===o?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`)}),o>=0&&a(t[o],e))}var s=!1;window.addEventListener(`scroll`,()=>{s||(s=!0,requestAnimationFrame(()=>{s=!1,o(!0)}))},{passive:!0}),t.length>0&&o(!1);var c=`cutefish-docs-sidebar`,l=document.querySelector(`.sidebar-collapse`),u=document.querySelector(`.sidebar-expand`);function d(e,t){if(document.documentElement.classList.toggle(`docs-sidebar-collapsed`,e),t)try{e?localStorage.setItem(c,`collapsed`):localStorage.removeItem(c)}catch{}}l&&u&&(l.addEventListener(`click`,()=>{d(!0,!0)}),u.addEventListener(`click`,()=>{d(!1,!0)}));</script></main><footer class="site-footer" data-astro-cid-jo6i4kqk><div class="container" data-astro-cid-jo6i4kqk><div class="top" data-astro-cid-jo6i4kqk><div class="about" data-astro-cid-jo6i4kqk><p class="tagline" data-astro-cid-jo6i4kqk>A fast, clean Linux distribution designed with Mac users in mind.</p></div><nav class="groups" data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Get Cutefish</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://download.cutefish.org/" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk>Downloads</a></li><li data-astro-cid-jo6i4kqk><a href="/docs" data-astro-cid-jo6i4kqk>Docs</a></li><li data-astro-cid-jo6i4kqk><a href="/reef" data-astro-cid-jo6i4kqk>Reef</a></li><li data-astro-cid-jo6i4kqk><a href="/blog/how-cutefish-is-built" data-astro-cid-jo6i4kqk>Build from Source</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Community</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>GitHub</a></li><li data-astro-cid-jo6i4kqk><a href="https://github.com/sponsors/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+</svg>GitHub Sponsors</a></li><li data-astro-cid-jo6i4kqk><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg>Discord</a></li><li data-astro-cid-jo6i4kqk><a href="https://x.com/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg>X</a></li><li data-astro-cid-jo6i4kqk><a href="mailto:hello@cutefish.org" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+  <path d="M3 7l9 6l9 -6" />
+</svg>Email</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Site</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="/news" data-astro-cid-jo6i4kqk>News</a></li><li data-astro-cid-jo6i4kqk><a href="/about" data-astro-cid-jo6i4kqk>About</a></li><li data-astro-cid-jo6i4kqk><a href="/privacy" data-astro-cid-jo6i4kqk>Privacy</a></li><li data-astro-cid-jo6i4kqk><a href="/legal" data-astro-cid-jo6i4kqk>Legal</a></li><li data-astro-cid-jo6i4kqk><a href="/rss.xml" data-astro-cid-jo6i4kqk>RSS</a></li></ul></div></nav></div><div class="bottom" data-astro-cid-jo6i4kqk><p data-astro-cid-jo6i4kqk>&copy; 2021&ndash;2026 Cutefish</p><p data-astro-cid-jo6i4kqk>Apple, Mac and macOS are trademarks of Apple Inc. Linux is the registered trademark of Linus Torvalds. Cutefish is not affiliated with Apple.</p></div></div></footer></body></html>

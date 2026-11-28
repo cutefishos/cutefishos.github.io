@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Design Rules - Cutefish</title><meta name="description" content="Layout rules for every Cutefish surface: shell, Settings, applications and toolkit controls. Sizes are in logical pixels unless they say device pixels."><link rel="canonical" href="https://cutefish.org/docs/design-rules/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Cutefish" href="/rss.xml"><meta property="og:site_name" content="Cutefish"><meta property="og:type" content="website"><meta property="og:title" content="Design Rules - Cutefish"><meta property="og:description" content="Layout rules for every Cutefish surface: shell, Settings, applications and toolkit controls. Sizes are in logical pixels unless they say device pixels."><meta property="og:url" content="https://cutefish.org/docs/design-rules/"><meta property="og:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Cutefish desktop with the Dock"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@cutefishos"><meta name="twitter:title" content="Design Rules - Cutefish"><meta name="twitter:description" content="Layout rules for every Cutefish surface: shell, Settings, applications and toolkit controls. Sizes are in logical pixels unless they say device pixels."><meta name="twitter:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><link rel="stylesheet" href="/_astro/Base.BjIL4Lm1.css"><link rel="stylesheet" href="/_astro/Article.5vZ1h0Zs.css"><style>nav[data-astro-cid-wk4lxtzo]{flex-direction:column;gap:16px;display:flex}h2[data-astro-cid-wk4lxtzo]{color:var(--text);margin:0 0 4px;font-size:.875rem}ul[data-astro-cid-wk4lxtzo]{margin:0;padding:0;list-style:none}a[data-astro-cid-wk4lxtzo]{color:var(--secondary-text);padding:5px 0;font-size:.875rem;line-height:1.4;display:block}.overview[data-astro-cid-wk4lxtzo]{color:var(--text);font-weight:600}a[data-astro-cid-wk4lxtzo]:hover{color:var(--text);text-decoration:none}a[data-astro-cid-wk4lxtzo][aria-current]{color:var(--highlight);font-weight:600}
+</style></head><body><header class="site-header" data-astro-cid-nen7h5rs><div class="container bar" data-astro-cid-nen7h5rs><div class="left" data-astro-cid-nen7h5rs><a class="brand" href="/" data-astro-cid-nen7h5rs><img src="/favicon.svg" alt="" width="28" height="28" data-astro-cid-nen7h5rs><span data-astro-cid-nen7h5rs>Cutefish</span></a><nav class="desktop-nav" data-astro-cid-nen7h5rs><a href="/news" data-astro-cid-nen7h5rs>News</a><a href="/docs" aria-current="page" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav></div><div class="social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" data-tooltip="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" data-tooltip="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" data-tooltip="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" data-astro-cid-nen7h5rs><span class="icon-open" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg></span><span class="icon-close" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg></span></button></div><div class="mobile-menu" id="mobile-menu" data-astro-cid-nen7h5rs><div class="container mobile-menu-inner" data-astro-cid-nen7h5rs><nav class="mobile-nav" data-astro-cid-nen7h5rs><a href="/news" data-astro-cid-nen7h5rs>News</a><a href="/docs" aria-current="page" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav><div class="mobile-social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" title="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" title="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div></div></div></header><script type="module">var e=document.querySelector(`.site-header`),t=e?.querySelector(`.menu-toggle`),n=e?.querySelector(`.mobile-menu`);function r(){e?.classList.toggle(`scrolled`,window.scrollY>0)}function i(n){e?.classList.toggle(`menu-open`,n),t?.setAttribute(`aria-expanded`,String(n))}t?.addEventListener(`click`,()=>{i(!e?.classList.contains(`menu-open`))}),n?.addEventListener(`click`,e=>{e.target.closest(`a`)&&i(!1)}),document.addEventListener(`click`,t=>{e?.classList.contains(`menu-open`)&&!e.contains(t.target)&&i(!1)}),document.addEventListener(`keydown`,n=>{n.key===`Escape`&&e?.classList.contains(`menu-open`)&&(i(!1),t?.focus())}),window.matchMedia(`(min-width: 640px)`).addEventListener(`change`,e=>{e.matches&&i(!1)}),window.addEventListener(`scroll`,r,{passive:!0}),r();</script><main><script>
+    try {
+      if (localStorage.getItem('cutefish-docs-sidebar') === 'collapsed') {
+        document.documentElement.classList.add('docs-sidebar-collapsed');
+      }
+    } catch {}
+  </script><article class="container with-sidebar" data-astro-cid-scd62v54><div class="sidebar" id="docs-sidebar" data-astro-cid-scd62v54><button type="button" class="sidebar-collapse" aria-expanded="true" aria-controls="docs-sidebar" aria-label="Hide sidebar" title="Hide sidebar" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" />
+  <path d="M9 4v16" />
+  <path d="M15 10l-2 2l2 2" />
+</svg></button><nav aria-label="Docs" data-astro-cid-wk4lxtzo><a class="overview" href="/docs" data-astro-cid-wk4lxtzo>Overview</a><section data-astro-cid-wk4lxtzo><ul data-astro-cid-wk4lxtzo><li data-astro-cid-wk4lxtzo><a href="/docs/architecture" data-astro-cid-wk4lxtzo>Architecture</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/building" data-astro-cid-wk4lxtzo>Building Cutefish from Source</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/translating" data-astro-cid-wk4lxtzo>Adding a Language</a></li><li data-astro-cid-wk4lxtzo><a href="/docs/design-rules" aria-current="page" data-astro-cid-wk4lxtzo>Design Rules</a></li></ul></section></nav></div><div class="main" data-astro-cid-scd62v54><header class="post-header" data-astro-cid-scd62v54><button type="button" class="sidebar-expand" aria-expanded="false" aria-controls="docs-sidebar" aria-label="Show sidebar" title="Show sidebar" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" />
+  <path d="M9 4v16" />
+  <path d="M14 10l2 2l-2 2" />
+</svg><span data-astro-cid-scd62v54>Docs</span></button><a class="back" href="/docs" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" />
+</svg>All docs</a><h1 data-astro-cid-scd62v54>Design Rules</h1></header><div class="post" data-astro-cid-scd62v54><div class="prose" data-astro-cid-scd62v54>
+<p>Layout rules for every Cutefish surface: shell, Settings, applications and
+toolkit controls. Sizes are in logical pixels unless they say device pixels.</p>
+<h2 id="restraint">Restraint</h2>
+<p>Each page is one clear thing with one hierarchy. Use one accent and add no
+decoration of your own: no glows, badges, illustrations or effects that the
+toolkit’s controls do not already draw.</p>
+<h2 id="pixel-grid">Pixel grid</h2>
+<p>At fractional scales an odd logical coordinate falls between device pixels.
+Every edge lands on a whole device pixel:</p>
+<ul>
+<li>Draw through <code>Painter</code>, which rounds each edge to the device grid at its
+absolute position, so boxes that share a logical edge share a device edge.
+Rounded shapes and icons snap their first edge and keep their size.</li>
+<li>Borders, separators, insets and hairlines are whole device pixels, at least
+one. Use <code>drawRoundedRect</code>, <code>strokeRoundedRect</code>, <code>drawHorizontalLine</code> and
+<code>drawVerticalLine</code>, and <code>ui::Icon</code> for icons, never an antialiased rect at a
+fractional position.</li>
+<li>Text sits on whole device pixels vertically.</li>
+<li>Center content in its container by rounding each half on its own, so the two
+sides differ by at most one device pixel.</li>
+</ul>
+<p>Layout tests check these at scales 1, 1.75 and 2.</p>
+<h2 id="color">Color</h2>
+<p>Colors come from the theme’s <code>ColorId</code> roles, which define the light and dark
+value of each role once; do not pick RGB values in a view. The accent is
+<code>Highlight</code>, the color the user chose in Settings. Destructive actions use the
+theme’s red.</p>
+<p>Hairlines:</p>
+<ul>
+<li>A separator between rows is one device pixel of <code>ColorId::Separator</code>, inset
+at both ends by the card’s horizontal padding.</li>
+<li>The edge under a header and beside a sidebar is <code>ColorId::HeaderSeparator</code>,
+half a logical pixel thick: one device pixel with its alpha scaled down below
+2x.</li>
+</ul>
+<h2 id="corners">Corners</h2>
+<p>Use the theme’s radii: <code>smallRadius</code> 8 for fields and combo boxes,
+<code>mediumRadius</code> 10 for buttons and sidebar selections, <code>bigRadius</code> 12 for cards,
+<code>windowRadius</code> 14 for windows and menus.</p>
+<p>Continuous corners suit large cards and panels, whose radius is small next to
+their size. A pill or a control whose radius is close to half its height keeps
+a circular curve; a continuous one flattens it into a lumpy square.</p>
+<h2 id="insets-in-a-rounded-container">Insets in a rounded container</h2>
+<p>An element inset into a rounded window, panel or card, such as a hover or
+selection background, a tile or a footer row:</p>
+<ol>
+<li>Keeps the same gap to every container edge it touches.</li>
+<li>Takes the radius <code>container radius - gap</code>, so its corners stay concentric
+with the container’s. Continuous corners are subtracted the same way; a
+<code>RoundedShape</code> with an <code>inset</code> draws the parallel curve. When the result is
+zero or less, use the control’s own radius.</li>
+</ol>
+<p>The background grows to meet the gap; text and icons stay at the container’s
+content padding.</p>
+<p>For example, the Wi-Fi, Sound and Battery panels have a radius of 16. Their row
+backgrounds sit 6 from the sides, so their radius is 10, while row text stays
+16 from the sides. A menu has a radius of 14 and a margin of 5, so its
+highlight has a radius of 9.</p>
+<h2 id="cards-and-rows">Cards and rows</h2>
+<ul>
+<li>A card has a radius of 12, a horizontal padding of 16 and a vertical padding
+of 12. Cards stand 12 apart.</li>
+<li>A section label or footnote sits 8 from its card and shares the card’s
+horizontal padding, so every text edge on a page lines up.</li>
+<li>A row is 44 high, 52 when it holds a slider or another control taller than a
+switch, and 56 with a second line of text.</li>
+</ul>
+<h2 id="dialogs">Dialogs</h2>
+<ul>
+<li>A titled dialog is a <code>ui::DialogWindow</code>. Its title is 12 px, centered on the
+window and on the window controls’ line. Do not build a header by hand.</li>
+<li>A sub-page, such as the IP settings of a network, replaces the content in the
+same window and shows the back button. It never opens a second window.</li>
+<li>The content keeps 16 from the dialog’s edges, and blocks stand 16 apart.</li>
+<li>Footer buttons stand 8 apart. The primary button is at the end; a
+destructive or extra button is at the start.</li>
+<li>An alert without a title bar is a <code>ui::ConfirmDialog</code>: Cancel at the start,
+the confirming button at the end, the confirming button on top when they
+stack.</li>
+</ul>
+<h2 id="menus-and-popups">Menus and popups</h2>
+<ul>
+<li>Menus share one set of metrics: rows 26, separators 12, a margin of 5 on
+every side, text starting at 17 and a minimum width of 168. Do not change
+them per menu.</li>
+<li>A menu button on the right of a title bar opens its menu directly under the
+button, its leading edge on the button’s plate (<code>Menu::popupFor</code>). Other
+menus open at the pointer.</li>
+<li>Menus, panels and tooltips keep 6 from the bar they open from and from the
+screen edge.</li>
+</ul>
+<h2 id="scroll-bars">Scroll bars</h2>
+<p>A scroll bar never runs into a rounded corner. Its ends stop
+<code>ScrollBar::cornerPadding(radius)</code> in, which keeps the handle’s end concentric
+with the corner and one inset clear of it. Never pick the padding by hand.</p>
+<ul>
+<li>A scroll view that fills a rounded card or plate calls
+<code>ScrollView::setCornerRadius(radius)</code>, which also clips the content.</li>
+<li>A scroll view whose bottom edge is the window’s or panel’s calls
+<code>ScrollView::setBottomCornerRadius(radius)</code>, which pads the bottom ends only.</li>
+<li>A bar placed by hand uses <code>ScrollBar::setPadding</code> with <code>cornerPadding</code>, less
+any margin it already keeps above the edge.</li>
+</ul>
+<p>A page’s scroll bar sits against the window’s right edge, and a dialog’s
+against the dialog’s: the scroll view spans the full width and the page margins
+become insets of its content.</p>
+<p>A list in a side column keeps its bar at the column’s trailing edge. That edge
+meets the next column, not a window corner, so the bar keeps the default
+<code>ScrollBar::inset</code> at its ends and does not call <code>setBottomCornerRadius</code>.</p>
+<p>Under a header, tab bar or other strip that content scrolls beneath, the track
+starts one inset below it:
+<code>setVerticalBarPadding(header + ScrollBar::inset, ...)</code>. A bottom strip works
+the same way.</p>
+<h2 id="tab-bars">Tab bars</h2>
+<p>When tabs overflow, both ends of the bar stay round pills and tabs scrolling
+past are clipped by the pill’s curve, never cut flat. There is no edge fade,
+and wheel scrolling moves freely without snapping to tab edges. A short title
+keeps 12 from the tab’s sides, a long one 28, and hovering never changes how a
+title is elided.</p>
+</div><aside class="contents" aria-labelledby="contents-heading" data-astro-cid-scd62v54><h2 id="contents-heading" data-astro-cid-scd62v54>Contents</h2><nav aria-labelledby="contents-heading" data-astro-cid-scd62v54><ul data-astro-cid-scd62v54><li data-astro-cid-scd62v54><a href="#restraint" data-astro-cid-scd62v54>Restraint</a></li><li data-astro-cid-scd62v54><a href="#pixel-grid" data-astro-cid-scd62v54>Pixel grid</a></li><li data-astro-cid-scd62v54><a href="#color" data-astro-cid-scd62v54>Color</a></li><li data-astro-cid-scd62v54><a href="#corners" data-astro-cid-scd62v54>Corners</a></li><li data-astro-cid-scd62v54><a href="#insets-in-a-rounded-container" data-astro-cid-scd62v54>Insets in a rounded container</a></li><li data-astro-cid-scd62v54><a href="#cards-and-rows" data-astro-cid-scd62v54>Cards and rows</a></li><li data-astro-cid-scd62v54><a href="#dialogs" data-astro-cid-scd62v54>Dialogs</a></li><li data-astro-cid-scd62v54><a href="#menus-and-popups" data-astro-cid-scd62v54>Menus and popups</a></li><li data-astro-cid-scd62v54><a href="#scroll-bars" data-astro-cid-scd62v54>Scroll bars</a></li><li data-astro-cid-scd62v54><a href="#tab-bars" data-astro-cid-scd62v54>Tab bars</a></li></ul></nav></aside></div></div></article><script type="module">var e=document.querySelector(`.contents`),t=[...document.querySelectorAll(`.contents a`)],n=t.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))),r=89,i=-1;function a(t,n){if(!e||e.scrollHeight<=e.clientHeight)return;let r=e.getBoundingClientRect(),i=t.getBoundingClientRect(),a=i.top-r.top+e.scrollTop,o=a+i.height;a<e.scrollTop+48?e.scrollTo({top:Math.max(0,a-48),behavior:n?`smooth`:`auto`}):o>e.scrollTop+e.clientHeight-48&&e.scrollTo({top:o-e.clientHeight+48,behavior:n?`smooth`:`auto`})}function o(e=!0){let o=-1;window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-1?o=n.length-1:n.forEach((e,t)=>{e&&e.getBoundingClientRect().top<=r&&(o=t)}),o!==i&&(i=o,t.forEach((e,t)=>{t===o?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`)}),o>=0&&a(t[o],e))}var s=!1;window.addEventListener(`scroll`,()=>{s||(s=!0,requestAnimationFrame(()=>{s=!1,o(!0)}))},{passive:!0}),t.length>0&&o(!1);var c=`cutefish-docs-sidebar`,l=document.querySelector(`.sidebar-collapse`),u=document.querySelector(`.sidebar-expand`);function d(e,t){if(document.documentElement.classList.toggle(`docs-sidebar-collapsed`,e),t)try{e?localStorage.setItem(c,`collapsed`):localStorage.removeItem(c)}catch{}}l&&u&&(l.addEventListener(`click`,()=>{d(!0,!0)}),u.addEventListener(`click`,()=>{d(!1,!0)}));</script></main><footer class="site-footer" data-astro-cid-jo6i4kqk><div class="container" data-astro-cid-jo6i4kqk><div class="top" data-astro-cid-jo6i4kqk><div class="about" data-astro-cid-jo6i4kqk><p class="tagline" data-astro-cid-jo6i4kqk>A fast, clean Linux distribution designed with Mac users in mind.</p></div><nav class="groups" data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Get Cutefish</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://download.cutefish.org/" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk>Downloads</a></li><li data-astro-cid-jo6i4kqk><a href="/docs" data-astro-cid-jo6i4kqk>Docs</a></li><li data-astro-cid-jo6i4kqk><a href="/reef" data-astro-cid-jo6i4kqk>Reef</a></li><li data-astro-cid-jo6i4kqk><a href="/blog/how-cutefish-is-built" data-astro-cid-jo6i4kqk>Build from Source</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Community</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>GitHub</a></li><li data-astro-cid-jo6i4kqk><a href="https://github.com/sponsors/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+</svg>GitHub Sponsors</a></li><li data-astro-cid-jo6i4kqk><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg>Discord</a></li><li data-astro-cid-jo6i4kqk><a href="https://x.com/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg>X</a></li><li data-astro-cid-jo6i4kqk><a href="mailto:hello@cutefish.org" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+  <path d="M3 7l9 6l9 -6" />
+</svg>Email</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Site</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="/news" data-astro-cid-jo6i4kqk>News</a></li><li data-astro-cid-jo6i4kqk><a href="/about" data-astro-cid-jo6i4kqk>About</a></li><li data-astro-cid-jo6i4kqk><a href="/privacy" data-astro-cid-jo6i4kqk>Privacy</a></li><li data-astro-cid-jo6i4kqk><a href="/legal" data-astro-cid-jo6i4kqk>Legal</a></li><li data-astro-cid-jo6i4kqk><a href="/rss.xml" data-astro-cid-jo6i4kqk>RSS</a></li></ul></div></nav></div><div class="bottom" data-astro-cid-jo6i4kqk><p data-astro-cid-jo6i4kqk>&copy; 2021&ndash;2026 Cutefish</p><p data-astro-cid-jo6i4kqk>Apple, Mac and macOS are trademarks of Apple Inc. Linux is the registered trademark of Linus Torvalds. Cutefish is not affiliated with Apple.</p></div></div></footer></body></html>

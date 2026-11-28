@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Running Mac apps on Cutefish - Cutefish</title><meta name="description" content="Cutefish will be able to run apps made for the Mac, menu bar apps included. What that takes, how it differs from Darling and Wine, and what runs so far."><link rel="canonical" href="https://cutefish.org/blog/running-mac-apps/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Cutefish" href="/rss.xml"><meta property="og:site_name" content="Cutefish"><meta property="og:type" content="article"><meta property="og:title" content="Running Mac apps on Cutefish - Cutefish"><meta property="og:description" content="Cutefish will be able to run apps made for the Mac, menu bar apps included. What that takes, how it differs from Darling and Wine, and what runs so far."><meta property="og:url" content="https://cutefish.org/blog/running-mac-apps/"><meta property="og:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Cutefish desktop with the Dock"><meta property="article:published_time" content="2026-10-23T00:00:00.000Z"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@cutefishos"><meta name="twitter:title" content="Running Mac apps on Cutefish - Cutefish"><meta name="twitter:description" content="Cutefish will be able to run apps made for the Mac, menu bar apps included. What that takes, how it differs from Darling and Wine, and what runs so far."><meta name="twitter:image" content="https://cutefish.org/_astro/desktop.B7gDOIZV_fKJee.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Running Mac apps on Cutefish","description":"Cutefish will be able to run apps made for the Mac, menu bar apps included. What that takes, how it differs from Darling and Wine, and what runs so far.","datePublished":"2026-10-23T00:00:00.000Z","url":"https://cutefish.org/blog/running-mac-apps/","author":{"@type":"Organization","name":"Cutefish","url":"https://cutefish.org/"},"publisher":{"@type":"Organization","name":"Cutefish","url":"https://cutefish.org/"}}</script><link rel="stylesheet" href="/_astro/Base.BjIL4Lm1.css"><link rel="stylesheet" href="/_astro/Article.5vZ1h0Zs.css"><style>time[data-astro-cid-saqyrroa]{color:var(--secondary-text);font-size:15px}
+</style></head><body><header class="site-header" data-astro-cid-nen7h5rs><div class="container bar" data-astro-cid-nen7h5rs><div class="left" data-astro-cid-nen7h5rs><a class="brand" href="/" data-astro-cid-nen7h5rs><img src="/favicon.svg" alt="" width="28" height="28" data-astro-cid-nen7h5rs><span data-astro-cid-nen7h5rs>Cutefish</span></a><nav class="desktop-nav" data-astro-cid-nen7h5rs><a href="/news" aria-current="page" data-astro-cid-nen7h5rs>News</a><a href="/docs" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav></div><div class="social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" data-tooltip="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" data-tooltip="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" data-tooltip="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" data-astro-cid-nen7h5rs><span class="icon-open" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg></span><span class="icon-close" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg></span></button></div><div class="mobile-menu" id="mobile-menu" data-astro-cid-nen7h5rs><div class="container mobile-menu-inner" data-astro-cid-nen7h5rs><nav class="mobile-nav" data-astro-cid-nen7h5rs><a href="/news" aria-current="page" data-astro-cid-nen7h5rs>News</a><a href="/docs" data-astro-cid-nen7h5rs>Docs</a><a href="/about" data-astro-cid-nen7h5rs>About</a></nav><div class="mobile-social" data-astro-cid-nen7h5rs><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg></a><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" aria-label="Discord" title="Discord" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg></a><a href="https://x.com/cutefishos" target="_blank" rel="noopener" aria-label="X" title="X" data-astro-cid-nen7h5rs><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg></a></div></div></div></header><script type="module">var e=document.querySelector(`.site-header`),t=e?.querySelector(`.menu-toggle`),n=e?.querySelector(`.mobile-menu`);function r(){e?.classList.toggle(`scrolled`,window.scrollY>0)}function i(n){e?.classList.toggle(`menu-open`,n),t?.setAttribute(`aria-expanded`,String(n))}t?.addEventListener(`click`,()=>{i(!e?.classList.contains(`menu-open`))}),n?.addEventListener(`click`,e=>{e.target.closest(`a`)&&i(!1)}),document.addEventListener(`click`,t=>{e?.classList.contains(`menu-open`)&&!e.contains(t.target)&&i(!1)}),document.addEventListener(`keydown`,n=>{n.key===`Escape`&&e?.classList.contains(`menu-open`)&&(i(!1),t?.focus())}),window.matchMedia(`(min-width: 640px)`).addEventListener(`change`,e=>{e.matches&&i(!1)}),window.addEventListener(`scroll`,r,{passive:!0}),r();</script><main><article class="container" data-astro-cid-scd62v54><div class="main" data-astro-cid-scd62v54><header class="post-header" data-astro-cid-scd62v54><a class="back" href="/news" data-astro-cid-scd62v54><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" />
+</svg>All news</a><h1 data-astro-cid-scd62v54>Running Mac apps on Cutefish</h1><time datetime="2026-10-23T00:00:00.000Z" data-astro-cid-saqyrroa>October 23, 2026</time></header><div class="post" data-astro-cid-scd62v54><div class="prose" data-astro-cid-scd62v54><p>Cutefish will be able to run apps made for the Mac. Not just regular apps
+with windows, but also the small menu bar apps that sit next to the clock.
+A Mac app on Cutefish opens in a normal window, puts its menus in our menu
+bar and shows up in the Dock, like any other app on the desktop.</p>
+<p><img alt="Things 3, TextMate, Hex Fiend and Itsycal running on the Cutefish desktop" loading="lazy" decoding="async" width="1440" height="960" src="/_astro/reef-desktop.GkZNwx9o_1cOSQ4.webp"></p>
+<p>Every app in this screenshot is a Mac app. We did not modify or recompile
+any of them for Linux. They are the same downloads a Mac user would get.</p>
+<h2 id="why-this-is-hard">Why this is hard</h2>
+<p>A Mac app does very little on its own. To open a window, show a menu, draw
+a line of text or work out what day it is, it calls into macOS: AppKit for
+windows and controls, Foundation for text, dates and files, Core Graphics
+for drawing, SwiftUI for newer interfaces, and dozens of other frameworks.</p>
+<p>None of that exists on Linux. To run a Mac app we have to provide all of it
+ourselves, and it has to behave the way macOS does. When our answer is even
+slightly off, the app lays out its window wrong, draws nothing, or crashes.</p>
+<p>In practice that means writing our own version of a large part of macOS’s
+programming interfaces. We call it Reef. It is over 300,000 lines of code
+across more than 70 frameworks, and AppKit and Foundation alone are over
+70,000 lines each. Underneath sit a loader for Mac programs (they use a
+different binary format, Mach-O), an Objective-C runtime, support for Swift
+and a low-level system library. Even so, this covers only part of macOS,
+which has tens of thousands of these functions.</p>
+<h2 id="how-we-work">How we work</h2>
+<p>Nobody knows exactly which parts of macOS a given app needs, so we can’t
+write everything up front. We go app by app. We run a real Mac app and look
+at where it breaks: a missing function, a window drawn wrong, a button that
+does nothing. Then we work out what a Mac does there, implement it as a
+general feature rather than a fix for that one app, add a test, and run the
+app again.</p>
+<p>Each app makes the next one easier, since apps share most of what they use.
+But how much is left is genuinely unknown. The next app can always reach
+for something nobody has used yet.</p>
+<p>Some of what we run into:</p>
+<ul>
+<li>A drop-down and the label beside it should share a text baseline. We
+measured the baseline from a slightly different edge than macOS does, and
+the drop-downs in settings windows sat a few points off their labels.</li>
+<li>macOS tints an image automatically when its name ends in “Template”. We
+didn’t, and one app’s window buttons came out as thick black rings.</li>
+<li>Asking for a redraw while a window is being prepared for drawing
+shouldn’t trigger another one. In our code it did, and an idle window was
+redrawing more than a hundred times a second.</li>
+<li>Apps check which version of macOS they’re on and change their behaviour,
+so every version difference is a decision for us.</li>
+<li>Newer apps use SwiftUI, whose internals Apple doesn’t publish. We build
+it from the documentation and compare our output with a real Mac, pixel
+by pixel.</li>
+</ul>
+<h2 id="part-of-the-desktop">Part of the desktop</h2>
+<p>Mac apps use the same building blocks as every other Cutefish app. Our
+graphics toolkit draws their windows, text and controls. Our compositor
+gives them the same shadows, outlines and animations as other windows, and
+their menus get the same glass. Our shell puts their menus in the Cutefish
+menu bar, their icons in the Dock and their entries in the launcher.</p>
+<p>Menu bar apps were the real test. On a Mac, Itsycal draws a small icon with
+the date in the menu bar and drops a calendar from it when you click.
+Cutefish has status item support designed for exactly this: the app draws
+its own item at whatever width it needs, and its popup opens right
+underneath it.</p>
+<p><img alt="Itsycal: a Mac menu bar calendar, living in the Cutefish status bar" loading="lazy" decoding="async" width="960" height="540" src="/_astro/reef-itsycal.Bi2MEYhr_Z1cbIEJ.webp"></p>
+<h2 id="what-runs">What runs</h2>
+<p>Itsycal works completely: the date in the status bar, the calendar popup,
+the right-click menu and the settings window.</p>
+<p>TextMate, the text editor, and Hex Fiend, the hex editor, open and edit
+files. Below, Hex Fiend is looking at a Linux program. CotEditor, a newer
+editor built partly with SwiftUI, opens, edits and saves files, with its
+syntax colouring, inspector, find panel and settings working.</p>
+<p><img alt="TextMate editing a file on Cutefish" loading="lazy" decoding="async" width="1426" height="1134" src="/_astro/reef-textmate.CSmynEs5_ZEkVVT.webp"></p>
+<p><img alt="Hex Fiend, a Mac app, opening a Linux program" loading="lazy" decoding="async" width="760" height="840" src="/_astro/reef-hexfiend.wbSuhdIh_Y6N22.webp"></p>
+<p>Things 3, the to-do app, runs, and parts of it are drawn by our own SwiftUI.
+It isn’t finished yet.</p>
+<p><img alt="Things 3’s welcome card, drawn by Cutefish’s SwiftUI implementation" loading="lazy" decoding="async" width="1600" height="1212" src="/_astro/reef-things-welcome.ClK29w42_ZSaWmU.webp"></p>
+<p><img alt="Things 3’s tutorial project" loading="lazy" decoding="async" width="1600" height="1212" src="/_astro/reef-things.C9bwyPuy_ZOtueg.webp"></p>
+<h2 id="how-fast-it-is">How fast it is</h2>
+<p>Reef doesn’t emulate a processor or translate instructions. A Mac app’s own
+code runs directly on your CPU, the same way a Linux program does. What
+costs time is the part we wrote: our AppKit, Foundation and SwiftUI have to
+do the work macOS does for the app, and they are much younger than Apple’s.</p>
+<p>To see where we stand, we compared CotEditor, a Mac text editor built with
+AppKit and SwiftUI, with Cutefish’s own text editor on the same laptop. Both
+open the same files and get the same input.</p>
+<p><img alt="CotEditor, a Mac app, and Cutefish Text Editor with the same file open" loading="lazy" decoding="async" width="2136" height="1008" src="/_astro/reef-coteditor.DprPNAIx_Z1EHKOr.webp"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right">CotEditor on Reef</th>
+<th style="text-align: right">Cutefish Text Editor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start to first frame</td>
+<td style="text-align: right">235 ms</td>
+<td style="text-align: right">115 ms</td>
+</tr>
+<tr>
+<td>Open a 4,000-line file</td>
+<td style="text-align: right">0.36 s</td>
+<td style="text-align: right">0.12 s</td>
+</tr>
+<tr>
+<td>Open a 20,000-line file</td>
+<td style="text-align: right">0.50 s</td>
+<td style="text-align: right">0.12 s</td>
+</tr>
+<tr>
+<td>Key press to the letter on screen</td>
+<td style="text-align: right">21 ms</td>
+<td style="text-align: right">18 ms</td>
+</tr>
+<tr>
+<td>CPU time to type 80 characters</td>
+<td style="text-align: right">1.4 s</td>
+<td style="text-align: right">0.17 s</td>
+</tr>
+<tr>
+<td>Time to draw a frame while scrolling</td>
+<td style="text-align: right">4.4 ms</td>
+<td style="text-align: right">1.2 ms</td>
+</tr>
+<tr>
+<td>Time to draw a frame while resizing the window</td>
+<td style="text-align: right">3.8 ms</td>
+<td style="text-align: right">1.2 ms</td>
+</tr>
+<tr>
+<td>Scrolling and live window resizing</td>
+<td style="text-align: right">60 fps</td>
+<td style="text-align: right">60 fps</td>
+</tr>
+</tbody>
+</table>
+<p>What you feel is close: text appears within a few milliseconds of the
+native editor, files open in well under a second, and scrolling and
+resizing keep up with the screen. What you don’t see is the work behind it.
+CotEditor still uses several times the CPU to get there, which costs
+battery.</p>
+<p>When this post first went up, typing 80 characters took 1.9 s of CPU time,
+a scrolling frame took 6.0 ms and a frame of live resizing 7.3 ms, with two
+frames drawn for every step of the resize. Since then:</p>
+<ul>
+<li>Scrolling moves the pixels already on screen and draws only the strip
+that comes into view, instead of redrawing all the visible text.</li>
+<li>Our SwiftUI keeps the parts of a view that didn’t change, and keeps
+their measured sizes, instead of rebuilding and measuring the whole tree.</li>
+<li>Typing redraws only the lines a change touches, and work handed between
+background threads wakes far fewer of them.</li>
+<li>Resizing draws one frame per step, and no longer measures every menu
+item of every toolbar pop-up on each frame. It uses less than half the
+CPU it did.</li>
+</ul>
+<p>The rest of the gap is mostly the app’s own work: CotEditor lays out three
+nested split views and wraps its text again for every new window width,
+and it asks for some of its redraws itself. These were problems in our
+code, not limits of the approach, and we’re still working on them.</p>
+<h2 id="what-wont-work">What won’t work</h2>
+<p>Anything that goes through Apple’s servers is out of reach. That includes
+the App Store. A Mac app on Cutefish can’t sell you a subscription or an
+in-app purchase, and one you bought on a Mac won’t carry over. Apps sold
+only in the Mac App Store can’t be installed at all, because the download
+is tied to an Apple account. We need a version from the developer’s own
+website.</p>
+<p>iCloud is the same. Sign in with Apple doesn’t work, and an app that syncs
+through iCloud keeps its data on your computer.</p>
+<p>If an app sells licences on its own website or syncs through its own
+service, none of this applies.</p>
+<h2 id="where-the-code-comes-from">Where the code comes from</h2>
+<p>Reef is our own code. It doesn’t use code from Darling or from Wine. We
+don’t take apart or copy Apple’s closed macOS software, and we don’t use
+Apple’s developer kit. When we need to know how something should behave,
+we read Apple’s documentation, look at what the app is asking for, and
+compare with the same app running on a Mac.</p>
+<p>We do build on the parts of its platform that Apple releases as open
+source. These are included in Reef under their own licences:</p>
+<ul>
+<li>Core Foundation, from
+<a href="https://github.com/swiftlang/swift-corelibs-foundation">swift-corelibs-foundation</a>
+(Apache 2.0)</li>
+<li>Grand Central Dispatch, which apps use to run work in the background, from
+<a href="https://github.com/swiftlang/swift-corelibs-libdispatch">swift-corelibs-libdispatch</a>
+(Apache 2.0)</li>
+<li>the Swift standard library and runtime, from
+<a href="https://github.com/swiftlang/swift">swiftlang/swift</a> (Apache 2.0)</li>
+<li>LZFSE, Apple’s compression format, from
+<a href="https://github.com/lzfse/lzfse">lzfse/lzfse</a> (BSD 3-Clause)</li>
+</ul>
+<p>We also read objc4, dyld, xnu and Libc from
+<a href="https://github.com/apple-oss-distributions">apple-oss-distributions</a> to
+understand how the Mac behaves, without copying from them. Reef’s
+Objective-C runtime and loader are our own. Reef also includes LLVM’s
+libc++, libc++abi and libunwind, SQLite, curl and Tcl. Thanks to everyone
+behind these projects.</p>
+<h2 id="darling-and-wine">Darling and Wine</h2>
+<p><a href="https://www.darlinghq.org/">Darling</a> is the best-known project for running
+macOS software on Linux, and <a href="https://www.winehq.org/">Wine</a> has done the
+same for Windows apps for decades. Wine isn’t an emulator. It reimplements
+the Windows programming interfaces, and Reef takes the same approach for the
+Mac, so “Wine for Mac apps” is a reasonable way to think about it.</p>
+<p>The difference is mostly scope. Darling aims to run macOS software in
+general. It is well ahead of us on command-line tools and the system layer
+underneath, and it works on any Linux desktop. Wine runs a huge range of
+Windows software across Linux desktops. Reef only targets graphical Mac
+apps, only on Cutefish, and is built around Cutefish’s own toolkit,
+compositor and shell. Command-line tools aren’t something we’re aiming for.</p>
+<p>We have a lot of respect for what both communities have built.</p>
+<h2 id="is-it-open-source">Is it open source?</h2>
+<p>Not for now. This is a large investment and a feature that sets Cutefish
+apart, and it needs to be protected while it grows. Opening it later is
+possible, for example once community sponsorship can sustain the work.</p>
+<h2 id="whats-next">What’s next</h2>
+<p>More apps and more of SwiftUI, so that modern Mac apps work, and after that
+a web engine, which many apps depend on. We’ll write again when there’s
+more to show.</p>
+</div><aside class="contents" aria-labelledby="contents-heading" data-astro-cid-scd62v54><h2 id="contents-heading" data-astro-cid-scd62v54>Contents</h2><nav aria-labelledby="contents-heading" data-astro-cid-scd62v54><ul data-astro-cid-scd62v54><li data-astro-cid-scd62v54><a href="#why-this-is-hard" data-astro-cid-scd62v54>Why this is hard</a></li><li data-astro-cid-scd62v54><a href="#how-we-work" data-astro-cid-scd62v54>How we work</a></li><li data-astro-cid-scd62v54><a href="#part-of-the-desktop" data-astro-cid-scd62v54>Part of the desktop</a></li><li data-astro-cid-scd62v54><a href="#what-runs" data-astro-cid-scd62v54>What runs</a></li><li data-astro-cid-scd62v54><a href="#how-fast-it-is" data-astro-cid-scd62v54>How fast it is</a></li><li data-astro-cid-scd62v54><a href="#what-wont-work" data-astro-cid-scd62v54>What won’t work</a></li><li data-astro-cid-scd62v54><a href="#where-the-code-comes-from" data-astro-cid-scd62v54>Where the code comes from</a></li><li data-astro-cid-scd62v54><a href="#darling-and-wine" data-astro-cid-scd62v54>Darling and Wine</a></li><li data-astro-cid-scd62v54><a href="#is-it-open-source" data-astro-cid-scd62v54>Is it open source?</a></li><li data-astro-cid-scd62v54><a href="#whats-next" data-astro-cid-scd62v54>What’s next</a></li></ul></nav></aside></div></div></article><script type="module">var e=document.querySelector(`.contents`),t=[...document.querySelectorAll(`.contents a`)],n=t.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))),r=89,i=-1;function a(t,n){if(!e||e.scrollHeight<=e.clientHeight)return;let r=e.getBoundingClientRect(),i=t.getBoundingClientRect(),a=i.top-r.top+e.scrollTop,o=a+i.height;a<e.scrollTop+48?e.scrollTo({top:Math.max(0,a-48),behavior:n?`smooth`:`auto`}):o>e.scrollTop+e.clientHeight-48&&e.scrollTo({top:o-e.clientHeight+48,behavior:n?`smooth`:`auto`})}function o(e=!0){let o=-1;window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-1?o=n.length-1:n.forEach((e,t)=>{e&&e.getBoundingClientRect().top<=r&&(o=t)}),o!==i&&(i=o,t.forEach((e,t)=>{t===o?e.setAttribute(`aria-current`,`location`):e.removeAttribute(`aria-current`)}),o>=0&&a(t[o],e))}var s=!1;window.addEventListener(`scroll`,()=>{s||(s=!0,requestAnimationFrame(()=>{s=!1,o(!0)}))},{passive:!0}),t.length>0&&o(!1);var c=`cutefish-docs-sidebar`,l=document.querySelector(`.sidebar-collapse`),u=document.querySelector(`.sidebar-expand`);function d(e,t){if(document.documentElement.classList.toggle(`docs-sidebar-collapsed`,e),t)try{e?localStorage.setItem(c,`collapsed`):localStorage.removeItem(c)}catch{}}l&&u&&(l.addEventListener(`click`,()=>{d(!0,!0)}),u.addEventListener(`click`,()=>{d(!1,!0)}));</script></main><footer class="site-footer" data-astro-cid-jo6i4kqk><div class="container" data-astro-cid-jo6i4kqk><div class="top" data-astro-cid-jo6i4kqk><div class="about" data-astro-cid-jo6i4kqk><p class="tagline" data-astro-cid-jo6i4kqk>A fast, clean Linux distribution designed with Mac users in mind.</p></div><nav class="groups" data-astro-cid-jo6i4kqk><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Get Cutefish</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://download.cutefish.org/" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk>Downloads</a></li><li data-astro-cid-jo6i4kqk><a href="/docs" data-astro-cid-jo6i4kqk>Docs</a></li><li data-astro-cid-jo6i4kqk><a href="/reef" data-astro-cid-jo6i4kqk>Reef</a></li><li data-astro-cid-jo6i4kqk><a href="/blog/how-cutefish-is-built" data-astro-cid-jo6i4kqk>Build from Source</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Community</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="https://github.com/cutefishos/cutefish" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>GitHub</a></li><li data-astro-cid-jo6i4kqk><a href="https://github.com/sponsors/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+</svg>GitHub Sponsors</a></li><li data-astro-cid-jo6i4kqk><a href="https://discord.gg/mhUVu4dPH8" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg>Discord</a></li><li data-astro-cid-jo6i4kqk><a href="https://x.com/cutefishos" target="_blank" rel="noopener" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+</svg>X</a></li><li data-astro-cid-jo6i4kqk><a href="mailto:hello@cutefish.org" data-astro-cid-jo6i4kqk><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+  <path d="M3 7l9 6l9 -6" />
+</svg>Email</a></li></ul></div><div data-astro-cid-jo6i4kqk><h2 data-astro-cid-jo6i4kqk>Site</h2><ul data-astro-cid-jo6i4kqk><li data-astro-cid-jo6i4kqk><a href="/news" data-astro-cid-jo6i4kqk>News</a></li><li data-astro-cid-jo6i4kqk><a href="/about" data-astro-cid-jo6i4kqk>About</a></li><li data-astro-cid-jo6i4kqk><a href="/privacy" data-astro-cid-jo6i4kqk>Privacy</a></li><li data-astro-cid-jo6i4kqk><a href="/legal" data-astro-cid-jo6i4kqk>Legal</a></li><li data-astro-cid-jo6i4kqk><a href="/rss.xml" data-astro-cid-jo6i4kqk>RSS</a></li></ul></div></nav></div><div class="bottom" data-astro-cid-jo6i4kqk><p data-astro-cid-jo6i4kqk>&copy; 2021&ndash;2026 Cutefish</p><p data-astro-cid-jo6i4kqk>Apple, Mac and macOS are trademarks of Apple Inc. Linux is the registered trademark of Linus Torvalds. Cutefish is not affiliated with Apple.</p></div></div></footer></body></html>
